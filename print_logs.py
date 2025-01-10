@@ -19,8 +19,8 @@ from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.env_util import make_atari_env
 
 import gymnasium as gym
-from gym import spaces
-from gym.envs.box2d.lunar_lander import *
+from gymnasium import spaces
+from gymnasium.envs.box2d.lunar_lander import *
 
 
 log_dir = "C:/Studium_TU_Darmstadt/Master/1. Semester/KI Praktikum/KI_Start/logs/"

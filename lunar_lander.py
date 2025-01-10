@@ -15,7 +15,7 @@ from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.monitor import Monitor
 
 import gymnasium as gym
-from gym import spaces
+from gymnasium import spaces
 import Box2D
 from game_object import GameObjectInterface, LunarLanderObject
 
