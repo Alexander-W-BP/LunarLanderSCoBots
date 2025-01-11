@@ -67,8 +67,11 @@ def plot_model(model):
     # Fixed values for other state dimensions
     fixed_state = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]  # [x, y, vel_x, vel_y, angle, angular_vel, leg1, leg2]
 
-    for x_index, axis_0 in enumerate(observation_space):
-      for y_index, axis_1 in enumerate(observation_space):
+    for x_index in range(0, len(observation_space)):
+      for y_index in range(x_index + 1, len(observation_space)):
+
+        axis_0 = observation_space[x_index]
+        axis_1 = observation_space[y_index]
 
         # Store the selected actions for visualization
         action_grid = np.zeros((len(axis_1), len(axis_0)))
