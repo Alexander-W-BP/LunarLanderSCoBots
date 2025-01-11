@@ -57,10 +57,10 @@ def evaluate_agent(model, env_name, num_episodes=10, render=False):
 def main():
     # Einstellungen
     algorithm = "DQN"  # Oder "PPO"
-    model_dir = "C:/Studium_TU_Darmstadt/Master/1. Semester/KI Praktikum/KI_Start/logs/DQN/log_v4"
+    model_dir = "./logs/DQN/log_v4"
     env_name = "LunarLander-v3"
     num_episodes = 10
-    render = True  # Setzen Sie auf False, um die Visualisierung zu deaktivieren
+    render = False  # Setzen Sie auf False, um die Visualisierung zu deaktivieren
 
     # Modell laden
     print(f"Lade {algorithm}-Modell...")

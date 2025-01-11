@@ -168,7 +168,7 @@ def plot_results(log_dirs, algorithms, title="Training Performance Comparison"):
 
 def main():
     # Basis-Log-Verzeichnis
-    base_log_dir = "C:/Studium_TU_Darmstadt/Master/1. Semester/KI Praktikum/KI_Start/logs/"
+    base_log_dir = "./logs/"
     os.makedirs(base_log_dir, exist_ok=True)
     
     # Algorithmen, die trainiert werden sollen
