@@ -15,7 +15,7 @@ from stable_baselines3.common.callbacks import EvalCallback
 from stable_baselines3.common.monitor import Monitor
 
 import gymnasium as gym
-from gym import spaces
+from gymnasium import spaces
 import Box2D
 from game_object import GameObjectInterface, LunarLanderObject
 
@@ -168,7 +168,7 @@ def plot_results(log_dirs, algorithms, title="Training Performance Comparison"):
 
 def main():
     # Basis-Log-Verzeichnis
-    base_log_dir = "C:/Studium_TU_Darmstadt/Master/1. Semester/KI Praktikum/KI_Start/logs/"
+    base_log_dir = "./logs/"
     os.makedirs(base_log_dir, exist_ok=True)
     
     # Algorithmen, die trainiert werden sollen
