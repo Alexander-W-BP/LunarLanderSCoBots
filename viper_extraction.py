@@ -38,13 +38,8 @@ def viper_extraction(model_path, env_name, max_depth=5, num_samples=10000):
         # Vorhersage der Aktion durch das Modell
         action, _ = model.predict(obs, deterministic=True)
         
-        # NEUES FEATURE: Abstand zur Zielplattform
-        distance_to_target = np.sqrt(obs[0]**2 + obs[1]**2)
-        
-        # Erweiterte Beobachtung mit relationalem Feature
-        extended_obs = np.concatenate([obs, [distance_to_target]])
-        
-        observations.append(extended_obs)
+        # Ursprüngliche Beobachtung
+        observations.append(obs)
         actions.append(action)
         
         # Schritt in der Umgebung ausführen
@@ -52,7 +47,7 @@ def viper_extraction(model_path, env_name, max_depth=5, num_samples=10000):
         if done:
             obs = env.reset()[0]
 
-    observations = np.array(observations)  # shape (num_samples, 9)
+    observations = np.array(observations)  # shape (num_samples, 8)
     actions = np.array(actions)            # shape (num_samples,)
 
     print(f"Gesammelte Daten: {observations.shape[0]} Beobachtungen "
@@ -74,15 +69,14 @@ def viper_extraction(model_path, env_name, max_depth=5, num_samples=10000):
     tree_rules = export_text(
         clf,
         feature_names=[
-            "horizontal_position",  # obs[0]
-            "vertical_position",    # obs[1]
-            "horizontal_velocity",  # obs[2]
-            "vertical_velocity",    # obs[3]
-            "angle",                # obs[4]
-            "angular_velocity",     # obs[5]
-            "left_leg_contact",     # obs[6]
-            "right_leg_contact",    # obs[7]
-            "distance_to_target"    # obs[8] (neu)
+            "x_space",          # obs[0]
+            "y_space",          # obs[1]
+            "vel_x_space",      # obs[2]
+            "vel_y_space",      # obs[3]
+            "angle",            # obs[4]
+            "angular_vel",      # obs[5]
+            "leg_1",            # obs[6]
+            "leg_2"             # obs[7]
         ]
     )
 
@@ -109,7 +103,7 @@ def main():
         clf = viper_extraction(
             model_path=MODEL_PATH,
             env_name=ENV_NAME,
-            max_depth=5,  # Maximale Tiefe des Entscheidungsbaums
+            max_depth=3,  # Maximale Tiefe des Entscheidungsbaums
             num_samples=10000  # Anzahl der gesammelten Datenpunkte
         )
         print("\nExtraktion abgeschlossen.")

@@ -1,70 +1,22 @@
-|--- vertical_velocity <= -0.08
-|   |--- vertical_position <= 1.30
-|   |   |--- angle <= 0.26
-|   |   |   |--- left_leg_contact <= 0.50
-|   |   |   |   |--- angular_velocity <= -0.12
-|   |   |   |   |   |--- class: 2: Fire Main Booster
-|   |   |   |   |--- angular_velocity >  -0.12
-|   |   |   |   |   |--- class: 2: Fire Main Booster
-|   |   |   |--- left_leg_contact >  0.50
-|   |   |   |   |--- vertical_position <= -0.00
-|   |   |   |   |   |--- class: 0: No Action
-|   |   |   |   |--- vertical_position >  -0.00
-|   |   |   |   |   |--- class: 3: Fire Right Booster
-|   |   |--- angle >  0.26
-|   |   |   |--- vertical_velocity <= -0.43
-|   |   |   |   |--- vertical_position <= 0.71
-|   |   |   |   |   |--- class: 2: Fire Main Booster
-|   |   |   |   |--- vertical_position >  0.71
-|   |   |   |   |   |--- class: 2: Fire Main Booster
-|   |   |   |--- vertical_velocity >  -0.43
-|   |   |   |   |--- vertical_velocity <= -0.36
-|   |   |   |   |   |--- class: 2: Fire Main Booster
-|   |   |   |   |--- vertical_velocity >  -0.36
-|   |   |   |   |   |--- class: 3: Fire Right Booster
-|   |--- vertical_position >  1.30
-|   |   |--- horizontal_velocity <= 0.22
-|   |   |   |--- horizontal_position <= -0.16
-|   |   |   |   |--- angular_velocity <= -0.17
-|   |   |   |   |   |--- class: 0: No Action
-|   |   |   |   |--- angular_velocity >  -0.17
-|   |   |   |   |   |--- class: 2: Fire Main Booster
-|   |   |   |--- horizontal_position >  -0.16
-|   |   |   |   |--- horizontal_velocity <= -0.61
-|   |   |   |   |   |--- class: 3: Fire Right Booster
-|   |   |   |   |--- horizontal_velocity >  -0.61
-|   |   |   |   |   |--- class: 0: No Action
-|   |   |--- horizontal_velocity >  0.22
-|   |   |   |--- angle <= 0.08
-|   |   |   |   |--- horizontal_velocity <= 0.23
-|   |   |   |   |   |--- class: 1: Fire Left Booster
-|   |   |   |   |--- horizontal_velocity >  0.23
-|   |   |   |   |   |--- class: 1: Fire Left Booster
-|   |   |   |--- angle >  0.08
-|   |   |   |   |--- angular_velocity <= 0.35
-|   |   |   |   |   |--- class: 2: Fire Main Booster
-|   |   |   |   |--- angular_velocity >  0.35
-|   |   |   |   |   |--- class: 0: No Action
-|--- vertical_velocity >  -0.08
-|   |--- right_leg_contact <= 0.50
-|   |   |--- horizontal_velocity <= 0.23
-|   |   |   |--- horizontal_velocity <= -0.55
-|   |   |   |   |--- class: 3: Fire Right Booster
-|   |   |   |--- horizontal_velocity >  -0.55
-|   |   |   |   |--- distance_to_target <= 1.47
-|   |   |   |   |   |--- class: 0: No Action
-|   |   |   |   |--- distance_to_target >  1.47
-|   |   |   |   |   |--- class: 0: No Action
-|   |   |--- horizontal_velocity >  0.23
-|   |   |   |--- angle <= 0.07
-|   |   |   |   |--- class: 1: Fire Left Booster
-|   |   |   |--- angle >  0.07
-|   |   |   |   |--- class: 0: No Action
-|   |--- right_leg_contact >  0.50
-|   |   |--- vertical_position <= 0.01
+|--- vel_y_space <= -0.09
+|   |--- y_space <= 1.29
+|   |   |--- angle <= -0.23
+|   |   |   |--- class: 2: Fire Main Booster
+|   |   |--- angle >  -0.23
+|   |   |   |--- class: 2: Fire Main Booster
+|   |--- y_space >  1.29
+|   |   |--- vel_x_space <= 0.35
 |   |   |   |--- class: 0: No Action
-|   |   |--- vertical_position >  0.01
-|   |   |   |--- vertical_velocity <= -0.06
-|   |   |   |   |--- class: 2: Fire Main Booster
-|   |   |   |--- vertical_velocity >  -0.06
-|   |   |   |   |--- class: 0: No Action
+|   |   |--- vel_x_space >  0.35
+|   |   |   |--- class: 1: Fire Left Booster
+|--- vel_y_space >  -0.09
+|   |--- leg_2 <= 0.50
+|   |   |--- vel_x_space <= 0.35
+|   |   |   |--- class: 0: No Action
+|   |   |--- vel_x_space >  0.35
+|   |   |   |--- class: 1: Fire Left Booster
+|   |--- leg_2 >  0.50
+|   |   |--- angular_vel <= -0.39
+|   |   |   |--- class: 2: Fire Main Booster
+|   |   |--- angular_vel >  -0.39
+|   |   |   |--- class: 0: No Action
