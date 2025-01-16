@@ -1,26 +1,20 @@
 from stable_baselines3 import PPO
-import gymnasium as gym
+from plot_utils import plot_model_detail_view, plot_model_overview
 
-# Pfad zur gespeicherten Modell-Datei
-model_path = "models/ppo-LunarLander-v3/best_model.zip"
+def main():
+    # Lade das Modell
+    model_path = "models/ppo-LunarLander-v3/best_model.zip"
+    model = PPO.load(model_path)
 
-# Lade das Modell
-model = PPO.load(model_path)
+    # Detailplots
+    print("Erstelle Detailplots...")
+    plot_model_detail_view(model)
 
-# LunarLander-v3-Umgebung erstellen
-env = gym.make("LunarLander-v3", render_mode="human")
+    # Übersichtsplots
+    print("Erstelle Übersichtsplots...")
+    plot_model_overview(model)
 
-# Simulation starten
-obs, info = env.reset()
-done = False
+    print("Plots erfolgreich erstellt!")
 
-while not done:
-    # Aktion vom Modell vorhersagen
-    action, _states = model.predict(obs, deterministic=True)
-    # Aktion in der Umgebung ausführen
-    obs, rewards, done, truncated, info = env.step(action)
-    # Umgebung rendern
-    env.render()
-
-# Umgebung schließen
-env.close()
+if __name__ == "__main__":
+    main()
