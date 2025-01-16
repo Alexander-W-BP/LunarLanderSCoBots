@@ -198,13 +198,15 @@ def plot_model_overview(model):
 def main():
     # Einstellungen
     algorithm = "DQN"  # Oder "PPO"
-    model_dir = "./logs/DQN/log_v4"
+    model_dir = "./logs/DQN_optimized"  # Oder "./logs/PPO"
+    #model_dir = "./logs/DQN/log_v4"
 
     # Modell laden
     print(f"Lade {algorithm}-Modell...")
     model = load_model(algorithm, model_dir)
 
-    plot_model_overview(model)
+    plot_model_detail_view(model)
+    #plot_model_overview(model)
 
 if __name__ == "__main__":
     main()
