@@ -1,5 +1,5 @@
 from stable_baselines3 import PPO
-from plot_utils import plot_model_detail_view, plot_model_overview
+from plot_utils import save_plot_data_and_generate
 
 def main():
     # Lade das Modell
@@ -8,11 +8,11 @@ def main():
 
     # Detailplots
     print("Erstelle Detailplots...")
-    plot_model_detail_view(model)
+    save_plot_data_and_generate(model)
 
     # Übersichtsplots
-    print("Erstelle Übersichtsplots...")
-    plot_model_overview(model)
+    #print("Erstelle Übersichtsplots...")
+    #plot_model_overview(model)
 
     print("Plots erfolgreich erstellt!")
 

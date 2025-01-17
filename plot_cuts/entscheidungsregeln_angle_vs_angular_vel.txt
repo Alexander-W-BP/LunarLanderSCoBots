@@ -1,0 +1,10 @@
+|--- angle <= 0.25
+|   |--- angular_vel <= 1.41
+|   |   |--- class: 1
+|   |--- angular_vel >  1.41
+|   |   |--- class: 2
+|--- angle >  0.25
+|   |--- angular_vel <= -1.21
+|   |   |--- class: 2
+|   |--- angular_vel >  -1.21
+|   |   |--- class: 3
