@@ -22,19 +22,21 @@ def collect_data(env, num_episodes=100, max_steps=200, policy='random'):
     actions = []
 
     for episode in range(num_episodes):
-        state = env.reset()
-        if isinstance(state, tuple):
-            state = state[0]  # Gymnasium gibt (observation, info) zurück
+        reset_result = env.reset()
+        if isinstance(reset_result, tuple):
+            state = reset_result[0]  # Gymnasium gibt (observation, info) zurück
+        else:
+            state = reset_result  # Gym gibt nur observation zurück
         for step in range(max_steps):
             if policy == 'random':
                 action = env.action_space.sample()
             elif policy == 'heuristic':
-                # Beispiel einer einfachen heuristischen Politik
+                # Beispiel einer einfachen heuristischen Politik basierend auf Winkel und Winkelgeschwindigkeit
                 angle = state[4]
                 angular_vel = state[5]
-                if angle < 0:
+                if angle < -0.1:
                     action = 1  # Feuer linken Booster
-                elif angle > 0:
+                elif angle > 0.1:
                     action = 3  # Feuer rechten Booster
                 else:
                     action = 0  # Kein Feuer
@@ -49,7 +51,6 @@ def collect_data(env, num_episodes=100, max_steps=200, policy='random'):
                 next_state, reward, terminated, truncated, info = step_result
                 done = terminated or truncated
             elif len(step_result) == 4:
-                # Fallback für ältere Gym-Versionen
                 next_state, reward, done, info = step_result
             else:
                 raise ValueError(f"Unerwartete Anzahl von Rückgabewerten von env.step(): {len(step_result)}")
@@ -91,9 +92,11 @@ def evaluate_tree(env, tree, num_episodes=20, max_steps=200):
     total_rewards = []
 
     for episode in range(num_episodes):
-        state = env.reset()
-        if isinstance(state, tuple):
-            state = state[0]  # Gymnasium gibt (observation, info) zurück
+        reset_result = env.reset()
+        if isinstance(reset_result, tuple):
+            state = reset_result[0]  # Gymnasium gibt (observation, info) zurück
+        else:
+            state = reset_result  # Gym gibt nur observation zurück
         episode_reward = 0
         for step in range(max_steps):
             action = tree.predict([state])[0]
@@ -116,6 +119,18 @@ def evaluate_tree(env, tree, num_episodes=20, max_steps=200):
     return mean_reward
 
 def main():
+    # Feature-Namen entsprechend der LunarLander-Beobachtungen
+    feature_names = [
+        'x_position',
+        'y_position',
+        'x_velocity',
+        'y_velocity',
+        'angle',
+        'angular_velocity',
+        'left_leg_contact',
+        'right_leg_contact'
+    ]
+
     # Umgebung initialisieren
     env = gym.make('LunarLander-v2')
 
@@ -160,12 +175,15 @@ def main():
         pickle.dump(best_tree, f)
     print(f"Besten Baum (Baum {best_index+1}) wurde gespeichert.")
 
-    # Optional: Den besten Baum als Text anzeigen
-    feature_names = env.observation_space.shape[0]
-    feature_names = [f'feature_{i}' for i in range(feature_names)]
+    # Optional: Den besten Baum als Text anzeigen mit korrekten Feature-Namen
     tree_rules = export_text(best_tree, feature_names=feature_names)
     print("\nBestes Entscheidungsbaum-Regelwerk:")
     print(tree_rules)
+
+    # Optional: Genauigkeit des besten Baums auf dem Testdatensatz
+    y_pred = best_tree.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"\nGenauigkeit des besten Baums auf dem Testdatensatz: {accuracy:.2f}")
 
     env.close()
 
