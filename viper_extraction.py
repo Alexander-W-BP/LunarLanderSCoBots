@@ -3,23 +3,31 @@ import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier
 import gymnasium as gym
 from stable_baselines3 import PPO
+import os
+import joblib
 
 def load_model(model_path):
     return PPO.load(model_path)
 
 def transform_obs_4meta(obs):
     x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2 = obs
-    rotational_state = angle + 0.5 * angular_vel
-    horizontal_state = x_space + 0.5 * vel_x_space
-    vertical_state   = y_space + 0.5 * vel_y_space
-    leg_contact      = leg_1 + leg_2
+    # Original features
     return np.array([
         x_space, y_space, vel_x_space, vel_y_space,
-        angle, angular_vel, leg_1, leg_2,
-        rotational_state, horizontal_state, vertical_state, leg_contact
+        angle, angular_vel, leg_1, leg_2
     ], dtype=np.float32)
 
-def evaluate_tree(env, clf, use_meta_features=False, n_episodes=10, max_steps=1000):
+def transform_obs_custom(obs):
+    x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2 = obs
+    vertical_state = y_space + 0.5 * vel_y_space
+    rotational_state = angle + 0.5 * angular_vel
+    horizontal_state = x_space + 0.5 * vel_x_space
+    leg_contact = leg_1 + leg_2
+    return np.array([
+        y_space, vel_y_space, vertical_state, angle, rotational_state, horizontal_state, angular_vel, leg_contact
+    ], dtype=np.float32)
+
+def evaluate_tree(env, clf, transform_func=None, n_episodes=10, max_steps=1000):
     """
     Führt n_episodes lang den Decision Tree in env aus.
     Gibt (mean_reward, std_reward) zurück.
@@ -29,9 +37,9 @@ def evaluate_tree(env, clf, use_meta_features=False, n_episodes=10, max_steps=10
         obs = env.reset()[0]
         total_r = 0.0
         for _ in range(max_steps):
-            if use_meta_features:
-                obs_ext = transform_obs_4meta(obs)
-                action = clf.predict(obs_ext.reshape(1, -1))[0]
+            if transform_func:
+                obs_transformed = transform_func(obs)
+                action = clf.predict(obs_transformed.reshape(1, -1))[0]
             else:
                 action = clf.predict(obs.reshape(1, -1))[0]
 
@@ -43,7 +51,7 @@ def evaluate_tree(env, clf, use_meta_features=False, n_episodes=10, max_steps=10
 
     return np.mean(rewards), np.std(rewards)
 
-def gather_performance(model_path, env_name, use_meta_features=False,
+def gather_performance(model_path, env_name, transform_func=None,
                        num_samples=10000, n_episodes=10, seeds=[0,1,2,3]):
     """
     - Sammelt num_samples Daten mithilfe des PPO-Modells.
@@ -70,13 +78,15 @@ def gather_performance(model_path, env_name, use_meta_features=False,
     obs_list = np.array(obs_list)
     act_list = np.array(act_list)
 
-    if use_meta_features:
-        obs_list = np.array([transform_obs_4meta(o) for o in obs_list])
+    if transform_func:
+        obs_list = np.array([transform_func(o) for o in obs_list])
 
     # -> Hier kein Split, da wir nur Reward messen (oder optional 100% train)
     depths = range(1, 31)
     mean_rewards = []
     std_rewards = []
+    best_tree = None
+    best_tree_depth = -1
 
     eval_env = gym.make(env_name)
 
@@ -88,51 +98,70 @@ def gather_performance(model_path, env_name, use_meta_features=False,
         all_seeds_rewards = []
         for s in seeds:
             eval_env.reset(seed=s)  # setze seed
-            mr, _ = evaluate_tree(eval_env, clf, use_meta_features=use_meta_features,
-                                  n_episodes=n_episodes, max_steps=1000)
+            mr, _ = evaluate_tree(eval_env, clf, transform_func=transform_func,
+                                 n_episodes=n_episodes, max_steps=1000)
             all_seeds_rewards.append(mr)
 
         # Mittelwert und Streuung über seeds
         all_seeds_rewards = np.array(all_seeds_rewards)
-        mean_rewards.append(all_seeds_rewards.mean())
+        current_mean_reward = all_seeds_rewards.mean()
+        mean_rewards.append(current_mean_reward)
         std_rewards.append(all_seeds_rewards.std())
 
-    return depths, mean_rewards, std_rewards
+        # Überprüfe, ob der aktuelle Baum der bisher beste ist
+        if current_mean_reward > 100 and (best_tree is None or depth < best_tree_depth):
+            best_tree = clf
+            best_tree_depth = depth
+
+    return depths, mean_rewards, std_rewards, best_tree, best_tree_depth
 
 def main():
-    MODEL_PATH = "models/ppo-LunarLander-v3/best_model.zip"
+    MODEL_PATH = "models/ppo-LunarLander-v3/best_model.zip" # Passe den Pfad an!
     ENV_NAME = "LunarLander-v3"
+    OUTPUT_DIR = "decision_tree_models"
 
-    # ---- (A) Ohne Meta-Features
-    depths_old, rew_old, std_old = gather_performance(
+    # Stelle sicher, dass das Ausgabeverzeichnis existiert
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+    # ---- (A) Originale Features
+    depths_orig, rew_orig, std_orig, _, _ = gather_performance(
         model_path=MODEL_PATH,
         env_name=ENV_NAME,
-        use_meta_features=False,
-        num_samples=10000,
-        n_episodes=20,   # z.B. 20 Episoden
-        seeds=[0, 1, 2]  # und 3 Seeds
-    )
-
-    # ---- (B) Mit 4 Meta-Features
-    depths_new, rew_new, std_new = gather_performance(
-        model_path=MODEL_PATH,
-        env_name=ENV_NAME,
-        use_meta_features=True,
+        transform_func=transform_obs_4meta,
         num_samples=10000,
         n_episodes=20,
         seeds=[0, 1, 2]
     )
 
+    # ---- (B)  Meta-Features (vel_y_space, y_space, angle, rotational_state, horizontal_state, angular_vel, leg_contact)
+    depths_custom, rew_custom, std_custom, best_tree, best_tree_depth = gather_performance(
+        model_path=MODEL_PATH,
+        env_name=ENV_NAME,
+        transform_func=transform_obs_custom,
+        num_samples=10000,
+        n_episodes=20,
+        seeds=[0, 1, 2]
+    )
+
+    # Speichere den besten Baum
+    if best_tree is not None:
+        best_tree_filename = os.path.join(OUTPUT_DIR, f"best_tree_depth_{best_tree_depth}.joblib")
+        joblib.dump(best_tree, best_tree_filename)
+        print(f"Der beste Baum (Tiefe {best_tree_depth}) wurde in '{best_tree_filename}' gespeichert.")
+    else:
+        print("Kein Baum mit einem mittleren Reward über 100 gefunden.")
+
+    # Plot der Ergebnisse
     import matplotlib.pyplot as plt
     plt.figure(figsize=(8,6))
-    plt.errorbar(depths_old, rew_old, yerr=std_old, marker='o', label="Ohne Meta-Features", capsize=3)
-    plt.errorbar(depths_new, rew_new, yerr=std_new, marker='o', label="Mit Meta-Features", capsize=3)
+    plt.errorbar(depths_orig, rew_orig, yerr=std_orig, marker='o', label="Originale Features", capsize=3)
+    plt.errorbar(depths_custom, rew_custom, yerr=std_custom, marker='o', label="Neues Set an Features", capsize=3)
     plt.xlabel("Tree Depth")
     plt.ylabel("Mean Reward (mehrere Seeds x Epis)")
     plt.title("Decision Tree: Mean Reward vs. Max Depth (LunarLander-v3)")
     plt.grid(True)
     plt.legend()
-    plt.savefig("compare_mean_reward_smaller_variance.png")
+    plt.savefig("compare_mean_reward_original_vs_custom.png")
     plt.show()
 
 if __name__ == "__main__":

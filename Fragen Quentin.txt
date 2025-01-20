@@ -1,0 +1,5 @@
+Fragen Quentin:
+
+1. How can we check for these mathematical realations between features?
+2. How "bad" was your decision tree agent in comparision to your best model (PPO model)?
+3. How many Meta-Features are too much, how many do we need?

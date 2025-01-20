@@ -7,6 +7,7 @@ matplotlib.use("Agg")  # Muss vor import matplotlib.pyplot stehen!
 import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier, export_text, plot_tree
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 
 def plot_decision_boundaries(
     tree, X, y, feature_names, filename="vergleich_plot.png"
@@ -89,7 +90,10 @@ def plot_decision_boundaries(
     ax1.set_xlabel(feature_names[0])
     ax1.set_ylabel(feature_names[1])
     ax1.set_title("1) Entscheidungsgrenzen des Decision Trees")
-    ax1.legend(loc="upper right")
+    # Entferne doppelte Legendeneinträge
+    handles, labels = ax1.get_legend_handles_labels()
+    unique = dict(zip(labels, handles))
+    ax1.legend(unique.values(), unique.keys(), loc="upper right")
 
     # -------------------- (2) Unterer Plot: Originaldaten-Punkte --------------------
     ax2 = axs[1]
@@ -157,25 +161,51 @@ def main():
                 print(f"Spalten {feature_names} nicht in {csv_file}. Überspringe.")
                 continue
 
-            # Decision Tree trainieren
-            model = DecisionTreeClassifier(random_state=42, max_depth=2)
-            model.fit(X, y)
+            # Daten in Trainings- und Validierungsset aufteilen
+            X_train, X_val, y_train, y_val = train_test_split(
+                X, y, test_size=0.2, random_state=42, stratify=y
+            )
+
+            # Initialisiere Variablen für die beste Modellwahl
+            best_depth = 1
+            best_acc = 0
+            desired_acc = 0.95  # Beispiel: gewünschte Genauigkeit von 95%
+            max_allowed_depth = 3  # Maximale Tiefe auf 3 beschränkt
+
+            for depth in range(1, max_allowed_depth + 1):
+                model = DecisionTreeClassifier(random_state=42, max_depth=depth)
+                model.fit(X_train, y_train)
+
+                y_val_pred = model.predict(X_val)
+                acc = accuracy_score(y_val, y_val_pred)
+
+                if acc > best_acc:
+                    best_acc = acc
+                    best_depth = depth
+
+                # Stoppt, wenn die gewünschte Genauigkeit erreicht ist
+                if acc >= desired_acc:
+                    break
+
+            # Trainiere das endgültige Modell mit der besten Tiefe auf allen Daten
+            final_model = DecisionTreeClassifier(random_state=42, max_depth=best_depth)
+            final_model.fit(X, y)
 
             # Entscheidungsregeln
-            rules_text = export_text(model, feature_names=feature_names)
+            rules_text = export_text(final_model, feature_names=feature_names)
 
             # --> An EINEM Stück in die Sammel-Datei schreiben
-            f_rules.write(f"=== Regeln für {basename} ===\n")
+            f_rules.write(f"=== Regeln für {basename} (Tiefe: {best_depth}) ===\n")
             f_rules.write(rules_text)
             f_rules.write("\n\n")
 
             # Plot erstellen
-            plot_decision_boundaries(model, X, y, feature_names, filename=png_filename)
+            plot_decision_boundaries(final_model, X, y, feature_names, filename=png_filename)
 
-            # (Optional) Baudiagramm des DecisionTrees speichern
+            # (Optional) Baumdiagramm des DecisionTrees speichern
             plt.figure(figsize=(12, 8))
             plot_tree(
-                model,
+                final_model,
                 filled=True,
                 feature_names=feature_names,
                 class_names=[str(c) for c in sorted(np.unique(y))],
@@ -186,12 +216,12 @@ def main():
             plt.close()
 
             # (Optional) Genauigkeit am Trainingsdatensatz
-            y_pred = model.predict(X)
-            acc = accuracy_score(y, y_pred)
+            y_pred = final_model.predict(X)
+            acc_train = accuracy_score(y, y_pred)
 
             print(f"Datei: {csv_file}")
-            print(f"  Tiefe des Baumes: {model.get_depth()}")
-            print(f"  Genauigkeit: {acc:.3f}")
+            print(f"  Tiefe des Baumes: {best_depth}")
+            print(f"  Trainingsgenauigkeit: {acc_train:.3f}")
             print(f"  PNG: {png_filename}")
             print(f"  Regeln in: {all_rules_path}")
             print("")

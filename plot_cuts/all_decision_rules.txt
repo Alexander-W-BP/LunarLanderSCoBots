@@ -1,4 +1,4 @@
-=== Regeln für angle_vs_angular_vel.csv ===
+=== Regeln für angle_vs_angular_vel.csv (Tiefe: 2) ===
 |--- angle <= 0.25
 |   |--- angular_vel <= 1.41
 |   |   |--- class: 1
@@ -11,168 +11,228 @@
 |   |   |--- class: 3
 
 
-=== Regeln für angle_vs_leg_1.csv ===
+=== Regeln für angle_vs_leg_1.csv (Tiefe: 1) ===
 |--- angle <= 0.13
-|   |--- angle <= -0.38
-|   |   |--- class: 1
-|   |--- angle >  -0.38
-|   |   |--- class: 0
+|   |--- class: 1
 |--- angle >  0.13
 |   |--- class: 3
 
 
-=== Regeln für angle_vs_leg_2.csv ===
+=== Regeln für angle_vs_leg_2.csv (Tiefe: 3) ===
 |--- angle <= -0.13
 |   |--- angle <= -1.52
 |   |   |--- class: 1
 |   |--- angle >  -1.52
-|   |   |--- class: 1
+|   |   |--- leg_2 <= 0.50
+|   |   |   |--- class: 1
+|   |   |--- leg_2 >  0.50
+|   |   |   |--- class: 0
 |--- angle >  -0.13
 |   |--- angle <= 3.30
-|   |   |--- class: 3
+|   |   |--- leg_2 <= 0.50
+|   |   |   |--- class: 3
+|   |   |--- leg_2 >  0.50
+|   |   |   |--- class: 2
 |   |--- angle >  3.30
 |   |   |--- class: 3
 
 
-=== Regeln für angular_vel_vs_leg_1.csv ===
+=== Regeln für angular_vel_vs_leg_1.csv (Tiefe: 3) ===
 |--- angular_vel <= -0.20
 |   |--- angular_vel <= -0.40
 |   |   |--- class: 1
 |   |--- angular_vel >  -0.40
-|   |   |--- class: 0
+|   |   |--- leg_1 <= 0.50
+|   |   |   |--- class: 1
+|   |   |--- leg_1 >  0.50
+|   |   |   |--- class: 0
 |--- angular_vel >  -0.20
 |   |--- angular_vel <= 2.63
-|   |   |--- class: 3
+|   |   |--- angular_vel <= 0.20
+|   |   |   |--- class: 0
+|   |   |--- angular_vel >  0.20
+|   |   |   |--- class: 3
 |   |--- angular_vel >  2.63
 |   |   |--- class: 2
 
 
-=== Regeln für angular_vel_vs_leg_2.csv ===
+=== Regeln für angular_vel_vs_leg_2.csv (Tiefe: 3) ===
 |--- angular_vel <= -0.20
 |   |--- angular_vel <= -1.41
 |   |   |--- class: 1
 |   |--- angular_vel >  -1.41
-|   |   |--- class: 1
+|   |   |--- leg_2 <= 0.50
+|   |   |   |--- class: 1
+|   |   |--- leg_2 >  0.50
+|   |   |   |--- class: 0
 |--- angular_vel >  -0.20
 |   |--- angular_vel <= 2.63
-|   |   |--- class: 3
+|   |   |--- leg_2 <= 0.50
+|   |   |   |--- class: 3
+|   |   |--- leg_2 >  0.50
+|   |   |   |--- class: 2
 |   |--- angular_vel >  2.63
 |   |   |--- class: 2
 
 
-=== Regeln für leg_1_vs_leg_2.csv ===
+=== Regeln für leg_1_vs_leg_2.csv (Tiefe: 1) ===
 |--- class: 0
 
 
-=== Regeln für vel_x_space_vs_angle.csv ===
+=== Regeln für vel_x_space_vs_angle.csv (Tiefe: 3) ===
 |--- vel_x_space <= 0.61
 |   |--- angle <= -1.52
-|   |   |--- class: 2
+|   |   |--- vel_x_space <= -1.82
+|   |   |   |--- class: 2
+|   |   |--- vel_x_space >  -1.82
+|   |   |   |--- class: 1
 |   |--- angle >  -1.52
-|   |   |--- class: 3
+|   |   |--- angle <= -0.38
+|   |   |   |--- class: 3
+|   |   |--- angle >  -0.38
+|   |   |   |--- class: 3
 |--- vel_x_space >  0.61
 |   |--- angle <= 0.51
-|   |   |--- class: 1
+|   |   |--- angle <= 0.25
+|   |   |   |--- class: 1
+|   |   |--- angle >  0.25
+|   |   |   |--- class: 1
 |   |--- angle >  0.51
-|   |   |--- class: 2
+|   |   |--- vel_x_space <= 1.01
+|   |   |   |--- class: 3
+|   |   |--- vel_x_space >  1.01
+|   |   |   |--- class: 2
 
 
-=== Regeln für vel_x_space_vs_angular_vel.csv ===
+=== Regeln für vel_x_space_vs_angular_vel.csv (Tiefe: 3) ===
 |--- vel_x_space <= -0.81
 |   |--- angular_vel <= -3.84
-|   |   |--- class: 0
+|   |   |--- vel_x_space <= -3.23
+|   |   |   |--- class: 0
+|   |   |--- vel_x_space >  -3.23
+|   |   |   |--- class: 1
 |   |--- angular_vel >  -3.84
-|   |   |--- class: 3
+|   |   |--- angular_vel <= -1.62
+|   |   |   |--- class: 3
+|   |   |--- angular_vel >  -1.62
+|   |   |   |--- class: 3
 |--- vel_x_space >  -0.81
 |   |--- angular_vel <= 2.22
-|   |   |--- class: 1
+|   |   |--- angular_vel <= 0.40
+|   |   |   |--- class: 1
+|   |   |--- angular_vel >  0.40
+|   |   |   |--- class: 1
 |   |--- angular_vel >  2.22
-|   |   |--- class: 2
+|   |   |--- angular_vel <= 3.03
+|   |   |   |--- class: 2
+|   |   |--- angular_vel >  3.03
+|   |   |   |--- class: 2
 
 
-=== Regeln für vel_x_space_vs_leg_1.csv ===
+=== Regeln für vel_x_space_vs_leg_1.csv (Tiefe: 1) ===
 |--- vel_x_space <= -0.20
 |   |--- class: 3
 |--- vel_x_space >  -0.20
-|   |--- vel_x_space <= 0.61
-|   |   |--- class: 0
-|   |--- vel_x_space >  0.61
-|   |   |--- class: 1
+|   |--- class: 1
 
 
-=== Regeln für vel_x_space_vs_leg_2.csv ===
+=== Regeln für vel_x_space_vs_leg_2.csv (Tiefe: 1) ===
 |--- vel_x_space <= -0.20
-|   |--- vel_x_space <= -1.21
-|   |   |--- class: 3
-|   |--- vel_x_space >  -1.21
-|   |   |--- class: 0
+|   |--- class: 3
 |--- vel_x_space >  -0.20
-|   |--- vel_x_space <= 1.21
-|   |   |--- class: 0
-|   |--- vel_x_space >  1.21
-|   |   |--- class: 1
+|   |--- class: 1
 
 
-=== Regeln für vel_x_space_vs_vel_y_space.csv ===
+=== Regeln für vel_x_space_vs_vel_y_space.csv (Tiefe: 3) ===
 |--- vel_y_space <= -0.61
 |   |--- vel_y_space <= -2.42
-|   |   |--- class: 2
+|   |   |--- vel_y_space <= -3.23
+|   |   |   |--- class: 2
+|   |   |--- vel_y_space >  -3.23
+|   |   |   |--- class: 2
 |   |--- vel_y_space >  -2.42
-|   |   |--- class: 2
+|   |   |--- vel_x_space <= -4.24
+|   |   |   |--- class: 3
+|   |   |--- vel_x_space >  -4.24
+|   |   |   |--- class: 2
 |--- vel_y_space >  -0.61
 |   |--- vel_x_space <= -3.64
-|   |   |--- class: 3
+|   |   |--- vel_y_space <= 6.46
+|   |   |   |--- class: 3
+|   |   |--- vel_y_space >  6.46
+|   |   |   |--- class: 0
 |   |--- vel_x_space >  -3.64
-|   |   |--- class: 0
+|   |   |--- vel_y_space <= 1.82
+|   |   |   |--- class: 1
+|   |   |--- vel_y_space >  1.82
+|   |   |   |--- class: 0
 
 
-=== Regeln für vel_y_space_vs_angle.csv ===
+=== Regeln für vel_y_space_vs_angle.csv (Tiefe: 3) ===
 |--- vel_y_space <= -0.40
 |   |--- vel_y_space <= -1.01
-|   |   |--- class: 2
+|   |   |--- vel_y_space <= -1.41
+|   |   |   |--- class: 2
+|   |   |--- vel_y_space >  -1.41
+|   |   |   |--- class: 2
 |   |--- vel_y_space >  -1.01
-|   |   |--- class: 2
+|   |   |--- angle <= -2.92
+|   |   |   |--- class: 1
+|   |   |--- angle >  -2.92
+|   |   |   |--- class: 2
 |--- vel_y_space >  -0.40
 |   |--- angle <= 2.16
-|   |   |--- class: 0
+|   |   |--- vel_y_space <= 1.82
+|   |   |   |--- class: 1
+|   |   |--- vel_y_space >  1.82
+|   |   |   |--- class: 0
 |   |--- angle >  2.16
-|   |   |--- class: 3
+|   |   |--- vel_y_space <= 6.26
+|   |   |   |--- class: 3
+|   |   |--- vel_y_space >  6.26
+|   |   |   |--- class: 0
 
 
-=== Regeln für vel_y_space_vs_angular_vel.csv ===
+=== Regeln für vel_y_space_vs_angular_vel.csv (Tiefe: 3) ===
 |--- vel_y_space <= 0.00
 |   |--- vel_y_space <= -0.81
-|   |   |--- class: 2
+|   |   |--- vel_y_space <= -1.01
+|   |   |   |--- class: 2
+|   |   |--- vel_y_space >  -1.01
+|   |   |   |--- class: 2
 |   |--- vel_y_space >  -0.81
-|   |   |--- class: 2
+|   |   |--- angular_vel <= -0.81
+|   |   |   |--- class: 1
+|   |   |--- angular_vel >  -0.81
+|   |   |   |--- class: 2
 |--- vel_y_space >  0.00
 |   |--- angular_vel <= 3.64
-|   |   |--- class: 0
+|   |   |--- vel_y_space <= 2.02
+|   |   |   |--- class: 1
+|   |   |--- vel_y_space >  2.02
+|   |   |   |--- class: 0
 |   |--- angular_vel >  3.64
-|   |   |--- class: 3
+|   |   |--- vel_y_space <= 6.67
+|   |   |   |--- class: 3
+|   |   |--- vel_y_space >  6.67
+|   |   |   |--- class: 0
 
 
-=== Regeln für vel_y_space_vs_leg_1.csv ===
+=== Regeln für vel_y_space_vs_leg_1.csv (Tiefe: 1) ===
 |--- vel_y_space <= 0.00
-|   |--- vel_y_space <= -0.20
-|   |   |--- class: 2
-|   |--- vel_y_space >  -0.20
-|   |   |--- class: 0
+|   |--- class: 2
 |--- vel_y_space >  0.00
 |   |--- class: 0
 
 
-=== Regeln für vel_y_space_vs_leg_2.csv ===
+=== Regeln für vel_y_space_vs_leg_2.csv (Tiefe: 1) ===
 |--- vel_y_space <= 0.00
-|   |--- vel_y_space <= -0.20
-|   |   |--- class: 2
-|   |--- vel_y_space >  -0.20
-|   |   |--- class: 0
+|   |--- class: 2
 |--- vel_y_space >  0.00
 |   |--- class: 0
 
 
-=== Regeln für x_space_vs_angle.csv ===
+=== Regeln für x_space_vs_angle.csv (Tiefe: 2) ===
 |--- angle <= -0.25
 |   |--- x_space <= -0.86
 |   |   |--- class: 2
@@ -185,20 +245,32 @@
 |   |   |--- class: 2
 
 
-=== Regeln für x_space_vs_angular_vel.csv ===
+=== Regeln für x_space_vs_angular_vel.csv (Tiefe: 3) ===
 |--- angular_vel <= -2.22
 |   |--- x_space <= 1.11
-|   |   |--- class: 1
+|   |   |--- angular_vel <= -5.05
+|   |   |   |--- class: 1
+|   |   |--- angular_vel >  -5.05
+|   |   |   |--- class: 1
 |   |--- x_space >  1.11
-|   |   |--- class: 2
+|   |   |--- x_space <= 1.31
+|   |   |   |--- class: 2
+|   |   |--- x_space >  1.31
+|   |   |   |--- class: 2
 |--- angular_vel >  -2.22
 |   |--- x_space <= 0.10
-|   |   |--- class: 3
+|   |   |--- angular_vel <= 5.66
+|   |   |   |--- class: 3
+|   |   |--- angular_vel >  5.66
+|   |   |   |--- class: 2
 |   |--- x_space >  0.10
-|   |   |--- class: 2
+|   |   |--- x_space <= 0.51
+|   |   |   |--- class: 2
+|   |   |--- x_space >  0.51
+|   |   |   |--- class: 2
 
 
-=== Regeln für x_space_vs_leg_1.csv ===
+=== Regeln für x_space_vs_leg_1.csv (Tiefe: 2) ===
 |--- x_space <= -0.10
 |   |--- x_space <= -0.15
 |   |   |--- class: 3
@@ -211,7 +283,7 @@
 |   |   |--- class: 2
 
 
-=== Regeln für x_space_vs_leg_2.csv ===
+=== Regeln für x_space_vs_leg_2.csv (Tiefe: 2) ===
 |--- x_space <= 0.35
 |   |--- x_space <= -0.61
 |   |   |--- class: 3
@@ -224,46 +296,79 @@
 |   |   |--- class: 2
 
 
-=== Regeln für x_space_vs_vel_x_space.csv ===
+=== Regeln für x_space_vs_vel_x_space.csv (Tiefe: 3) ===
 |--- vel_x_space <= 0.61
 |   |--- vel_x_space <= -2.83
-|   |   |--- class: 3
+|   |   |--- x_space <= 1.77
+|   |   |   |--- class: 3
+|   |   |--- x_space >  1.77
+|   |   |   |--- class: 3
 |   |--- vel_x_space >  -2.83
-|   |   |--- class: 3
+|   |   |--- x_space <= 0.66
+|   |   |   |--- class: 3
+|   |   |--- x_space >  0.66
+|   |   |   |--- class: 2
 |--- vel_x_space >  0.61
 |   |--- x_space <= 1.01
-|   |   |--- class: 1
+|   |   |--- vel_x_space <= 3.84
+|   |   |   |--- class: 1
+|   |   |--- vel_x_space >  3.84
+|   |   |   |--- class: 1
 |   |--- x_space >  1.01
-|   |   |--- class: 2
+|   |   |--- x_space <= 1.36
+|   |   |   |--- class: 2
+|   |   |--- x_space >  1.36
+|   |   |   |--- class: 2
 
 
-=== Regeln für x_space_vs_vel_y_space.csv ===
+=== Regeln für x_space_vs_vel_y_space.csv (Tiefe: 3) ===
 |--- vel_y_space <= 0.20
 |   |--- vel_y_space <= -0.40
 |   |   |--- class: 2
 |   |--- vel_y_space >  -0.40
-|   |   |--- class: 2
+|   |   |--- x_space <= -0.25
+|   |   |   |--- class: 3
+|   |   |--- x_space >  -0.25
+|   |   |   |--- class: 2
 |--- vel_y_space >  0.20
 |   |--- vel_y_space <= 2.83
-|   |   |--- class: 0
+|   |   |--- x_space <= -0.86
+|   |   |   |--- class: 3
+|   |   |--- x_space >  -0.86
+|   |   |   |--- class: 0
 |   |--- vel_y_space >  2.83
-|   |   |--- class: 0
+|   |   |--- x_space <= -1.92
+|   |   |   |--- class: 0
+|   |   |--- x_space >  -1.92
+|   |   |   |--- class: 0
 
 
-=== Regeln für x_space_vs_y_space.csv ===
+=== Regeln für x_space_vs_y_space.csv (Tiefe: 3) ===
 |--- y_space <= -0.10
 |   |--- y_space <= -0.20
-|   |   |--- class: 2
+|   |   |--- y_space <= -0.25
+|   |   |   |--- class: 2
+|   |   |--- y_space >  -0.25
+|   |   |   |--- class: 2
 |   |--- y_space >  -0.20
-|   |   |--- class: 2
+|   |   |--- x_space <= -0.91
+|   |   |   |--- class: 3
+|   |   |--- x_space >  -0.91
+|   |   |   |--- class: 2
 |--- y_space >  -0.10
 |   |--- x_space <= -0.15
-|   |   |--- class: 3
+|   |   |--- x_space <= -0.25
+|   |   |   |--- class: 3
+|   |   |--- x_space >  -0.25
+|   |   |   |--- class: 3
 |   |--- x_space >  -0.15
-|   |   |--- class: 1
+|   |   |--- x_space <= 1.62
+|   |   |   |--- class: 1
+|   |   |--- x_space >  1.62
+|   |   |   |--- class: 2
 
 
-=== Regeln für y_space_vs_angle.csv ===
+=== Regeln für y_space_vs_angle.csv (Tiefe: 2) ===
 |--- y_space <= -0.25
 |   |--- y_space <= -0.40
 |   |   |--- class: 2
@@ -276,59 +381,74 @@
 |   |   |--- class: 3
 
 
-=== Regeln für y_space_vs_angular_vel.csv ===
+=== Regeln für y_space_vs_angular_vel.csv (Tiefe: 3) ===
 |--- y_space <= -0.10
 |   |--- y_space <= -0.56
-|   |   |--- class: 2
+|   |   |--- y_space <= -0.66
+|   |   |   |--- class: 2
+|   |   |--- y_space >  -0.66
+|   |   |   |--- class: 2
 |   |--- y_space >  -0.56
-|   |   |--- class: 2
+|   |   |--- angular_vel <= -2.02
+|   |   |   |--- class: 1
+|   |   |--- angular_vel >  -2.02
+|   |   |   |--- class: 2
 |--- y_space >  -0.10
 |   |--- angular_vel <= 0.00
-|   |   |--- class: 1
+|   |   |--- angular_vel <= -0.20
+|   |   |   |--- class: 1
+|   |   |--- angular_vel >  -0.20
+|   |   |   |--- class: 0
 |   |--- angular_vel >  0.00
-|   |   |--- class: 3
+|   |   |--- y_space <= 0.25
+|   |   |   |--- class: 2
+|   |   |--- y_space >  0.25
+|   |   |   |--- class: 3
 
 
-=== Regeln für y_space_vs_leg_1.csv ===
-|--- y_space <= -0.15
-|   |--- y_space <= -0.30
-|   |   |--- class: 2
-|   |--- y_space >  -0.30
-|   |   |--- class: 0
-|--- y_space >  -0.15
-|   |--- class: 0
-
-
-=== Regeln für y_space_vs_leg_2.csv ===
+=== Regeln für y_space_vs_leg_1.csv (Tiefe: 1) ===
 |--- y_space <= -0.15
 |   |--- class: 2
 |--- y_space >  -0.15
 |   |--- class: 0
 
 
-=== Regeln für y_space_vs_vel_x_space.csv ===
+=== Regeln für y_space_vs_leg_2.csv (Tiefe: 1) ===
+|--- y_space <= -0.15
+|   |--- class: 2
+|--- y_space >  -0.15
+|   |--- class: 0
+
+
+=== Regeln für y_space_vs_vel_x_space.csv (Tiefe: 3) ===
 |--- y_space <= -0.45
 |   |--- vel_x_space <= -5.05
-|   |   |--- class: 2
+|   |   |--- y_space <= -1.46
+|   |   |   |--- class: 2
+|   |   |--- y_space >  -1.46
+|   |   |   |--- class: 3
 |   |--- vel_x_space >  -5.05
-|   |   |--- class: 2
+|   |   |--- y_space <= -0.61
+|   |   |   |--- class: 2
+|   |   |--- y_space >  -0.61
+|   |   |   |--- class: 2
 |--- y_space >  -0.45
 |   |--- vel_x_space <= -0.20
-|   |   |--- class: 3
+|   |   |--- vel_x_space <= -0.40
+|   |   |   |--- class: 3
+|   |   |--- vel_x_space >  -0.40
+|   |   |   |--- class: 3
 |   |--- vel_x_space >  -0.20
-|   |   |--- class: 1
+|   |   |--- vel_x_space <= 0.20
+|   |   |   |--- class: 0
+|   |   |--- vel_x_space >  0.20
+|   |   |   |--- class: 1
 
 
-=== Regeln für y_space_vs_vel_y_space.csv ===
+=== Regeln für y_space_vs_vel_y_space.csv (Tiefe: 1) ===
 |--- vel_y_space <= -0.20
-|   |--- vel_y_space <= -0.61
-|   |   |--- class: 2
-|   |--- vel_y_space >  -0.61
-|   |   |--- class: 2
+|   |--- class: 2
 |--- vel_y_space >  -0.20
-|   |--- vel_y_space <= 1.01
-|   |   |--- class: 0
-|   |--- vel_y_space >  1.01
-|   |   |--- class: 0
+|   |--- class: 0
 
 
