@@ -22,7 +22,7 @@ from stable_baselines3 import PPO
 # Schritt 1: Datensammlung
 # ---------------------------
 
-def collect_data(env, agent, num_episodes=1000, max_steps=1000):
+def collect_data(env, agent, num_episodes, max_steps):
     """
     Sammelt Daten von der Interaktion des PPO-Agenten mit der Umgebung.
 
@@ -92,7 +92,7 @@ def preprocess_data(df):
 # Schritt 3: Feature Selection
 # ---------------------------
 
-def feature_selection(df, target='action', top_k=5):
+def feature_selection(df, top_k, target='action'):
     """
     Wählt die wichtigsten Features basierend auf der Feature-Wichtigkeit eines Random Forest Classifiers aus.
 
@@ -123,14 +123,6 @@ def feature_selection(df, target='action', top_k=5):
     importances = rf.feature_importances_
     indices = np.argsort(importances)[::-1]
     feature_names = X.columns
-    
-    # Plot Feature Importances
-    plt.figure(figsize=(10,6))
-    plt.title("Feature Importances")
-    plt.bar(range(X.shape[1]), importances[indices], align='center')
-    plt.xticks(range(X.shape[1]), feature_names[indices], rotation=45)
-    plt.tight_layout()
-    plt.show()
     
     # Auswahl der Top-k Features
     selected_features = feature_names[indices[:top_k]]
@@ -166,7 +158,7 @@ def apply_pca(X, variance_threshold=0.95):
 # Schritt 5: Training der Decision Trees
 # ---------------------------
 
-def train_decision_trees(X_train, y_train, depths=range(1,6)):
+def train_decision_trees(X_train, y_train, depth, num_trees):
     """
     Trainiert Decision Trees mit unterschiedlichen Tiefen.
 
@@ -180,8 +172,8 @@ def train_decision_trees(X_train, y_train, depths=range(1,6)):
     """
     trees = []
     
-    for depth in depths:
-        tree = DecisionTreeClassifier(max_depth=depth, random_state=42)
+    for i in range(num_trees):
+        tree = DecisionTreeClassifier(max_depth=depth, random_state=i)
         tree.fit(X_train, y_train)
         trees.append(tree)
         print(f"Trainiert Decision Tree mit Tiefe {depth}.")
@@ -191,7 +183,7 @@ def train_decision_trees(X_train, y_train, depths=range(1,6)):
 # Schritt 6: Evaluation der Decision Trees
 # ---------------------------
 
-def evaluate_tree_policy(tree, scaler, pca, env, selected_features, num_episodes=100, max_steps=1000):
+def evaluate_tree_policy(tree, scaler, pca, env, selected_features, num_episodes, max_steps):
     """
     Bewertet die Performance eines Decision Trees als Policy in der Umgebung.
 
@@ -277,7 +269,7 @@ def main():
     
     # Schritt 4: Feature Selection
     print("\nSchritt 4: Feature Selection...")
-    X_selected, selected_features = feature_selection(df, target='action', top_k=5)
+    X_selected, selected_features = feature_selection(df, top_k=5, target='action')
     
     # Schritt 5: Dimensionsreduktion mit PCA
     print("\nSchritt 5: Dimensionsreduktion mit PCA...")
@@ -291,68 +283,44 @@ def main():
     
     print(f"Trainingsdaten: {X_train.shape[0]} Zeilen, Testdaten: {X_test.shape[0]} Zeilen.")
     
-    trees = train_decision_trees(X_train, y_train, depths=range(1,6))
+    trees = train_decision_trees(X_train, y_train, depth=3, num_trees=10)
     
     
     # Schritt 7: Evaluation der Decision Trees
     print("\nSchritt 7: Evaluation der Decision Trees im LunarLander-Umfeld...")
-    depths = range(1, 6)
     evaluated_mean_rewards = []
-
+    best_mean_reward = -np.inf
     MODEL_SAVE_DIR = "decision_trees"
     os.makedirs(MODEL_SAVE_DIR, exist_ok=True)
 
     for idx, tree in enumerate(trees):
-        depth = depths[idx]
-        print(f"\nEvaluierung von Decision Tree mit Tiefe {depth}...")
-        mean_reward = evaluate_tree_policy(tree, scaler, pca, env, selected_features, num_episodes=100, max_steps=1000)
+        print(f"\nEvaluierung von Decision Tree {idx}...")
+        mean_reward = evaluate_tree_policy(tree, scaler, pca, env, selected_features, num_episodes=30, max_steps=1000)
         evaluated_mean_rewards.append(mean_reward)
-        print(f"Decision Tree mit Tiefe {depth}: Mean Reward = {mean_reward}")
+        print(f"Decision Tree {idx}: Mean Reward = {mean_reward}")
 
-        # --- Speichern des Entscheidungsbaums als Textdatei ---
-        tree_text = export_text(tree, feature_names=list(selected_features))
-        with open(f'decision_tree_depth_{depth}.txt', 'w') as f:
-            f.write(tree_text)
-        print(f"Entscheidungsbaum mit Tiefe {depth} in 'decision_tree_depth_{depth}.txt' gespeichert.")
+        if mean_reward > best_mean_reward:
+            best_mean_reward = mean_reward
+            best_tree = tree
+            print(f"Neues bestes Ergebnis gefunden: Mean Reward = {best_mean_reward}")
 
-            # --- Speichern des Entscheidungsbaums als Joblib-Datei ---
-        joblib.dump(tree, os.path.join(MODEL_SAVE_DIR, f'decision_tree_depth_{depth}.joblib'))
-        print(f"Entscheidungsbaum mit Tiefe {depth} als Joblib-Datei gespeichert.")
+    # Speichern des besten Decision Trees
+    tree_text = export_text(best_tree, feature_names=selected_features)
+    best_tree_txt_file = f'decision_tree_best.txt'
+    with open(best_tree_txt_file, 'w') as f:
+        f.write(tree_text)
+    print(f"Bestes Decision Tree in '{best_tree_txt_file}' gespeichert.")
 
-    # --- Speichern der Preprocessing-Artefakte ---
+    best_tree_joblib_file = f'decision_tree_best.joblib'
+    joblib.dump(best_tree, os.path.join(MODEL_SAVE_DIR, best_tree_joblib_file))
+    print(f"Bestes Decision Tree als Joblib-Datei '{best_tree_joblib_file}' gespeichert.")
+
+    # Speichern der Preprocessing-Artefakte
     joblib.dump(scaler, os.path.join(MODEL_SAVE_DIR, 'scaler.joblib'))
     joblib.dump(pca, os.path.join(MODEL_SAVE_DIR, 'pca.joblib'))
     joblib.dump(selected_features, os.path.join(MODEL_SAVE_DIR, 'selected_features.joblib'))
     print("Preprocessing-Artefakte (Scaler, PCA, ausgewählte Features) gespeichert.")
     env.close()
-    
-    # Schritt 8: Plot der Ergebnisse
-    print("\nSchritt 8: Plot der Ergebnisse...")
-    plt.figure(figsize=(12, 6))
-    plt.plot(depths, evaluated_mean_rewards, marker='o')
-    plt.title("Mean Reward vs. Decision Tree Depth")
-    plt.xlabel("Tree Depth")
-    plt.ylabel("Mean Reward")
-    plt.grid(True)
-    plt.xticks(depths)
-    plt.show()
-    
-    # Optional: Speichern der Ergebnisse
-    # Speichern Sie die Mean Rewards in einer CSV-Datei
-    results_df = pd.DataFrame({
-        'Tree Depth': depths,
-        'Mean Reward': evaluated_mean_rewards
-    })
-    results_df.to_csv('decision_tree_evaluation_results.csv', index=False)
-    print("Ergebnisse wurden in 'decision_tree_evaluation_results.csv' gespeichert.")
-    
-    # Optional: Speichern eines spezifischen Decision Trees
-    # Beispiel: Speichern des Baums mit der besten Leistung
-    best_index = np.argmax(evaluated_mean_rewards)
-    best_depth = depths[best_index]
-    best_tree = trees[best_index]
-    joblib.dump(best_tree, f'decision_tree_best_depth_{best_depth}.joblib')
-    print(f"Bestes Decision Tree mit Tiefe {best_depth} wurde gespeichert als 'decision_tree_best_depth_{best_depth}.joblib'.")
 
 if __name__ == "__main__":
     main()

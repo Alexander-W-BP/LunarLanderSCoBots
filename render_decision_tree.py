@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier, export_text
 import joblib
 import os
 import warnings
@@ -43,6 +43,19 @@ def preprocess_state(state, scaler, pca, selected_features):
     
     return state_pca
 
+def print_decision_tree_text(tree, feature_names):
+    """
+    Gibt den Entscheidungsbaum als Text aus.
+
+    Args:
+        tree: Das geladene DecisionTreeClassifier-Modell.
+        feature_names: Die Namen der Features, die im Baum verwendet werden.
+    """
+    tree_rules = export_text(tree, feature_names=feature_names)
+    print("----- Entscheidungsbaum -----")
+    print(tree_rules)
+    print("-----------------------------\n")
+
 def main():
     # Pfad zum Verzeichnis, in dem die Modelle und Preprocessing-Artefakte gespeichert sind
     MODEL_DIR = "decision_trees"  # Passe diesen Pfad bei Bedarf an
@@ -63,7 +76,7 @@ def main():
         return
 
     # Laden des Decision Trees mit Tiefe 3
-    tree_path = os.path.join(MODEL_DIR, 'decision_tree_depth_3.joblib')
+    tree_path = os.path.join(MODEL_DIR, 'decision_tree_depth_3_168.63.joblib')
     if not os.path.exists(tree_path):
         print(f"Decision Tree mit Tiefe 3 nicht gefunden unter '{tree_path}'. Stelle sicher, dass die Datei existiert.")
         return
@@ -83,6 +96,10 @@ def main():
 
     for episode in range(1, num_episodes + 1):
         print(f"\nEpisode {episode}/{num_episodes} startet...")
+        
+        # Ausgabe des Entscheidungsbaums bei jedem Episodenstart
+        print_decision_tree_text(tree, selected_features)
+        
         reset_output = env.reset()
         if isinstance(reset_output, tuple):
             state, _ = reset_output  # Entpacken des Tupels (state, info)
@@ -101,7 +118,7 @@ def main():
             action_pred = tree.predict(state_pca)[0]
             action = int(action_pred)  # Aktionen sind diskret (0, 1, 2, 3)
             action = np.clip(action, 0, env.action_space.n - 1)  # Sicherstellen, dass Aktion gültig ist
-            
+
             # Aktion ausführen
             step_output = env.step(action)
             if len(step_output) == 5:
