@@ -7,9 +7,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
-from sklearn.tree import DecisionTreeClassifier  # Standard Decision Tree
+from sklearn.tree import DecisionTreeClassifier, export_text  # Standard Decision Tree
 import warnings
 import joblib
+import os
 
 # Suppress warnings for cleaner output
 warnings.filterwarnings("ignore")
@@ -165,7 +166,7 @@ def apply_pca(X, variance_threshold=0.95):
 # Schritt 5: Training der Decision Trees
 # ---------------------------
 
-def train_decision_trees(X_train, y_train, depths=range(1,31)):
+def train_decision_trees(X_train, y_train, depths=range(1,6)):
     """
     Trainiert Decision Trees mit unterschiedlichen Tiefen.
 
@@ -290,20 +291,39 @@ def main():
     
     print(f"Trainingsdaten: {X_train.shape[0]} Zeilen, Testdaten: {X_test.shape[0]} Zeilen.")
     
-    trees = train_decision_trees(X_train, y_train, depths=range(1,31))
+    trees = train_decision_trees(X_train, y_train, depths=range(1,6))
+    
     
     # Schritt 7: Evaluation der Decision Trees
     print("\nSchritt 7: Evaluation der Decision Trees im LunarLander-Umfeld...")
-    depths = range(1,31)
+    depths = range(1, 6)
     evaluated_mean_rewards = []
-    
+
+    MODEL_SAVE_DIR = "decision_trees"
+    os.makedirs(MODEL_SAVE_DIR, exist_ok=True)
+
     for idx, tree in enumerate(trees):
         depth = depths[idx]
         print(f"\nEvaluierung von Decision Tree mit Tiefe {depth}...")
         mean_reward = evaluate_tree_policy(tree, scaler, pca, env, selected_features, num_episodes=100, max_steps=1000)
         evaluated_mean_rewards.append(mean_reward)
         print(f"Decision Tree mit Tiefe {depth}: Mean Reward = {mean_reward}")
-    
+
+        # --- Speichern des Entscheidungsbaums als Textdatei ---
+        tree_text = export_text(tree, feature_names=list(selected_features))
+        with open(f'decision_tree_depth_{depth}.txt', 'w') as f:
+            f.write(tree_text)
+        print(f"Entscheidungsbaum mit Tiefe {depth} in 'decision_tree_depth_{depth}.txt' gespeichert.")
+
+            # --- Speichern des Entscheidungsbaums als Joblib-Datei ---
+        joblib.dump(tree, os.path.join(MODEL_SAVE_DIR, f'decision_tree_depth_{depth}.joblib'))
+        print(f"Entscheidungsbaum mit Tiefe {depth} als Joblib-Datei gespeichert.")
+
+    # --- Speichern der Preprocessing-Artefakte ---
+    joblib.dump(scaler, os.path.join(MODEL_SAVE_DIR, 'scaler.joblib'))
+    joblib.dump(pca, os.path.join(MODEL_SAVE_DIR, 'pca.joblib'))
+    joblib.dump(selected_features, os.path.join(MODEL_SAVE_DIR, 'selected_features.joblib'))
+    print("Preprocessing-Artefakte (Scaler, PCA, ausgewählte Features) gespeichert.")
     env.close()
     
     # Schritt 8: Plot der Ergebnisse
