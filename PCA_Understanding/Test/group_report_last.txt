@@ -1,0 +1,73 @@
+Gruppenanalyse: y_vx_vy_theta_v_theta
+Durchschnittlicher Reward: -65.02 � 125.61
+Einzelne Iterationen:
+
+Iteration 1 (Reward: 21.20)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta
+
+Iteration 2 (Reward: -366.66)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta
+
+Iteration 3 (Reward: 91.02)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta
+
+Iteration 4 (Reward: -59.63)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta
+
+Iteration 5 (Reward: 84.42)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta
+
+Iteration 6 (Reward: -54.26)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta
+
+Iteration 7 (Reward: -107.62)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta
+
+Iteration 8 (Reward: -93.18)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta
+
+Iteration 9 (Reward: -150.90)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta
+
+Iteration 10 (Reward: -14.55)
+PC1: -0.3014*y + 0.6424*vx + 0.3522*vy + 0.4882*theta + 0.3662*v_theta
+PC2: 0.6402*y + 0.2786*vx + -0.6092*vy + 0.3196*theta + 0.1980*v_theta
+PC3: -0.0329*y + -0.0095*vx + -0.0719*vy + -0.5695*theta + 0.8181*v_theta
+PC4: 0.7001*y + -0.0694*vx + 0.7068*vy + -0.0351*theta + 0.0651*v_theta
+PC5: 0.0894*y + 0.7105*vx + -0.0115*vy + -0.5779*theta + -0.3914*v_theta

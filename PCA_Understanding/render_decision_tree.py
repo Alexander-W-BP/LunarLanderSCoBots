@@ -194,9 +194,8 @@ def main():
         scaler = joblib.load(os.path.join(MODEL_DIR, 'scaler.joblib'))
         pca = joblib.load(os.path.join(MODEL_DIR, 'pca.joblib'))
         selected_features = joblib.load(os.path.join(MODEL_DIR, 'selected_features.joblib'))
-        print("Preprocessing-Artefakte erfolgreich geladen.\n")
     except Exception as e:
-        print(f"Fehler beim Laden der Preprocessing-Artefakte: {e}")
+        print(f"[FEHLER] Typ: {type(e).__name__}, Nachricht: {str(e)}")
         return
 
     # Laden des Decision Trees mit Tiefe 3

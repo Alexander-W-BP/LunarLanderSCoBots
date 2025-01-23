@@ -1,0 +1,73 @@
+Gruppenanalyse: x_y_vx_theta_v_theta
+Durchschnittlicher Reward: -489.74 ± 54.76
+Einzelne Iterationen:
+
+Iteration 1 (Reward: -490.46)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
+
+Iteration 2 (Reward: -489.95)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
+
+Iteration 3 (Reward: -432.31)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
+
+Iteration 4 (Reward: -590.99)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
+
+Iteration 5 (Reward: -433.88)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
+
+Iteration 6 (Reward: -442.26)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
+
+Iteration 7 (Reward: -508.42)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
+
+Iteration 8 (Reward: -585.17)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
+
+Iteration 9 (Reward: -456.46)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
+
+Iteration 10 (Reward: -467.47)
+PC1: 0.5125*x + -0.0377*y + 0.4928*vx + 0.6870*theta + 0.1454*v_theta
+PC2: -0.4963*x + 0.0632*y + 0.4955*vx + -0.1295*theta + 0.6981*v_theta
+PC3: -0.0498*x + 0.9869*y + -0.0188*vx + 0.1236*theta + -0.0885*v_theta
+PC4: 0.4614*x + 0.0866*y + -0.5442*vx + -0.0949*theta + 0.6888*v_theta
+PC5: -0.5251*x + -0.1141*y + -0.4638*vx + 0.6978*theta + 0.0958*v_theta
