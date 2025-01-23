@@ -19,12 +19,11 @@ def transform_obs_4meta(obs):
 
 def transform_obs_custom(obs):
     x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2 = obs
-    vertical_state = y_space + 0.5 * vel_y_space
-    rotational_state = angle + 0.5 * angular_vel
-    horizontal_state = x_space + 0.5 * vel_x_space
-    leg_contact = leg_1 + leg_2
+    pc2 = 0.5 * y_space - 0.5 * vel_y_space
+    pc4 = 0.7 * vel_y_space + 0.7 * y_space
+    pc5 = 0.7 * vel_x_space - 0.5 * angle - 0.4 * angular_vel
     return np.array([
-        y_space, vel_y_space, vertical_state, angle, rotational_state, horizontal_state, angular_vel, leg_contact
+        y_space, vel_x_space, vel_y_space, angle, angular_vel, pc2, pc4, pc5
     ], dtype=np.float32)
 
 def evaluate_tree(env, clf, transform_func=None, n_episodes=10, max_steps=1000):
