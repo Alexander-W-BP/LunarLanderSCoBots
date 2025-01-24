@@ -1,3 +1,5 @@
+# train_original_features.py
+
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier
@@ -5,35 +7,27 @@ import gymnasium as gym
 from stable_baselines3 import PPO
 import os
 import joblib
+from tqdm import tqdm  # Importiere tqdm für Fortschrittsbalken
 
 def load_model(model_path):
     return PPO.load(model_path)
 
 def transform_obs_4meta(obs):
     x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2 = obs
-    # Original features
+    # Originale Features
     return np.array([
         x_space, y_space, vel_x_space, vel_y_space,
         angle, angular_vel, leg_1, leg_2
     ], dtype=np.float32)
 
-def transform_obs_custom(obs):
-    x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2 = obs
-    pc2 = 0.5 * y_space - 0.5 * vel_y_space
-    pc4 = 0.7 * vel_y_space + 0.7 * y_space
-    pc5 = 0.7 * vel_x_space - 0.5 * angle - 0.4 * angular_vel
-    return np.array([
-       x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2, pc2, pc4, pc5
-    ], dtype=np.float32)
-
-def evaluate_tree(env, clf, transform_func=None, n_episodes=10, max_steps=1000):
+def evaluate_tree(env, clf, transform_func=None, n_episodes=50, max_steps=1000):
     """
     Führt n_episodes lang den Decision Tree in env aus.
     Gibt (mean_reward, std_reward) zurück.
     """
     rewards = []
-    for ep in range(n_episodes):
-        obs = env.reset()[0]
+    for ep in tqdm(range(n_episodes), desc="Evaluating Episodes", leave=False):
+        obs = env.reset(seed=None)[0]
         total_r = 0.0
         for _ in range(max_steps):
             if transform_func:
@@ -51,28 +45,27 @@ def evaluate_tree(env, clf, transform_func=None, n_episodes=10, max_steps=1000):
     return np.mean(rewards), np.std(rewards)
 
 def gather_performance(model_path, env_name, transform_func=None,
-                       num_samples=10000, n_episodes=10, seeds=[0,1,2,3]):
+                       num_samples=10000, n_episodes=50, seeds=list(range(6))):
     """
     - Sammelt num_samples Daten mithilfe des PPO-Modells.
-    - Trainiert Decision Trees (max_depth=1..30).
+    - Trainiert Decision Trees (max_depth=1..15).
     - Für jedes Modell und jeden Seed wird evaluate_tree(...) aufgerufen (n_episodes pro Seed).
     - Mittelt über alle Seeds => finaler mean Reward + std.
     """
-    from sklearn.model_selection import train_test_split
     from sklearn.tree import DecisionTreeClassifier
 
     # ---- Daten sammeln mit PPO ----
     env = gym.make(env_name)
     model = load_model(model_path)
     obs_list, act_list = [], []
-    obs = env.reset()[0]
-    for _ in range(num_samples):
+    obs = env.reset(seed=None)[0]
+    for _ in tqdm(range(num_samples), desc="Collecting Data", leave=False):
         action, _ = model.predict(obs, deterministic=True)
         obs_list.append(obs)
         act_list.append(action)
         obs, _, done, _, _ = env.step(action)
         if done:
-            obs = env.reset()[0]
+            obs = env.reset(seed=None)[0]
 
     obs_list = np.array(obs_list)
     act_list = np.array(act_list)
@@ -81,7 +74,7 @@ def gather_performance(model_path, env_name, transform_func=None,
         obs_list = np.array([transform_func(o) for o in obs_list])
 
     # -> Hier kein Split, da wir nur Reward messen (oder optional 100% train)
-    depths = range(1, 13)
+    depths = range(1, 16)
     mean_rewards = []
     std_rewards = []
     best_tree = None
@@ -89,13 +82,13 @@ def gather_performance(model_path, env_name, transform_func=None,
 
     eval_env = gym.make(env_name)
 
-    for depth in depths:
+    for depth in tqdm(depths, desc="Training Trees"):
         clf = DecisionTreeClassifier(max_depth=depth, random_state=0)
         clf.fit(obs_list, act_list)
 
         # Mehrere Seeds -> Mittelwert
         all_seeds_rewards = []
-        for s in seeds:
+        for s in tqdm(seeds, desc=f"Evaluating Depth {depth}", leave=False):
             eval_env.reset(seed=s)  # setze seed
             mr, _ = evaluate_tree(eval_env, clf, transform_func=transform_func,
                                  n_episodes=n_episodes, max_steps=1000)
@@ -115,31 +108,21 @@ def gather_performance(model_path, env_name, transform_func=None,
     return depths, mean_rewards, std_rewards, best_tree, best_tree_depth
 
 def main():
-    MODEL_PATH = "models/ppo-LunarLander-v3/best_model.zip" # Passe den Pfad an!
+    MODEL_PATH = "models/ppo-LunarLander-v3/best_model.zip"  # Passe den Pfad an!
     ENV_NAME = "LunarLander-v3"
-    OUTPUT_DIR = "decision_tree_models"
+    OUTPUT_DIR = "decision_tree_models_original"
 
     # Stelle sicher, dass das Ausgabeverzeichnis existiert
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    # ---- (A) Originale Features
-    depths_orig, rew_orig, std_orig, _, _ = gather_performance(
+    # ---- Originale Features
+    depths_orig, rew_orig, std_orig, best_tree, best_tree_depth = gather_performance(
         model_path=MODEL_PATH,
         env_name=ENV_NAME,
         transform_func=transform_obs_4meta,
         num_samples=10000,
-        n_episodes=20,
-        seeds=[0, 1, 2]
-    )
-
-    # ---- (B)  Meta-Features (vel_y_space, y_space, angle, rotational_state, horizontal_state, angular_vel, leg_contact)
-    depths_custom, rew_custom, std_custom, best_tree, best_tree_depth = gather_performance(
-        model_path=MODEL_PATH,
-        env_name=ENV_NAME,
-        transform_func=transform_obs_custom,
-        num_samples=10000,
-        n_episodes=20,
-        seeds=[0, 1, 2]
+        n_episodes=50,  # Erhöht von 20 auf 50
+        seeds=list(range(6))  # Erhöht von [0,1,2] auf [0,1,2,3,4,5]
     )
 
     # Speichere den besten Baum
@@ -150,17 +133,27 @@ def main():
     else:
         print("Kein Baum mit einem mittleren Reward über 100 gefunden.")
 
+    # Speichere die Performance-Daten
+    performance_data = {
+        "depths": depths_orig,
+        "mean_rewards": rew_orig,
+        "std_rewards": std_orig
+    }
+    performance_filename = os.path.join(OUTPUT_DIR, "performance_original_features.joblib")
+    joblib.dump(performance_data, performance_filename)
+    print(f"Performance-Daten gespeichert in '{performance_filename}'.")
+
     # Plot der Ergebnisse
-    import matplotlib.pyplot as plt
     plt.figure(figsize=(8,6))
     plt.errorbar(depths_orig, rew_orig, yerr=std_orig, marker='o', label="Originale Features", capsize=3)
-    plt.errorbar(depths_custom, rew_custom, yerr=std_custom, marker='o', label="Neues Set an Features", capsize=3)
     plt.xlabel("Tree Depth")
     plt.ylabel("Mean Reward (mehrere Seeds x Epis)")
-    plt.title("Decision Tree: Mean Reward vs. Max Depth (LunarLander-v3)")
+    plt.title("Decision Tree: Mean Reward vs. Max Depth (LunarLander-v3) - Original Features")
     plt.grid(True)
     plt.legend()
-    plt.savefig("compare_mean_reward_original_vs_custom.png")
+    plot_filename = os.path.join(OUTPUT_DIR, "mean_reward_original_features.png")
+    plt.savefig(plot_filename)
+    print(f"Plot gespeichert als '{plot_filename}'.")
     plt.show()
 
 if __name__ == "__main__":

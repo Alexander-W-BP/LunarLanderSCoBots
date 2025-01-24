@@ -276,7 +276,7 @@ def main():
 
     # Schritt 4: Feature Selection (Random Forest)
     print("\nSchritt 4: Feature Selection...")
-    X_selected, selected_features = feature_selection(df, top_k=5, target='action')
+    X_selected, selected_features = feature_selection(df, top_k=4, target='action')
     
     # Schritt 5: Dimensionsreduktion mit PCA
     print("\nSchritt 5: Dimensionsreduktion mit PCA...")
