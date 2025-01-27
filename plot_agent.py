@@ -204,7 +204,8 @@ def main():
     print(f"Lade {algorithm}-Modell...")
     model = load_model(algorithm, model_dir)
 
-    plot_model_overview(model)
+    plot_model_detail_view(model)
+    #plot_model_overview(model)
 
 if __name__ == "__main__":
     main()
