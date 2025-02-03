@@ -7,6 +7,8 @@ import gymnasium as gym
 from stable_baselines3 import PPO
 import os
 import joblib
+import re
+import pandas
 from tqdm import tqdm  # Importiere tqdm für Fortschrittsbalken
 
 def load_model(model_path):
@@ -55,6 +57,8 @@ def gather_performance_custom(model_path, env_name, transform_func=None,
     """
     from sklearn.tree import DecisionTreeClassifier
 
+    MEAN_REWARD_THRESHOLD = 100
+
     # ---- Daten sammeln mit PPO ----
     env = gym.make(env_name)
     model = load_model(model_path)
@@ -80,6 +84,7 @@ def gather_performance_custom(model_path, env_name, transform_func=None,
     std_rewards = []
     best_tree = None
     best_tree_depth = -1
+    trees_above_threshold_with_depths = []
 
     eval_env = gym.make(env_name)
 
@@ -102,15 +107,19 @@ def gather_performance_custom(model_path, env_name, transform_func=None,
         std_rewards.append(all_seeds_rewards.std())
 
         # Überprüfe, ob der aktuelle Baum der bisher beste ist
-        if current_mean_reward > 100 and (best_tree is None or depth < best_tree_depth):
+        if current_mean_reward > MEAN_REWARD_THRESHOLD and (best_tree is None or depth < best_tree_depth):
             best_tree = clf
             best_tree_depth = depth
+        
+        # Alle Bäume mit mean reward über Threshold speichern
+        if current_mean_reward > MEAN_REWARD_THRESHOLD:
+            trees_above_threshold_with_depths.append((clf, depth))
 
-    return depths, mean_rewards, std_rewards, best_tree, best_tree_depth
+    return depths, mean_rewards, std_rewards, best_tree, trees_above_threshold_with_depths
 
 def main():
-    MODEL_PATH = "models/ppo-LunarLander-v3/best_model.zip"  # Passe den Pfad an!
-    ENV_NAME = "LunarLander-v3"
+    MODEL_PATH = "models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip"  # Passe den Pfad an!
+    ENV_NAME = "LunarLander-v2"
     OUTPUT_DIR_ORIG = "decision_tree_models_original"
     OUTPUT_DIR_CUSTOM = "decision_tree_models_custom"
 
@@ -129,33 +138,46 @@ def main():
     std_orig = performance_data_orig["std_rewards"]
 
     # ---- Benutzerdefinierte Features
-    depths_custom, rew_custom, std_custom, best_tree, best_tree_depth = gather_performance_custom(
+    depths_custom, rew_custom, std_custom, best_tree, trees_above_threshold = gather_performance_custom(
         model_path=MODEL_PATH,
         env_name=ENV_NAME,
         transform_func=transform_obs_custom,
         num_samples=10000,
-        n_episodes=30,  # Erhöht von 30 auf 30
+        n_episodes=500,  # Erhöht von 30 auf 500
         seeds=list(range(6))  # Beibehalten von [0,1,2,3,4,5]
     )
 
-    # Speichere den besten Baum für custom Features
-    if best_tree is not None:
-        # Speichere den Baum mit joblib
-        best_tree_filename = os.path.join(OUTPUT_DIR_CUSTOM, f"best_tree_depth_{best_tree_depth}.joblib")
-        joblib.dump(best_tree, best_tree_filename)
-        print(f"Der beste Baum (Tiefe {best_tree_depth}) wurde in '{best_tree_filename}' gespeichert.")
-
-        # Exportiere den Baum als Textdatei
-        tree_text = export_text(best_tree, feature_names=[
+    # Speichere die besten Bäume
+    max_num = 0
+    pattern = re.compile(r'^run_(\d+)$')
+    for entry in os.listdir(OUTPUT_DIR_CUSTOM):
+        print(entry)
+        if os.path.isdir(os.path.join(OUTPUT_DIR_CUSTOM, entry)):
+            match = pattern.match(entry)
+            if match:
+                folder_num = int(match.group(1))
+                max_num = max(max_num, folder_num)
+    
+    run_folder = f"run_{max_num + 1}"
+    TREE_FOLDER = "trees"
+    os.makedirs(os.path.join(OUTPUT_DIR_CUSTOM, run_folder, TREE_FOLDER), exist_ok=True)
+    
+    for tree, depth in trees_above_threshold:
+        tree_text = export_text(tree, feature_names=[
             "x_space", "y_space", "vel_x_space", "vel_y_space",
             "angle", "angular_vel", "leg_1", "leg_2", "pc2", "pc4", "pc5"
         ])
-        best_tree_text_filename = os.path.join(OUTPUT_DIR_CUSTOM, f"best_tree_depth_{best_tree_depth}.txt")
-        with open(best_tree_text_filename, "w") as f:
+    
+        if tree == best_tree:
+            filename = os.path.join(OUTPUT_DIR_CUSTOM, run_folder, TREE_FOLDER, f"best_tree_depth_{depth}.joblib")
+            tree_text_filename = os.path.join(OUTPUT_DIR_CUSTOM, run_folder, TREE_FOLDER, f"best_tree_depth_{depth}.txt")
+        else:
+            filename = os.path.join(OUTPUT_DIR_CUSTOM, run_folder, TREE_FOLDER, f"good_tree_depth_{depth}.joblib")
+            tree_text_filename = os.path.join(OUTPUT_DIR_CUSTOM, run_folder, TREE_FOLDER, f"good_tree_depth_{depth}.txt")
+        
+        joblib.dump(tree, filename)
+        with open(tree_text_filename, "w") as f:
             f.write(tree_text)
-        print(f"Der beste Baum (Tiefe {best_tree_depth}) wurde auch als Textdatei in '{best_tree_text_filename}' gespeichert.")
-    else:
-        print("Kein Baum mit einem mittleren Reward über 100 gefunden.")
 
     # Speichere die Performance-Daten für custom Features
     performance_data_custom = {
@@ -163,9 +185,13 @@ def main():
         "mean_rewards": rew_custom,
         "std_rewards": std_custom
     }
-    performance_filename_custom = os.path.join(OUTPUT_DIR_CUSTOM, "performance_custom_features.joblib")
+    performance_filename_custom = os.path.join(OUTPUT_DIR_CUSTOM, run_folder, "performance_custom_features.joblib")
     joblib.dump(performance_data_custom, performance_filename_custom)
-    print(f"Performance-Daten gespeichert in '{performance_filename_custom}'.")
+
+    # Speichere die Performance-Daten als CSV-Datei
+    performance_df = pandas.DataFrame(performance_data_custom)
+    csv_filename = os.path.join(OUTPUT_DIR_CUSTOM, run_folder, "performance_custom_features.csv")
+    performance_df.to_csv(csv_filename, index=False)
 
     # Plot der Ergebnisse
     plt.figure(figsize=(8,6))
@@ -173,10 +199,10 @@ def main():
     plt.errorbar(depths_custom, rew_custom, yerr=std_custom, marker='s', label="Benutzerdefinierte Features", capsize=3)
     plt.xlabel("Tree Depth")
     plt.ylabel("Mean Reward (mehrere Seeds x Epis)")
-    plt.title("Decision Tree: Mean Reward vs. Max Depth (LunarLander-v3)")
+    plt.title("Decision Tree: Mean Reward vs. Max Depth (LunarLander-v2)")
     plt.grid(True)
     plt.legend()
-    plot_filename = os.path.join(OUTPUT_DIR_CUSTOM, "compare_mean_reward_original_vs_custom.png")
+    plot_filename = os.path.join(OUTPUT_DIR_CUSTOM, run_folder, "compare_mean_reward_original_vs_custom.png")
     plt.savefig(plot_filename)
     print(f"Vergleichsplot gespeichert als '{plot_filename}'.")
     plt.show()
