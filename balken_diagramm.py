@@ -36,6 +36,16 @@ def plot_rewards_comparison(files_to_compare):
             "label": "Meta-Features",
             "color": "#d62728"
         },
+        "plot_features": {
+            "path": "rewards/plot_features.csv",
+            "label": "Plot-Features",
+            "color": "#9467bd"
+        },
+        "top5": {
+            "path": "rewards/top_5.csv",
+            "label": "Top-5",
+            "color": "#8c564b"
+        },
     }
     
     # Ausgewählte Einträge filtern
@@ -58,7 +68,9 @@ def plot_rewards_comparison(files_to_compare):
     # Vorbereitung für mehrere Balken
     n = len(chosen)         # Anzahl der ausgewählten Dateien
     bar_width = 0.8 / n     # Gemeinsame Balkenbreite, damit alle Platz finden
-    offset = np.linspace(-0.5 + bar_width/2, 0.5 - bar_width/2, n)
+    total_width = 0.8
+    bar_width = total_width / n
+    offset = (np.arange(n) - (n - 1) / 2) * bar_width
     
     # Balken für jede gewählte CSV-Datei (mit Fehlerbalken)
     for i, info in enumerate(chosen):
@@ -86,6 +98,8 @@ def plot_rewards_comparison(files_to_compare):
     
     # Titel (optional anpassbar)
     ax.set_title('Vergleich der Methoden nach Tiefe')
+    ax.axhline(y=100, color='gray', linestyle='--', linewidth=1)
+    ax.axhline(y=200, color='gray', linestyle='--', linewidth=1)
     
     # Legende
     ax.legend()
@@ -97,7 +111,7 @@ if __name__ == '__main__':
     # Hier stellst du flexibel ein, was du vergleichen willst:
     # Beispiele:
     #files_to_compare = ["original_features"]  # Nur Original Features
-    files_to_compare = ["only_pca", "original_features", "meta_features"]  # Only PCA und Meta-Features
+    files_to_compare = ["plot_features", "only_pca"]  # Only PCA und Meta-Features
     #files_to_compare = ["original_features", "llm_features", "only_pca"]  # Drei Methoden
     #files_to_compare = ["original_features", "llm_features", "only_pca", "meta_features"]  # Alle vier
     
