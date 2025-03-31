@@ -31,6 +31,14 @@ def transform_obs_custom(obs):
     o_pc4 = 0.7093*vel_y_space + 0.6914*y_space + 0.0864*angular_vel + -0.1054*vel_x_space + 0.0174*angle
     o_pc5 = 0.0310*vel_y_space + 0.1400*y_space + -0.3979*angular_vel + 0.7080*vel_x_space + -0.5655*angle
 
+    # Plots-Features
+    adjusted_angle = angle - 0.4 * vel_x_space
+    adjusted_v_angle = angular_vel - 0.5 * vel_x_space
+    meta_vx_vy = vel_y_space - 0.6 * vel_x_space
+    meta_angle_vy = angle + 0.8 * vel_y_space
+    meta_vangle_vy = angular_vel + 0.8 * vel_y_space
+    meta_angle_v_angle = angular_vel + 0.9 * angle
+
     # ChatGpt recommended features
     #Interaction Features
     speed = math.sqrt(math.pow(vel_x_space, 2) + math.pow(vel_y_space, 2))
@@ -81,6 +89,15 @@ def transform_obs_custom(obs):
         return np.array([
             o_pc1, o_pc2, o_pc3, o_pc4, o_pc5
         ], dtype=np.float32)
+    elif EXPERIMENT_NAME == Experiment.PLOTS_FEATURES_FULL.value:
+        return np.array([
+            adjusted_angle, adjusted_v_angle, meta_vx_vy, meta_angle_vy, meta_vangle_vy, meta_angle_v_angle,
+            x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2
+        ], dtype=np.float32)
+    elif EXPERIMENT_NAME == Experiment.PLOTS_FEATURES_ONLY.value:
+        return np.array([
+            adjusted_angle, adjusted_v_angle, meta_vx_vy, meta_angle_vy, meta_vangle_vy, meta_angle_v_angle
+        ], dtype=np.float32)
     else:
         raise Exception("The features of the following experiment were not defined: " + EXPERIMENT_NAME)
 
@@ -120,6 +137,15 @@ def get_tree_text(tree):
     elif EXPERIMENT_NAME == Experiment.TOP5.value:
         return export_text(tree, feature_names=[
             "o_pc1", "o_pc2", "o_pc3", "o_pc4", "o_pc5"
+        ])
+    elif EXPERIMENT_NAME == Experiment.PLOTS_FEATURES_FULL.value:
+        return export_text(tree, feature_names=[
+            "adjusted_angle", "adjusted_v_angle", "meta_vx_vy", "meta_angle_vy", "meta_vangle_vy", "meta_angle_v_angle",
+            "x_space", "y_space", "vel_x_space", "vel_y_space", "angle", "angular_vel", "leg_1", "leg_2"
+        ])
+    elif EXPERIMENT_NAME == Experiment.PLOTS_FEATURES_ONLY.value:
+        return export_text(tree, feature_names=[
+            "adjusted_angle", "adjusted_v_angle", "meta_vx_vy", "meta_angle_vy", "meta_vangle_vy", "meta_angle_v_angle"
         ])
     else:
         raise Exception("The features of the following experiment were not defined: " + EXPERIMENT_NAME)
@@ -236,8 +262,11 @@ class Experiment(Enum):
     TOP5 = "top_5_features_only"
     ALL = "all_features"
     PCA_ORIGINAL = "original_pca_features"
+    PLOTS_FEATURES_FULL = "plots_features_full"
+    PLOTS_FEATURES_ONLY = "plots_features_only"
 
-EXPERIMENT_NAME = Experiment.PCA_ORIGINAL.value
+
+EXPERIMENT_NAME = Experiment.PLOTS_FEATURES_FULL.value
 
 def main():
     MODEL_PATH = "models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip"  # Passe den Pfad an!
