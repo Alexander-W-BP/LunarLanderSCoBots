@@ -1,0 +1,814 @@
+|--- vel_y_space <= -0.14
+|   |--- vel_y_space <= -0.21
+|   |   |--- angular_vel <= -0.00
+|   |   |   |--- pc4 <= 0.68
+|   |   |   |   |--- pc4 <= 0.55
+|   |   |   |   |   |--- pc5 <= -0.17
+|   |   |   |   |   |   |--- vel_y_space <= -0.23
+|   |   |   |   |   |   |   |--- angle <= 0.03
+|   |   |   |   |   |   |   |   |--- vel_angle <= 0.65
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_angle >  0.65
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angle >  0.03
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_y_space >  -0.23
+|   |   |   |   |   |   |   |--- horizontal_instability_factor <= 0.31
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.06
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.06
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- horizontal_instability_factor >  0.31
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate <= 0.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate >  0.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- pc5 >  -0.17
+|   |   |   |   |   |   |--- absolute_angular_vel <= 0.01
+|   |   |   |   |   |   |   |--- angle <= 0.04
+|   |   |   |   |   |   |   |   |--- horizontal_instability_factor <= 0.19
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- horizontal_instability_factor >  0.19
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angle >  0.04
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.04
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.04
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- absolute_angular_vel >  0.01
+|   |   |   |   |   |   |   |--- position_orientation_alignment <= 0.98
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy <= 0.00
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy >  0.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- position_orientation_alignment >  0.98
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- pc4 >  0.55
+|   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |--- vel_x_space <= -0.08
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.24
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.24
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy <= 0.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy >  0.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- vel_x_space >  -0.08
+|   |   |   |   |   |   |   |--- speed <= 0.23
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- speed >  0.23
+|   |   |   |   |   |   |   |   |--- angle <= -0.10
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angle >  -0.10
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |--- angle <= 0.12
+|   |   |   |   |   |   |   |--- absolute_angular_vel <= 0.04
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- absolute_angular_vel >  0.04
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.07
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.07
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- angle >  0.12
+|   |   |   |   |   |   |   |--- distance_to_center <= 1.17
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- distance_to_center >  1.17
+|   |   |   |   |   |   |   |   |--- angle <= 0.20
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- angle >  0.20
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |--- pc4 >  0.68
+|   |   |   |   |--- vel_y_space <= -0.23
+|   |   |   |   |   |--- vel_angle <= -0.45
+|   |   |   |   |   |   |--- pc5 <= -0.00
+|   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- pc5 >  -0.00
+|   |   |   |   |   |   |   |--- pc4 <= 0.82
+|   |   |   |   |   |   |   |   |--- pc5 <= 0.24
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc5 >  0.24
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- pc4 >  0.82
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- vel_angle >  -0.45
+|   |   |   |   |   |   |--- vel_y_space <= -0.25
+|   |   |   |   |   |   |   |--- vel_angle <= 0.52
+|   |   |   |   |   |   |   |   |--- pc5 <= -0.24
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc5 >  -0.24
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- vel_angle >  0.52
+|   |   |   |   |   |   |   |   |--- pc5 <= -0.24
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- pc5 >  -0.24
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- vel_y_space >  -0.25
+|   |   |   |   |   |   |   |--- angle <= -0.00
+|   |   |   |   |   |   |   |   |--- pc4 <= 0.73
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- pc4 >  0.73
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- angle >  -0.00
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- vel_y_space >  -0.23
+|   |   |   |   |   |--- x_space <= 0.08
+|   |   |   |   |   |   |--- pc5 <= -0.28
+|   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- pc5 >  -0.28
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.24
+|   |   |   |   |   |   |   |   |--- position_heading_dot_product <= -0.17
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- position_heading_dot_product >  -0.17
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.24
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- x_space >  0.08
+|   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.00
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.01
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.01
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.00
+|   |   |   |   |   |   |   |--- vel_x_space <= 0.32
+|   |   |   |   |   |   |   |   |--- pc2 <= 0.74
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- pc2 >  0.74
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- vel_x_space >  0.32
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |--- angular_vel >  -0.00
+|   |   |   |--- pc4 <= 0.50
+|   |   |   |   |--- pc5 <= -0.12
+|   |   |   |   |   |--- pc2 <= 0.38
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- pc2 >  0.38
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |--- pc5 >  -0.12
+|   |   |   |   |   |--- pc5 <= -0.03
+|   |   |   |   |   |   |--- distance_to_center <= 0.69
+|   |   |   |   |   |   |   |--- rotational_kinetic_energy <= 0.00
+|   |   |   |   |   |   |   |   |--- vel_angle <= 0.91
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_angle >  0.91
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- rotational_kinetic_energy >  0.00
+|   |   |   |   |   |   |   |   |--- pc4 <= 0.18
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc4 >  0.18
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- distance_to_center >  0.69
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.23
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy <= 0.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy >  0.00
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.23
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- pc5 >  -0.03
+|   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.01
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.23
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.23
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.01
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |--- absolute_angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |--- pc4 <= 0.47
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc4 >  0.47
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- absolute_angular_vel >  0.03
+|   |   |   |   |   |   |   |   |--- pc5 <= 0.10
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- pc5 >  0.10
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |--- pc4 >  0.50
+|   |   |   |   |--- vel_y_space <= -0.24
+|   |   |   |   |   |--- pc5 <= -0.07
+|   |   |   |   |   |   |--- vel_y_space <= -0.27
+|   |   |   |   |   |   |   |--- distance_to_center <= 1.38
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- distance_to_center >  1.38
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_y_space >  -0.27
+|   |   |   |   |   |   |   |--- position_heading_dot_product <= -0.58
+|   |   |   |   |   |   |   |   |--- x_space <= -0.32
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- x_space >  -0.32
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- position_heading_dot_product >  -0.58
+|   |   |   |   |   |   |   |   |--- angle <= -0.27
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angle >  -0.27
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- pc5 >  -0.07
+|   |   |   |   |   |   |--- pc5 <= 0.28
+|   |   |   |   |   |   |   |--- angular_vel <= 0.08
+|   |   |   |   |   |   |   |   |--- speed <= 0.26
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- speed >  0.26
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_vel >  0.08
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.26
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.26
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- pc5 >  0.28
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.32
+|   |   |   |   |   |   |   |   |--- angle <= -0.07
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angle >  -0.07
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.32
+|   |   |   |   |   |   |   |   |--- angle <= 0.05
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angle >  0.05
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- vel_y_space >  -0.24
+|   |   |   |   |   |--- vel_x_space <= -0.13
+|   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |--- pc4 <= 0.53
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.23
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.23
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- pc4 >  0.53
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- vel_x_space >  -0.13
+|   |   |   |   |   |   |--- pc4 <= 0.79
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |   |   |--- pc5 <= -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- pc5 >  -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |   |   |--- x_space <= 0.17
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- x_space >  0.17
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- pc4 >  0.79
+|   |   |   |   |   |   |   |--- pc5 <= 0.31
+|   |   |   |   |   |   |   |   |--- distance_to_center <= 1.38
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- distance_to_center >  1.38
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- pc5 >  0.31
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |--- vel_y_space >  -0.21
+|   |   |--- pc4 <= 0.32
+|   |   |   |--- pc5 <= -0.02
+|   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |--- pc4 <= 0.17
+|   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |--- position_heading_dot_product <= -0.03
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- position_heading_dot_product >  -0.03
+|   |   |   |   |   |   |   |   |--- pc5 <= -0.13
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc5 >  -0.13
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |--- pc5 <= -0.06
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- pc5 >  -0.06
+|   |   |   |   |   |   |   |   |--- kinetic_energy <= 0.02
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- kinetic_energy >  0.02
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- pc4 >  0.17
+|   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |--- pc5 <= -0.14
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- pc5 >  -0.14
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |--- angular_vel <= -0.03
+|   |   |   |   |   |   |   |   |--- pc5 <= -0.07
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- pc5 >  -0.07
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_vel >  -0.03
+|   |   |   |   |   |   |   |   |--- pc5 <= -0.05
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- pc5 >  -0.05
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |--- distance_to_center <= 0.26
+|   |   |   |   |   |   |   |--- x_space <= 0.14
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- x_space >  0.14
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- distance_to_center >  0.26
+|   |   |   |   |   |   |   |--- pc5 <= -0.08
+|   |   |   |   |   |   |   |   |--- distance_to_center <= 0.43
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- distance_to_center >  0.43
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- pc5 >  -0.08
+|   |   |   |   |   |   |   |   |--- vel_angle <= 1.25
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_angle >  1.25
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |--- distance_to_center <= 0.16
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- distance_to_center >  0.16
+|   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate <= 0.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate >  0.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |--- pc5 >  -0.02
+|   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |--- pc4 <= 0.15
+|   |   |   |   |   |   |--- angular_vel <= 0.04
+|   |   |   |   |   |   |   |--- speed <= 0.17
+|   |   |   |   |   |   |   |   |--- pc4 <= 0.11
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc4 >  0.11
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- speed >  0.17
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.04
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.04
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- angular_vel >  0.04
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |   |   |--- position_heading_dot_product <= 0.09
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- position_heading_dot_product >  0.09
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |   |   |--- position_heading_dot_product <= -0.03
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- position_heading_dot_product >  -0.03
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- pc4 >  0.15
+|   |   |   |   |   |   |--- kinetic_energy <= 0.02
+|   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |--- kinetic_energy <= 0.01
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- kinetic_energy >  0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |--- pc5 <= 0.02
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- pc5 >  0.02
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- kinetic_energy >  0.02
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |   |   |--- horizontal_instability_factor <= 0.02
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- horizontal_instability_factor >  0.02
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |   |   |--- pc2 <= 0.35
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc2 >  0.35
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |--- pc4 <= -0.01
+|   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |--- horizontal_instability_factor <= 0.01
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- horizontal_instability_factor >  0.01
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |--- pc5 <= 0.03
+|   |   |   |   |   |   |   |   |--- pc2 <= 0.11
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc2 >  0.11
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- pc5 >  0.03
+|   |   |   |   |   |   |   |   |--- absolute_angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- absolute_angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- pc4 >  -0.01
+|   |   |   |   |   |   |--- angle <= 0.02
+|   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- angle >  0.02
+|   |   |   |   |   |   |   |--- pc4 <= 0.22
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- pc4 >  0.22
+|   |   |   |   |   |   |   |   |--- pc5 <= 0.14
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- pc5 >  0.14
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |--- pc4 >  0.32
+|   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |   |--- pc2 <= 0.55
+|   |   |   |   |   |   |--- pc5 <= -0.09
+|   |   |   |   |   |   |   |--- y_space <= 0.75
+|   |   |   |   |   |   |   |   |--- vel_angle <= 0.78
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_angle >  0.78
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- y_space >  0.75
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy <= 0.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy >  0.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- pc5 >  -0.09
+|   |   |   |   |   |   |   |--- angle <= -0.09
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- angle >  -0.09
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- pc2 >  0.55
+|   |   |   |   |   |   |--- vel_x_space <= 0.07
+|   |   |   |   |   |   |   |--- angle <= 0.07
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- angle >  0.07
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy <= 0.00
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- rotational_kinetic_energy >  0.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- vel_x_space >  0.07
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.01
+|   |   |   |   |   |   |   |   |--- pc5 <= -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- pc5 >  -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.01
+|   |   |   |   |   |   |   |   |--- pc4 <= 0.67
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc4 >  0.67
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |   |--- position_heading_dot_product <= 0.15
+|   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |--- pc4 <= 0.90
+|   |   |   |   |   |   |   |   |--- horizontal_instability_factor <= 0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- horizontal_instability_factor >  0.01
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- pc4 >  0.90
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate <= 0.02
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate >  0.02
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |--- speed <= 0.19
+|   |   |   |   |   |   |   |   |--- angle <= -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angle >  -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- speed >  0.19
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.03
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.03
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- position_heading_dot_product >  0.15
+|   |   |   |   |   |   |--- absolute_angular_vel <= 0.06
+|   |   |   |   |   |   |   |--- position_heading_dot_product <= 0.47
+|   |   |   |   |   |   |   |   |--- pc5 <= 0.04
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- pc5 >  0.04
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- position_heading_dot_product >  0.47
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- absolute_angular_vel >  0.06
+|   |   |   |   |   |   |   |--- position_heading_dot_product <= 0.54
+|   |   |   |   |   |   |   |   |--- distance_to_center <= 0.76
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- distance_to_center >  0.76
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- position_heading_dot_product >  0.54
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |--- x_space <= -0.07
+|   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |--- pc5 <= 0.10
+|   |   |   |   |   |   |   |--- pc4 <= 0.41
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- pc4 >  0.41
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- pc5 >  0.10
+|   |   |   |   |   |   |   |--- rotational_kinetic_energy <= 0.00
+|   |   |   |   |   |   |   |   |--- pc4 <= 0.52
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc4 >  0.52
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- rotational_kinetic_energy >  0.00
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |--- speed <= 0.21
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- speed >  0.21
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate <= 0.00
+|   |   |   |   |   |   |   |   |--- position_heading_dot_product <= -0.44
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- position_heading_dot_product >  -0.44
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate >  0.00
+|   |   |   |   |   |   |   |   |--- speed <= 0.26
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- speed >  0.26
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |--- x_space >  -0.07
+|   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |--- horizontal_instability_factor <= 0.11
+|   |   |   |   |   |   |   |   |--- pc4 <= 0.45
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc4 >  0.45
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- horizontal_instability_factor >  0.11
+|   |   |   |   |   |   |   |   |--- pc5 <= 0.03
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- pc5 >  0.03
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |--- pc5 <= -0.00
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- pc5 >  -0.00
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 0.99
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  0.99
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |--- pc5 <= 0.28
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.00
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.00
+|   |   |   |   |   |   |   |   |--- vel_angle <= -1.45
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_angle >  -1.45
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- pc5 >  0.28
+|   |   |   |   |   |   |   |--- class: 1
+|--- vel_y_space >  -0.14
+|   |--- pc2 <= 0.01
+|   |   |--- pc5 <= -0.09
+|   |   |   |--- class: 3
+|   |   |--- pc5 >  -0.09
+|   |   |   |--- leg_2 <= 0.50
+|   |   |   |   |--- vel_angle <= -0.50
+|   |   |   |   |   |--- vel_x_space <= -0.01
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- vel_x_space >  -0.01
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- vel_angle >  -0.50
+|   |   |   |   |   |--- angular_vel <= 0.15
+|   |   |   |   |   |   |--- pc5 <= 0.02
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- pc5 >  0.02
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- angular_vel >  0.15
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |--- leg_2 >  0.50
+|   |   |   |   |--- angular_vel <= -0.17
+|   |   |   |   |   |--- distance_to_center <= 0.13
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- distance_to_center >  0.13
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- angular_vel >  -0.17
+|   |   |   |   |   |--- x_space <= -0.03
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- x_space >  -0.03
+|   |   |   |   |   |   |--- class: 0
+|   |--- pc2 >  0.01
+|   |   |--- pc5 <= -0.10
+|   |   |   |--- angle <= -0.02
+|   |   |   |   |--- pc5 <= -0.29
+|   |   |   |   |   |--- class: 3
+|   |   |   |   |--- pc5 >  -0.29
+|   |   |   |   |   |--- angular_vel <= -0.16
+|   |   |   |   |   |   |--- horizontal_instability_factor <= 0.62
+|   |   |   |   |   |   |   |--- pc5 <= -0.27
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- pc5 >  -0.27
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- horizontal_instability_factor >  0.62
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- angular_vel >  -0.16
+|   |   |   |   |   |   |--- pc5 <= -0.13
+|   |   |   |   |   |   |   |--- rotational_kinetic_energy <= 0.00
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- rotational_kinetic_energy >  0.00
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- pc5 >  -0.13
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |--- angle >  -0.02
+|   |   |   |   |--- pc2 <= 0.70
+|   |   |   |   |   |--- class: 3
+|   |   |   |   |--- pc2 >  0.70
+|   |   |   |   |   |--- horizontal_instability_factor <= 0.25
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- horizontal_instability_factor >  0.25
+|   |   |   |   |   |   |--- class: 3
+|   |   |--- pc5 >  -0.10
+|   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |   |--- distance_to_center <= 0.17
+|   |   |   |   |   |   |--- pc5 <= -0.00
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |   |--- absolute_angular_vel <= 0.02
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- absolute_angular_vel >  0.02
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- pc5 >  -0.00
+|   |   |   |   |   |   |   |--- speed <= 0.13
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- speed >  0.13
+|   |   |   |   |   |   |   |   |--- pc4 <= -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- pc4 >  -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- distance_to_center >  0.17
+|   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.00
+|   |   |   |   |   |   |   |--- pc5 <= 0.10
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- pc5 >  0.10
+|   |   |   |   |   |   |   |   |--- y_space <= 0.40
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- y_space >  0.40
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.00
+|   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |--- y_space <= 1.04
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- y_space >  1.04
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |   |--- pc5 <= 0.10
+|   |   |   |   |   |   |--- horizontal_instability_factor <= 0.15
+|   |   |   |   |   |   |   |--- angular_vel <= -0.03
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.03
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.03
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angular_vel >  -0.03
+|   |   |   |   |   |   |   |   |--- distance_to_center <= 0.19
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- distance_to_center >  0.19
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- horizontal_instability_factor >  0.15
+|   |   |   |   |   |   |   |--- pc5 <= -0.07
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- pc5 >  -0.07
+|   |   |   |   |   |   |   |   |--- absolute_angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- absolute_angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- pc5 >  0.10
+|   |   |   |   |   |   |--- angular_acceleration_estimate <= -0.00
+|   |   |   |   |   |   |   |--- pc4 <= -0.05
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- pc4 >  -0.05
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angular_acceleration_estimate >  -0.00
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |--- pc5 <= 0.27
+|   |   |   |   |   |--- rotational_kinetic_energy <= 0.00
+|   |   |   |   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |   |   |   |--- y_space <= 0.08
+|   |   |   |   |   |   |   |   |--- absolute_angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- absolute_angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- y_space >  0.08
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |   |   |   |--- pc4 <= 1.11
+|   |   |   |   |   |   |   |   |--- pc4 <= -0.08
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- pc4 >  -0.08
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- pc4 >  1.11
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- rotational_kinetic_energy >  0.00
+|   |   |   |   |   |   |--- pc4 <= 1.22
+|   |   |   |   |   |   |   |--- pc4 <= -0.03
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate <= 0.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_acceleration_estimate >  0.00
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- pc4 >  -0.03
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment <= 1.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- position_orientation_alignment >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- pc4 >  1.22
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- pc5 >  0.27
+|   |   |   |   |   |--- class: 1

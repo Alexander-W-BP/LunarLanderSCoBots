@@ -16,13 +16,20 @@ from tqdm import tqdm  # Importiere tqdm für Fortschrittsbalken
 def load_model(model_path):
     return PPO.load(model_path)
 
-def transform_obs_custom(obs, experiment):
+def transform_obs_custom(obs):
     x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2 = obs
     
     # PCA features
     pc2 = 0.5 * y_space - 0.5 * vel_y_space
     pc4 = 0.7 * vel_y_space + 0.7 * y_space
     pc5 = 0.7 * vel_x_space - 0.5 * angle - 0.4 * angular_vel
+
+    # Original PCA features
+    o_pc1 = 0.4391*vel_y_space + -0.4121*y_space + 0.3245*angular_vel + 0.5887*vel_x_space + 0.4307*angle
+    o_pc2 = -0.5486*vel_y_space + 0.5753*y_space + 0.02798*angular_vel + 0.3755*vel_x_space + 0.3856*angle
+    o_pc3 = -0.0470*vel_y_space + -0.0388*y_space + 0.8066*angular_vel + -0.0066*vel_x_space + -0.5879*angle
+    o_pc4 = 0.7093*vel_y_space + 0.6914*y_space + 0.0864*angular_vel + -0.1054*vel_x_space + 0.0174*angle
+    o_pc5 = 0.0310*vel_y_space + 0.1400*y_space + -0.3979*angular_vel + 0.7080*vel_x_space + -0.5655*angle
 
     # ChatGpt recommended features
     #Interaction Features
@@ -44,47 +51,51 @@ def transform_obs_custom(obs, experiment):
     #Relative landing target features
     distance_to_center = math.sqrt(math.pow(x_space, 2) + math.pow(y_space, 2))
 
-    if experiment == Experiment.ORIGINAL:
+    if EXPERIMENT_NAME == Experiment.ORIGINAL.value:
         return np.array([
             x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2
         ], dtype=np.float32)
-    elif experiment == Experiment.PCA:
+    elif EXPERIMENT_NAME == Experiment.PCA.value:
         return np.array([
             x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2, pc2, pc4, pc5
         ], dtype=np.float32)
-    elif experiment == Experiment.GPT:
+    elif EXPERIMENT_NAME == Experiment.GPT.value:
         return np.array([
             x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2, speed,
             vel_angle, position_orientation_alignment, position_heading_dot_product, kinetic_energy, rotational_kinetic_energy,
             absolute_angular_vel, angular_acceleration_estimate, horizontal_instability_factor, vertical_landing_readiness,
             distance_to_center
         ], dtype=np.float32)
-    elif experiment == Experiment.ALL:
+    elif EXPERIMENT_NAME == Experiment.ALL.value:
         return np.array([
             x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2, pc2, pc4, pc5, speed,
             vel_angle, position_orientation_alignment, position_heading_dot_product, kinetic_energy, rotational_kinetic_energy,
             absolute_angular_vel, angular_acceleration_estimate, horizontal_instability_factor, vertical_landing_readiness,
             distance_to_center
         ], dtype=np.float32)
-    elif experiment == Experiment.TOP5:
+    elif EXPERIMENT_NAME == Experiment.TOP5.value:
         return np.array([
             vel_y_space, pc5, pc4, angular_vel, pc2
         ], dtype=np.float32)
+    elif EXPERIMENT_NAME == Experiment.PCA_ORIGINAL.value:
+        return np.array([
+            o_pc1, o_pc2, o_pc3, o_pc4, o_pc5
+        ], dtype=np.float32)
     else:
-        raise Exception("The features of the following experiment were not defined: " + experiment)
+        raise Exception("The features of the following experiment were not defined: " + EXPERIMENT_NAME)
 
-def get_tree_text(tree, experiment):
-    if experiment == Experiment.ORIGINAL:
+def get_tree_text(tree):
+    if EXPERIMENT_NAME == Experiment.ORIGINAL.value:
         return export_text(tree, feature_names=[
             "x_space", "y_space", "vel_x_space", "vel_y_space",
             "angle", "angular_vel", "leg_1", "leg_2"
         ])
-    elif experiment == Experiment.PCA:
+    elif EXPERIMENT_NAME == Experiment.PCA.value:
         return export_text(tree, feature_names=[
             "x_space", "y_space", "vel_x_space", "vel_y_space",
             "angle", "angular_vel", "leg_1", "leg_2", "pc2", "pc4", "pc5"
         ])
-    elif experiment == Experiment.GPT:
+    elif EXPERIMENT_NAME == Experiment.GPT.value:
         return export_text(tree, feature_names=[
             "x_space", "y_space", "vel_x_space", "vel_y_space",
             "angle", "angular_vel", "leg_1", "leg_2", "speed",
@@ -93,7 +104,7 @@ def get_tree_text(tree, experiment):
             "angular_acceleration_estimate", "horizontal_instability_factor",
             "vertical_landing_readiness", "distance_to_center"
         ])
-    elif experiment == Experiment.ALL:
+    elif EXPERIMENT_NAME == Experiment.ALL.value:
         return export_text(tree, feature_names=[
             "x_space", "y_space", "vel_x_space", "vel_y_space",
             "angle", "angular_vel", "leg_1", "leg_2", "pc2", "pc4", "pc5", "speed",
@@ -102,12 +113,16 @@ def get_tree_text(tree, experiment):
             "angular_acceleration_estimate", "horizontal_instability_factor",
             "vertical_landing_readiness", "distance_to_center"
         ])
-    elif experiment == Experiment.TOP5:
+    elif EXPERIMENT_NAME == Experiment.TOP5.value:
         return export_text(tree, feature_names=[
             "vel_y_space", "pc5", "pc4", "angular_vel", "pc2"
         ])
+    elif EXPERIMENT_NAME == Experiment.TOP5.value:
+        return export_text(tree, feature_names=[
+            "o_pc1", "o_pc2", "o_pc3", "o_pc4", "o_pc5"
+        ])
     else:
-        raise Exception("The features of the following experiment were not defined: " + experiment)
+        raise Exception("The features of the following experiment were not defined: " + EXPERIMENT_NAME)
 
 def evaluate_tree(env, clf, transform_func=None, n_episodes=50, max_steps=1000):
     """
@@ -133,7 +148,7 @@ def evaluate_tree(env, clf, transform_func=None, n_episodes=50, max_steps=1000):
 
     return rewards
 
-def gather_performance(model_path, env_name, transform_func=None, experiment="",
+def gather_performance(model_path, env_name, transform_func=None,
                        num_samples=10000, n_episodes=50, seeds=list(range(6))):
     """
     - Sammelt num_samples Daten mithilfe des PPO-Modells.
@@ -162,7 +177,7 @@ def gather_performance(model_path, env_name, transform_func=None, experiment="",
     act_list = np.array(act_list)
 
     if transform_func:
-        obs_list = np.array([transform_func(o, experiment) for o in obs_list])
+        obs_list = np.array([transform_func(o) for o in obs_list])
 
     # -> Hier kein Split, da wir nur Reward messen (oder optional 100% train)
     depths = range(1, 16)
@@ -220,11 +235,13 @@ class Experiment(Enum):
     GPT = "chat_gpt_features"
     TOP5 = "top_5_features_only"
     ALL = "all_features"
+    PCA_ORIGINAL = "original_pca_features"
+
+EXPERIMENT_NAME = Experiment.PCA_ORIGINAL.value
 
 def main():
     MODEL_PATH = "models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip"  # Passe den Pfad an!
     ENV_NAME = "LunarLander-v2"
-    EXPERIMENT_NAME = Experiment.ORIGINAL
     OUTPUT_DIR = "decision_tree_models_experiments_" + EXPERIMENT_NAME
 
     # Stelle sicher, dass das Ausgabeverzeichnis existiert
@@ -254,7 +271,7 @@ def main():
     os.makedirs(os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER), exist_ok=True)
     
     for tree, depth in trees_above_threshold:
-        tree_text = get_tree_text(tree=tree, experiment=EXPERIMENT_NAME)
+        tree_text = get_tree_text(tree=tree)
     
         if tree == best_tree:
             filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"best_tree_depth_{depth}.joblib")

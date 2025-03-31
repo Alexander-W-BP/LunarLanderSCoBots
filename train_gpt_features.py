@@ -169,7 +169,7 @@ def main():
         env_name=ENV_NAME,
         transform_func=transform_obs_custom,
         num_samples=10000,
-        n_episodes=30,  # Erhöht von 30 auf 500
+        n_episodes=10,  # Erhöht von 30 auf 500
         seeds=list(range(6))  # Beibehalten von [0,1,2,3,4,5]
     )
 
