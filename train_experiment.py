@@ -1,5 +1,3 @@
-# train_original_features.py
-
 from enum import Enum
 import math
 import numpy as np
@@ -12,6 +10,7 @@ import re
 import pandas
 import joblib
 from tqdm import tqdm  # Importiere tqdm für Fortschrittsbalken
+import argparse
 
 def load_model(model_path):
     return PPO.load(model_path)
@@ -153,7 +152,7 @@ def get_tree_text(tree):
 def evaluate_tree(env, clf, transform_func=None, n_episodes=50, max_steps=1000):
     """
     Führt n_episodes lang den Decision Tree in env aus.
-    Gibt (mean_reward, std_reward) zurück.
+    Gibt die Mean Rewards pro episode zurück.
     """
     rewards = []
     for ep in tqdm(range(n_episodes), desc="Evaluating Episodes", leave=False):
@@ -177,10 +176,12 @@ def evaluate_tree(env, clf, transform_func=None, n_episodes=50, max_steps=1000):
 def gather_performance(model_path, env_name, transform_func=None,
                        num_samples=10000, n_episodes=50, seeds=list(range(6))):
     """
-    - Sammelt num_samples Daten mithilfe des PPO-Modells.
-    - Trainiert Decision Trees (max_depth=1..15).
-    - Für jedes Modell und jeden Seed wird evaluate_tree(...) aufgerufen (n_episodes pro Seed).
-    - Mittelt über alle Seeds => finaler mean Reward + std.
+    Sammelt num_samples Daten mithilfe des PPO-Modells als Orakel
+    Trainiert Decision Trees (max_depth=1..15).
+    Für jedes Modell und jeden Seed wird evaluate_tree(...) aufgerufen (n_episodes pro Seed).
+    Mean Reward und STD wird sowohl über alle Episoden berechnet als auch über die Mean Rewards der einzelnen seeds.
+    Für jede Tiefe wird der beste Baum mit einem Reward über einem bestimmten Threshold gespeichert
+
     """
     from sklearn.tree import DecisionTreeClassifier
 
@@ -213,7 +214,7 @@ def gather_performance(model_path, env_name, transform_func=None,
     seeds_std_rewards = []
     best_tree = None
     best_tree_depth = -1
-    trees_above_threshold_with_depths = []
+    decision_trees_with_depth = []
 
     eval_env = gym.make(env_name)
 
@@ -245,15 +246,14 @@ def gather_performance(model_path, env_name, transform_func=None,
         seeds_std_rewards.append(all_seeds_rewards.std())
 
         # Überprüfe, ob der aktuelle Baum der bisher beste ist
-        if current_mean_reward > MEAN_REWARD_THRESHOLD and (best_tree is None or depth < best_tree_depth):
+        if (best_tree is None or depth < best_tree_depth):
             best_tree = clf
             best_tree_depth = depth
         
-        # Alle Bäume mit mean reward über Threshold speichern
-        if current_mean_reward > MEAN_REWARD_THRESHOLD:
-            trees_above_threshold_with_depths.append((clf, depth))
+        # Alle Bäume speichern
+        decision_trees_with_depth.append((clf, depth))
 
-    return depths, mean_rewards, std_rewards, seeds_mean_rewards, seeds_std_rewards, best_tree, trees_above_threshold_with_depths
+    return depths, mean_rewards, std_rewards, seeds_mean_rewards, seeds_std_rewards, best_tree, decision_trees_with_depth
 
 class Experiment(Enum):
     ORIGINAL = "original_features"
@@ -265,8 +265,40 @@ class Experiment(Enum):
     PLOTS_FEATURES_FULL = "plots_features_full"
     PLOTS_FEATURES_ONLY = "plots_features_only"
 
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description="Run an experiment with specified parameters.")
+    
+parser.add_argument(
+    "--experiment",
+    type=str,
+    choices=[e.value for e in Experiment],  # Restrict choices to Enum values
+    required=True,
+    help="Specify the experiment type."
+)
+parser.add_argument(
+        "--n_episodes",
+        type=int,
+        default=100,  # Default value
+        help="Number of episodes (default: 100)."
+)
+parser.add_argument(
+    "--n_seeds",
+    type=int,
+    default=100,  # Default value
+    help="Number of seeds (default: 10)."
+)
 
-EXPERIMENT_NAME = Experiment.PLOTS_FEATURES_FULL.value
+args = parser.parse_args()
+
+# Set variables
+EXPERIMENT_NAME = args.experiment
+N_EPISODES = args.n_episodes
+N_SEEDS = args.n_seeds
+
+print(f"Running experiment: {EXPERIMENT_NAME}")
+print(f"Number of episodes: {N_EPISODES}")
+print(f"Number of seeds: {N_SEEDS}")
+
 
 def main():
     MODEL_PATH = "models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip"  # Passe den Pfad an!
@@ -276,13 +308,13 @@ def main():
     # Stelle sicher, dass das Ausgabeverzeichnis existiert
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    depths, rew, std, seeds_rew, seeds_std, best_tree, trees_above_threshold = gather_performance(
+    depths, rew, std, seeds_rew, seeds_std, best_tree, decision_trees_with_depth = gather_performance(
         model_path=MODEL_PATH,
         env_name=ENV_NAME,
         transform_func=transform_obs_custom,
         num_samples=10000,
-        n_episodes=100,  # Erhöht von 50 auf 1000
-        seeds=list(range(100))  # Erhöht von [0,1,2] auf [0,1,2,3,4,5]
+        n_episodes=N_EPISODES,  # Erhöht von 50 auf 1000
+        seeds=list(range(N_SEEDS))
     )
 
     # Speichere die besten Bäume
@@ -299,7 +331,7 @@ def main():
     TREE_FOLDER = "trees"
     os.makedirs(os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER), exist_ok=True)
     
-    for tree, depth in trees_above_threshold:
+    for tree, depth in decision_trees_with_depth:
         tree_text = get_tree_text(tree=tree)
     
         if tree == best_tree:
