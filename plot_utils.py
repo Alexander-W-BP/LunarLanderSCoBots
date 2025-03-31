@@ -10,9 +10,9 @@ from sklearn.decomposition import PCA  # Für die PCA-Analyse
 from matplotlib.lines import Line2D  # Für benutzerdefinierte Legenden
 
 # Pfade für Speicherung
-PLOT_DIR = "plots_detail_view"
+PLOT_DIR = "plots_detail_view_scatter"
 DATA_DIR = "plot_data"
-MODEL_PATH = "models/ppo-LunarLander-v3/best_model.zip"  # Pfad zu deinem vortrainierten Modell
+MODEL_PATH = "models\ppo_LunarLander-v2\ppo-LunarLander-v2.zip"  # Pfad zu deinem vortrainierten Modell
 NUM_EPISODES = 100  # Anzahl der Episoden zum Sammeln von Daten (verdoppelt)
 
 def load_model(model_path):
@@ -24,7 +24,7 @@ def load_model(model_path):
     model = PPO.load(model_path)
     return model
 
-def collect_data(model, env_id="LunarLander-v3", num_episodes=100):
+def collect_data(model, env_id="LunarLander-v2", num_episodes=100):
     """
     Führt das Modell in der Umgebung aus und sammelt Zustands-Aktions-Paare.
     """
@@ -75,10 +75,10 @@ def save_plot_data_and_generate(data, labels):
     
     # Definiere eine Liste von klar unterscheidbaren Farben für die Aktionen
     action_colors = {
-        0: 'blue',     # do nothing
-        1: 'green',    # fire left engine
-        2: 'orange',   # fire main engine
-        3: 'red'        # fire right engine
+        0: 'purple',     # do nothing
+        1: 'blue',    # fire left engine
+        2: 'green',   # fire main engine
+        3: 'yellow'        # fire right engine
     }
     # Erstelle eine benutzerdefinierte Colormap
     cmap = mcolors.ListedColormap([action_colors[key] for key in sorted(action_colors.keys())])
@@ -179,8 +179,8 @@ def save_plot_data_and_generate(data, labels):
 def main():
     # Labels der Zustandsmerkmale entsprechend der LunarLander-Umgebung
     labels = [
-        "x_position", "y_position", "x_velocity", "y_velocity",
-        "angle", "angular_velocity", "left_leg_contact", "right_leg_contact"
+        "x", "y", "v_x", "v_y",
+        "angle", "v_angle", "right_leg", "left_leg"
     ]
     
     print("Lade das vortrainierte Modell...")

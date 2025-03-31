@@ -1,0 +1,181 @@
+|--- vel_y_space <= -0.14
+|   |--- angular_vel <= 0.01
+|   |   |--- y_space <= 0.48
+|   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |--- vel_x_space <= -0.16
+|   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- vel_x_space >  -0.16
+|   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |--- vel_x_space <= -0.06
+|   |   |   |   |   |--- y_space <= 0.18
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- y_space >  0.18
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- vel_x_space >  -0.06
+|   |   |   |   |   |--- y_space <= 0.21
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- y_space >  0.21
+|   |   |   |   |   |   |--- class: 2
+|   |   |--- y_space >  0.48
+|   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |--- y_space <= 0.98
+|   |   |   |   |   |--- angle <= 0.04
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- angle >  0.04
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- y_space >  0.98
+|   |   |   |   |   |--- vel_y_space <= -0.23
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- vel_y_space >  -0.23
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |--- y_space <= 0.76
+|   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- y_space >  0.76
+|   |   |   |   |   |--- angle <= 0.17
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- angle >  0.17
+|   |   |   |   |   |   |--- class: 2
+|   |--- angular_vel >  0.01
+|   |   |--- vel_y_space <= -0.18
+|   |   |   |--- y_space <= 0.80
+|   |   |   |   |--- vel_x_space <= 0.07
+|   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |--- vel_x_space >  0.07
+|   |   |   |   |   |--- angular_vel <= 0.07
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- angular_vel >  0.07
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |--- y_space >  0.80
+|   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |--- y_space <= 1.04
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- y_space >  1.04
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |--- x_space <= -0.05
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- x_space >  -0.05
+|   |   |   |   |   |   |--- class: 3
+|   |   |--- vel_y_space >  -0.18
+|   |   |   |--- y_space <= 0.55
+|   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |--- vel_x_space <= 0.05
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- vel_x_space >  0.05
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |--- y_space >  0.55
+|   |   |   |   |--- vel_x_space <= 0.22
+|   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- vel_x_space >  0.22
+|   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |--- class: 0
+|--- vel_y_space >  -0.14
+|   |--- angular_vel <= -0.00
+|   |   |--- angle <= -0.04
+|   |   |   |--- angle <= -0.09
+|   |   |   |   |--- vel_x_space <= -0.43
+|   |   |   |   |   |--- y_space <= 1.51
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- y_space >  1.51
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |--- vel_x_space >  -0.43
+|   |   |   |   |   |--- angle <= -0.09
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- angle >  -0.09
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- angle >  -0.09
+|   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |--- vel_x_space <= -0.40
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- vel_x_space >  -0.40
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |--- vel_x_space <= 0.01
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_x_space >  0.01
+|   |   |   |   |   |   |--- class: 1
+|   |   |--- angle >  -0.04
+|   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |--- y_space <= 0.13
+|   |   |   |   |   |--- vel_x_space <= -0.04
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_x_space >  -0.04
+|   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- y_space >  0.13
+|   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |--- y_space <= 0.36
+|   |   |   |   |   |--- vel_y_space <= -0.02
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_y_space >  -0.02
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- y_space >  0.36
+|   |   |   |   |   |--- vel_x_space <= -0.39
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- vel_x_space >  -0.39
+|   |   |   |   |   |   |--- class: 1
+|   |--- angular_vel >  -0.00
+|   |   |--- vel_x_space <= -0.02
+|   |   |   |--- angle <= -0.01
+|   |   |   |   |--- leg_1 <= 0.50
+|   |   |   |   |   |--- x_space <= 0.16
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- x_space >  0.16
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- leg_1 >  0.50
+|   |   |   |   |   |--- class: 3
+|   |   |   |--- angle >  -0.01
+|   |   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |   |--- y_space <= 0.04
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- y_space >  0.04
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |   |--- vel_x_space <= -0.03
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- vel_x_space >  -0.03
+|   |   |   |   |   |   |--- class: 3
+|   |   |--- vel_x_space >  -0.02
+|   |   |   |--- y_space <= -0.01
+|   |   |   |   |--- angular_vel <= 0.00
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- angular_vel >  0.00
+|   |   |   |   |   |--- angle <= 0.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- angle >  0.00
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |--- y_space >  -0.01
+|   |   |   |   |--- vel_x_space <= 0.43
+|   |   |   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- vel_x_space >  0.43
+|   |   |   |   |   |--- class: 1

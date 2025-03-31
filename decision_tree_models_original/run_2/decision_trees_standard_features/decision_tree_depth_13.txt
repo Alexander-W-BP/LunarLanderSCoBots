@@ -1,0 +1,2137 @@
+|--- vel_y_space <= -0.14
+|   |--- angular_vel <= 0.01
+|   |   |--- y_space <= 0.48
+|   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |--- vel_x_space <= -0.16
+|   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |--- x_space <= 0.29
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- x_space >  0.29
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.04
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.04
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.35
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.35
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.24
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.04
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.04
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.24
+|   |   |   |   |   |   |   |   |--- y_space <= 0.27
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- y_space >  0.27
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.41
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.41
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |--- angular_vel <= -0.03
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angular_vel >  -0.03
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.17
+|   |   |   |   |   |   |   |   |--- y_space <= 0.20
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.17
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.17
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- y_space >  0.20
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.17
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.16
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.16
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- vel_x_space >  -0.16
+|   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |--- vel_x_space <= -0.07
+|   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |--- angle <= 0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angle >  0.01
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |--- y_space <= 0.37
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- y_space >  0.37
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- vel_x_space >  -0.07
+|   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |--- y_space <= 0.33
+|   |   |   |   |   |   |   |--- leg_1 <= 0.50
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.14
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.14
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.03
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.03
+|   |   |   |   |   |   |   |   |   |   |--- leg_2 <= 0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- leg_2 >  0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- leg_1 >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- y_space >  0.33
+|   |   |   |   |   |   |   |--- vel_x_space <= 0.03
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.08
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.12
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.12
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.08
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.33
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.33
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  0.03
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.06
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.06
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |--- vel_x_space <= -0.06
+|   |   |   |   |   |--- y_space <= 0.18
+|   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |--- x_space <= 0.07
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- x_space >  0.07
+|   |   |   |   |   |   |   |   |--- x_space <= 0.17
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- x_space >  0.17
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- y_space >  0.18
+|   |   |   |   |   |   |--- vel_x_space <= -0.06
+|   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.27
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.27
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.06
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.06
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_x_space >  -0.06
+|   |   |   |   |   |   |   |--- angle <= -0.01
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angle >  -0.01
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- vel_x_space >  -0.06
+|   |   |   |   |   |--- y_space <= 0.21
+|   |   |   |   |   |   |--- vel_x_space <= 0.03
+|   |   |   |   |   |   |   |--- y_space <= 0.17
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- y_space >  0.17
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- vel_x_space >  0.03
+|   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- y_space >  0.21
+|   |   |   |   |   |   |--- vel_x_space <= 0.05
+|   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |--- y_space <= 0.33
+|   |   |   |   |   |   |   |   |   |--- x_space <= 0.08
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- x_space >  0.08
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- y_space >  0.33
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.04
+|   |   |   |   |   |   |   |   |   |--- x_space <= 0.08
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- x_space >  0.08
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.04
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.00
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.30
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.30
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- vel_x_space >  0.05
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |   |--- y_space <= 0.45
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.00
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.00
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- y_space >  0.45
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |   |--- y_space <= 0.26
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.06
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.06
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- y_space >  0.26
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.09
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.09
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |--- y_space >  0.48
+|   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |--- y_space <= 0.98
+|   |   |   |   |   |--- angle <= 0.04
+|   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |--- x_space <= 0.26
+|   |   |   |   |   |   |   |   |--- angle <= -0.19
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angle >  -0.19
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- x_space >  0.26
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.68
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.68
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |--- y_space <= 0.87
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.05
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.05
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.84
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.84
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- y_space >  0.87
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.95
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.95
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angle >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- angle >  0.04
+|   |   |   |   |   |   |--- angular_vel <= -0.03
+|   |   |   |   |   |   |   |--- angle <= 0.13
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angle >  0.13
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.33
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angle >  0.33
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.25
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- angular_vel >  -0.03
+|   |   |   |   |   |   |   |--- x_space <= 0.27
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- x_space >  0.27
+|   |   |   |   |   |   |   |   |--- x_space <= 0.40
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.82
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.82
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.66
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.66
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- x_space >  0.40
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |--- y_space >  0.98
+|   |   |   |   |   |--- vel_y_space <= -0.23
+|   |   |   |   |   |   |--- angle <= -0.12
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.27
+|   |   |   |   |   |   |   |   |--- x_space <= -0.11
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.27
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.27
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- x_space >  -0.11
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.27
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.24
+|   |   |   |   |   |   |   |   |   |--- y_space <= 1.18
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  1.18
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.24
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.12
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 1.05
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  1.05
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.12
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- angle >  -0.12
+|   |   |   |   |   |   |   |--- y_space <= 1.35
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.46
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.24
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.24
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 1.26
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  1.26
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.46
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- y_space >  1.35
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.41
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.24
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.24
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.49
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.49
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.41
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.25
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.25
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 1.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  1.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |--- vel_y_space >  -0.23
+|   |   |   |   |   |   |--- x_space <= 0.02
+|   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.62
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.28
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.28
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.62
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.99
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.99
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |   |   |--- y_space <= 1.11
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- y_space >  1.11
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |--- x_space >  0.02
+|   |   |   |   |   |   |   |--- angle <= 0.15
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.00
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.03
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.03
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 1.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  1.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- angle >  0.15
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |   |--- y_space <= 1.03
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  1.03
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |   |--- y_space <= 1.17
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  1.17
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |--- y_space <= 0.76
+|   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |--- x_space <= 0.20
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.23
+|   |   |   |   |   |   |   |   |--- x_space <= 0.17
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- x_space >  0.17
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.23
+|   |   |   |   |   |   |   |   |--- y_space <= 0.67
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- y_space >  0.67
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.11
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.11
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- x_space >  0.20
+|   |   |   |   |   |   |   |--- angular_vel <= -0.04
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.04
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.04
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.12
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angle >  0.12
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- angular_vel >  -0.04
+|   |   |   |   |   |   |   |   |--- y_space <= 0.59
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.15
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- y_space >  0.59
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |--- vel_x_space <= 0.11
+|   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |--- angle <= 0.03
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- angle >  0.03
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.05
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.37
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.37
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angle >  0.03
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |--- vel_x_space >  0.11
+|   |   |   |   |   |   |   |--- angle <= -0.06
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- angle >  -0.06
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.15
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.55
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.55
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- y_space >  0.76
+|   |   |   |   |   |--- angle <= 0.17
+|   |   |   |   |   |   |--- vel_x_space <= -0.41
+|   |   |   |   |   |   |   |--- y_space <= 1.37
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- y_space >  1.37
+|   |   |   |   |   |   |   |   |--- y_space <= 1.43
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- y_space >  1.43
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_x_space >  -0.41
+|   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |--- x_space <= 0.34
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.21
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.21
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- x_space >  0.34
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.04
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.04
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |--- x_space <= 0.02
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.09
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.92
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.92
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.09
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- x_space >  0.02
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- angle >  0.17
+|   |   |   |   |   |   |--- y_space <= 0.99
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.10
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.10
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.87
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.87
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |   |   |--- x_space <= 0.39
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.91
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.91
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- x_space >  0.39
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.81
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.81
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- y_space >  0.99
+|   |   |   |   |   |   |   |--- angular_vel <= -0.05
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- angular_vel >  -0.05
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |--- x_space <= 0.23
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- x_space >  0.23
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |--- angular_vel >  0.01
+|   |   |--- vel_y_space <= -0.18
+|   |   |   |--- y_space <= 0.80
+|   |   |   |   |--- vel_x_space <= 0.07
+|   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |--- vel_x_space <= -0.11
+|   |   |   |   |   |   |   |--- y_space <= 0.37
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.23
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.23
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- y_space >  0.37
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |--- x_space <= 0.28
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- x_space >  0.28
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.53
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.53
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_x_space >  -0.11
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |--- y_space <= 0.78
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.73
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.73
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.73
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.73
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- y_space >  0.78
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |--- y_space <= 0.64
+|   |   |   |   |   |   |   |   |   |--- x_space <= 0.18
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.47
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.47
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- x_space >  0.18
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- y_space >  0.64
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.19
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.19
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.03
+|   |   |   |   |   |   |   |   |--- angle <= -0.04
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angle >  -0.04
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.03
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |--- y_space <= 0.39
+|   |   |   |   |   |   |   |   |--- x_space <= 0.19
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.12
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.12
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- x_space >  0.19
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- y_space >  0.39
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.03
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.06
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.06
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.74
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.74
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.03
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.59
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.59
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |--- vel_x_space >  0.07
+|   |   |   |   |   |--- angular_vel <= 0.07
+|   |   |   |   |   |   |--- vel_x_space <= 0.09
+|   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.09
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angle >  0.03
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.09
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |--- y_space <= 0.66
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angle >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- y_space >  0.66
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_x_space >  0.09
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.10
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.10
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.10
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.10
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |--- angular_vel >  0.07
+|   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |--- angle <= -0.05
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.11
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.11
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.07
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.07
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angle >  -0.05
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |--- y_space >  0.80
+|   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |--- y_space <= 1.04
+|   |   |   |   |   |   |--- angular_vel <= 0.08
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.12
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.25
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.25
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.25
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.25
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.06
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.06
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.12
+|   |   |   |   |   |   |   |   |--- x_space <= -0.04
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.05
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.05
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.23
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- x_space >  -0.04
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- angular_vel >  0.08
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.26
+|   |   |   |   |   |   |   |   |--- angle <= 0.35
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angle >  0.35
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.26
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.08
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.96
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.96
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.08
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- y_space >  1.04
+|   |   |   |   |   |   |--- vel_y_space <= -0.25
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.40
+|   |   |   |   |   |   |   |   |--- angle <= -0.26
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angle >  -0.26
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.33
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.33
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.40
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.27
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.68
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.68
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.27
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.04
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.34
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.04
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |--- vel_y_space >  -0.25
+|   |   |   |   |   |   |   |--- angle <= -0.13
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.05
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.25
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.25
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.05
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.25
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.25
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 1.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  1.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- angle >  -0.13
+|   |   |   |   |   |   |   |   |--- y_space <= 1.29
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.24
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.24
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- y_space >  1.29
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.03
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |--- x_space <= -0.05
+|   |   |   |   |   |   |--- angular_vel <= 0.04
+|   |   |   |   |   |   |   |--- vel_x_space <= 0.03
+|   |   |   |   |   |   |   |   |--- angle <= -0.17
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.30
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.30
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angle >  -0.17
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- vel_x_space >  0.03
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |   |   |   |   |   |--- y_space <= 1.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  1.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.35
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.35
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.22
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- angular_vel >  0.04
+|   |   |   |   |   |   |   |--- y_space <= 0.92
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.06
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.06
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.07
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.07
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- y_space >  0.92
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.08
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.99
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.99
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.08
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- x_space >  -0.05
+|   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |--- angle <= -0.00
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- angle >  -0.00
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.22
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.22
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |--- angle <= 0.22
+|   |   |   |   |   |   |   |   |   |--- y_space <= 1.01
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  1.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angle >  0.22
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |--- vel_x_space <= 0.49
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.06
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.06
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.21
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.21
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- vel_x_space >  0.49
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.53
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.53
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |--- vel_y_space >  -0.18
+|   |   |   |--- y_space <= 0.55
+|   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |--- vel_x_space <= 0.05
+|   |   |   |   |   |   |--- y_space <= 0.19
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.06
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.09
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.09
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.06
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.14
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.14
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- y_space >  0.19
+|   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.42
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.42
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.53
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.53
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.02
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.46
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.46
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angle >  0.02
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |--- x_space <= 0.01
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- x_space >  0.01
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- vel_x_space >  0.05
+|   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |--- y_space <= 0.49
+|   |   |   |   |   |   |   |   |--- angle <= 0.05
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.06
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.42
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.42
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.06
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- angle >  0.05
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.32
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.32
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.40
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.40
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- y_space >  0.49
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.53
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.53
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.52
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.52
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |--- y_space <= 0.40
+|   |   |   |   |   |   |   |   |--- x_space <= 0.04
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.38
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.38
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.15
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- x_space >  0.04
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- y_space >  0.40
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.41
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.41
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.20
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.20
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |--- y_space <= 0.23
+|   |   |   |   |   |   |   |--- vel_x_space <= 0.05
+|   |   |   |   |   |   |   |   |--- y_space <= 0.06
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.03
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.03
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- y_space >  0.06
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- vel_x_space >  0.05
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |--- x_space <= 0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- x_space >  0.02
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.05
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angle >  0.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- y_space >  0.23
+|   |   |   |   |   |   |   |--- x_space <= -0.10
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.17
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.17
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.53
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.53
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.22
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.22
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- x_space >  -0.10
+|   |   |   |   |   |   |   |   |--- angle <= 0.02
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angle >  0.02
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.05
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.05
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |--- angular_vel <= 0.05
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angular_vel >  0.05
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |--- vel_x_space <= 0.23
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  0.23
+|   |   |   |   |   |   |   |   |--- y_space <= 0.36
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- y_space >  0.36
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.26
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.26
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |--- y_space >  0.55
+|   |   |   |   |--- vel_x_space <= 0.22
+|   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |--- y_space <= 0.70
+|   |   |   |   |   |   |   |--- x_space <= -0.09
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.11
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.11
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.15
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- x_space >  -0.09
+|   |   |   |   |   |   |   |   |--- angle <= 0.02
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- angle >  0.02
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- y_space >  0.70
+|   |   |   |   |   |   |   |--- angle <= -0.10
+|   |   |   |   |   |   |   |   |--- y_space <= 0.88
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- y_space >  0.88
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- angle >  -0.10
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.06
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.06
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |--- x_space <= -0.37
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- x_space >  -0.37
+|   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.12
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angle >  0.02
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.12
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.12
+|   |   |   |   |   |   |   |   |   |--- y_space <= 1.40
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.59
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.59
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  1.40
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.12
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.62
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.59
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.59
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.62
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |--- vel_x_space >  0.22
+|   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |--- angular_vel <= 0.06
+|   |   |   |   |   |   |   |--- y_space <= 0.77
+|   |   |   |   |   |   |   |   |--- y_space <= 0.55
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- y_space >  0.55
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.05
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.05
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- y_space >  0.77
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.90
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.90
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- angular_vel >  0.06
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.18
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.41
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.03
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.03
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.28
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.41
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.18
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.15
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.15
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |--- angular_vel <= 0.05
+|   |   |   |   |   |   |   |   |--- vel_x_space <= 0.24
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- vel_x_space >  0.24
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angular_vel >  0.05
+|   |   |   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.16
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.16
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|--- vel_y_space >  -0.14
+|   |--- angular_vel <= -0.00
+|   |   |--- angle <= -0.04
+|   |   |   |--- angle <= -0.09
+|   |   |   |   |--- vel_x_space <= -0.43
+|   |   |   |   |   |--- vel_y_space <= -0.11
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- vel_y_space >  -0.11
+|   |   |   |   |   |   |--- angle <= -0.09
+|   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- angle >  -0.09
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- vel_x_space >  -0.43
+|   |   |   |   |   |--- angle <= -0.09
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- angle >  -0.09
+|   |   |   |   |   |   |--- vel_y_space <= -0.00
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- vel_y_space >  -0.00
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |--- angle >  -0.09
+|   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |--- vel_x_space <= -0.40
+|   |   |   |   |   |   |--- angular_vel <= -0.14
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.53
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.24
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.24
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.53
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angular_vel >  -0.14
+|   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- vel_x_space >  -0.40
+|   |   |   |   |   |   |--- vel_y_space <= -0.12
+|   |   |   |   |   |   |   |--- y_space <= 0.14
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- y_space >  0.14
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- vel_y_space >  -0.12
+|   |   |   |   |   |   |   |--- angular_vel <= -0.47
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_vel >  -0.47
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.02
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.02
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.04
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.04
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |--- vel_x_space <= 0.01
+|   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |--- y_space <= 0.09
+|   |   |   |   |   |   |   |   |--- y_space <= -0.01
+|   |   |   |   |   |   |   |   |   |--- x_space <= 0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- x_space >  0.15
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- y_space >  -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- y_space >  0.09
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.19
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.19
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- vel_x_space >  0.01
+|   |   |   |   |   |   |--- x_space <= 0.15
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.00
+|   |   |   |   |   |   |   |   |--- x_space <= 0.15
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.02
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- x_space >  0.15
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.00
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- x_space >  0.15
+|   |   |   |   |   |   |   |--- vel_x_space <= 0.01
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- vel_x_space >  0.01
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |--- angle >  -0.04
+|   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |--- y_space <= 0.13
+|   |   |   |   |   |--- vel_x_space <= -0.04
+|   |   |   |   |   |   |--- angular_vel <= -0.03
+|   |   |   |   |   |   |   |--- vel_x_space <= -0.08
+|   |   |   |   |   |   |   |   |--- angle <= -0.03
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angle >  -0.03
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- vel_x_space >  -0.08
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |--- angular_vel >  -0.03
+|   |   |   |   |   |   |   |--- angle <= 0.00
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angle >  0.00
+|   |   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- vel_x_space >  -0.04
+|   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |--- angle <= -0.03
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angle >  -0.03
+|   |   |   |   |   |   |   |   |--- leg_2 <= 0.50
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.03
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.03
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- leg_2 >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |--- vel_x_space <= 0.08
+|   |   |   |   |   |   |   |   |--- y_space <= 0.04
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- y_space >  0.04
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- vel_x_space >  0.08
+|   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |--- y_space >  0.13
+|   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |--- angle <= 0.02
+|   |   |   |   |   |   |   |--- y_space <= 0.34
+|   |   |   |   |   |   |   |   |--- x_space <= -0.01
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- angle >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- x_space >  -0.01
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.05
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angle >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- y_space >  0.34
+|   |   |   |   |   |   |   |   |--- y_space <= 1.01
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.37
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.37
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- y_space >  1.01
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- angle >  0.02
+|   |   |   |   |   |   |   |--- angular_vel <= -0.03
+|   |   |   |   |   |   |   |   |--- y_space <= 0.28
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- y_space >  0.28
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.18
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.18
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_vel >  -0.03
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.07
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.07
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |--- x_space <= -0.17
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- x_space >  -0.17
+|   |   |   |   |   |   |   |--- x_space <= -0.04
+|   |   |   |   |   |   |   |   |--- y_space <= 0.29
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.16
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.16
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.19
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- y_space >  0.29
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- x_space >  -0.04
+|   |   |   |   |   |   |   |   |--- y_space <= 0.46
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.14
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- y_space >  0.46
+|   |   |   |   |   |   |   |   |   |--- x_space <= -0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- x_space >  -0.00
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |--- y_space <= 0.36
+|   |   |   |   |   |--- vel_y_space <= -0.02
+|   |   |   |   |   |   |--- angular_vel <= -0.03
+|   |   |   |   |   |   |   |--- angular_vel <= -0.37
+|   |   |   |   |   |   |   |   |--- angle <= -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angle >  -0.00
+|   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |--- angular_vel >  -0.37
+|   |   |   |   |   |   |   |   |--- y_space <= -0.01
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- y_space >  -0.01
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angle >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |--- angular_vel >  -0.03
+|   |   |   |   |   |   |   |--- angular_vel <= -0.02
+|   |   |   |   |   |   |   |   |--- vel_x_space <= -0.01
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.10
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.10
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- vel_x_space >  -0.01
+|   |   |   |   |   |   |   |   |   |--- angle <= 0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- angle >  0.02
+|   |   |   |   |   |   |   |   |   |   |--- y_space <= 0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- y_space >  0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |--- angular_vel >  -0.02
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.10
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.03
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.03
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.18
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.10
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.07
+|   |   |   |   |   |   |   |   |   |   |--- angle <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.07
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  -0.01
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |--- vel_y_space >  -0.02
+|   |   |   |   |   |   |--- angular_vel <= -0.18
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angular_vel >  -0.18
+|   |   |   |   |   |   |   |--- angular_vel <= -0.13
+|   |   |   |   |   |   |   |   |--- vel_y_space <= 0.04
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- vel_y_space >  0.04
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- angular_vel >  -0.13
+|   |   |   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- y_space >  0.36
+|   |   |   |   |   |--- vel_x_space <= -0.39
+|   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |--- angle <= -0.03
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- angle >  -0.03
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- vel_x_space >  -0.39
+|   |   |   |   |   |   |--- angle <= 0.09
+|   |   |   |   |   |   |   |--- y_space <= 0.44
+|   |   |   |   |   |   |   |   |--- y_space <= 0.42
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- y_space >  0.42
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- y_space >  0.44
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- angle >  0.09
+|   |   |   |   |   |   |   |--- class: 0
+|   |--- angular_vel >  -0.00
+|   |   |--- vel_x_space <= -0.02
+|   |   |   |--- angle <= -0.01
+|   |   |   |   |--- vel_y_space <= -0.10
+|   |   |   |   |   |--- x_space <= 0.16
+|   |   |   |   |   |   |--- vel_x_space <= -0.03
+|   |   |   |   |   |   |   |--- angular_vel <= -0.00
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- angular_vel >  -0.00
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |   |   |--- angle <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- angle >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_x_space >  -0.03
+|   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- x_space >  0.16
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- vel_y_space >  -0.10
+|   |   |   |   |   |--- class: 3
+|   |   |   |--- angle >  -0.01
+|   |   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |   |--- leg_1 <= 0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- leg_1 >  0.50
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |   |--- vel_x_space <= -0.03
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- vel_x_space >  -0.03
+|   |   |   |   |   |   |--- vel_y_space <= -0.03
+|   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- vel_y_space >  -0.03
+|   |   |   |   |   |   |   |--- vel_y_space <= -0.02
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- vel_y_space >  -0.02
+|   |   |   |   |   |   |   |   |--- class: 3
+|   |   |--- vel_x_space >  -0.02
+|   |   |   |--- y_space <= -0.01
+|   |   |   |   |--- vel_y_space <= 0.00
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- vel_y_space >  0.00
+|   |   |   |   |   |--- y_space <= -0.01
+|   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- y_space >  -0.01
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |--- y_space >  -0.01
+|   |   |   |   |--- vel_x_space <= 0.43
+|   |   |   |   |   |--- vel_y_space <= -0.13
+|   |   |   |   |   |   |--- y_space <= 0.19
+|   |   |   |   |   |   |   |--- angle <= 0.02
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.04
+|   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.00
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- angular_vel >  0.00
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.04
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |--- angle >  0.02
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.03
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.08
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.07
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.08
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= 0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  0.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.03
+|   |   |   |   |   |   |   |   |   |--- vel_y_space <= -0.14
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.03
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_y_space >  -0.14
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |--- y_space >  0.19
+|   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |--- y_space <= 0.46
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.23
+|   |   |   |   |   |   |   |   |   |   |--- class: 2
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.23
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |--- y_space >  0.46
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |--- angle <= 0.07
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= -0.02
+|   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  -0.02
+|   |   |   |   |   |   |   |   |   |   |--- x_space <= -0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- x_space >  -0.11
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- angle >  0.07
+|   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |--- vel_y_space >  -0.13
+|   |   |   |   |   |   |--- angular_vel <= 0.20
+|   |   |   |   |   |   |   |--- y_space <= 0.65
+|   |   |   |   |   |   |   |   |--- vel_y_space <= -0.12
+|   |   |   |   |   |   |   |   |   |--- y_space <= 0.04
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.09
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- y_space >  0.04
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.02
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- vel_y_space >  -0.12
+|   |   |   |   |   |   |   |   |   |--- y_space <= -0.01
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- y_space >  -0.01
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel <= 0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- angular_vel >  0.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- y_space >  0.65
+|   |   |   |   |   |   |   |   |--- angular_vel <= 0.01
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- angular_vel >  0.01
+|   |   |   |   |   |   |   |   |   |--- vel_x_space <= 0.01
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |   |   |   |   |   |--- vel_x_space >  0.01
+|   |   |   |   |   |   |   |   |   |   |--- angle <= 0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- angle >  0.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |--- angular_vel >  0.20
+|   |   |   |   |   |   |   |--- class: 3
+|   |   |   |   |--- vel_x_space >  0.43
+|   |   |   |   |   |--- class: 1

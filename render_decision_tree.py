@@ -53,7 +53,7 @@ def print_pca_components(pca, selected_features):
         pca: Das geladene PCA-Modell.
         selected_features: Die Namen der ursprünglichen Features.
     """
-    print("----- PCA Komponenten (Linearkombinationen der ursprünglichen Features) -----")
+    print("----- PCA components (linear combinations of the original features) -----")
     for idx, component in enumerate(pca.components_):
         component_str = " + ".join([f"{weight:.4f}*{feature}" for weight, feature in zip(component, selected_features)])
         print(f"PC{idx + 1}: {component_str}")

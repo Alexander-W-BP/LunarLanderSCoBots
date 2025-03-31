@@ -1,0 +1,4 @@
+|--- vel_y_space <= -0.14
+|   |--- class: 2
+|--- vel_y_space >  -0.14
+|   |--- class: 0

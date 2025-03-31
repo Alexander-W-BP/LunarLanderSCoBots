@@ -1,0 +1,10 @@
+|--- vel_y_space <= -0.14
+|   |--- angular_vel <= 0.01
+|   |   |--- class: 2
+|   |--- angular_vel >  0.01
+|   |   |--- class: 2
+|--- vel_y_space >  -0.14
+|   |--- angular_vel <= -0.00
+|   |   |--- class: 0
+|   |--- angular_vel >  -0.00
+|   |   |--- class: 0

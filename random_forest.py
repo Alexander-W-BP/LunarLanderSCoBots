@@ -12,7 +12,7 @@ from sklearn.metrics import classification_report
 
 # Pfade für Speicherung
 DATA_DIR = "plot_forest"
-MODEL_PATH = "models/ppo-LunarLander-v3/best_model.zip"  # Pfad zu deinem vortrainierten Modell
+MODEL_PATH = "models\ppo_LunarLander-v2\ppo-LunarLander-v2.zip"  # Pfad zu deinem vortrainierten Modell
 NUM_EPISODES = 100  # Anzahl der Episoden zum Sammeln von Daten
 
 def load_model(model_path):
@@ -24,7 +24,7 @@ def load_model(model_path):
     model = PPO.load(model_path)
     return model
 
-def collect_data(model, env_id="LunarLander-v3", num_episodes=100):
+def collect_data(model, env_id="LunarLander-v2", num_episodes=100):
     """
     Führt das Modell in der Umgebung aus und sammelt Zustands-Aktions-Paare.
     """
