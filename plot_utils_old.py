@@ -101,7 +101,7 @@ def plot_model_overview(model, env_id="LunarLander-v2"):
 
     fixed_state = [0.0] * len(observation_space)
 
-    max_plots = 9
+    max_plots = 28
     cols = 3
     rows = (max_plots + cols - 1) // cols
 
