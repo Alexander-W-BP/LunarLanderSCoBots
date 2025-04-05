@@ -28,17 +28,17 @@ def plot_rewards_comparison(files_to_compare):
         },
         "only_pca": {
             "path": "rewards/only_pca.csv",
-            "label": "Only PCA",
+            "label": "Only PCA-Features",
             "color": "#2ca02c"
         },
         "meta_features": {
             "path": "rewards/all_features.csv",
-            "label": "Meta-Features",
+            "label": "PCA-derived Meta-Features",
             "color": "#d62728"
         },
         "plot_features": {
             "path": "rewards/plot_features.csv",
-            "label": "Plot-Features",
+            "label": "Action Space Division Features",
             "color": "#9467bd"
         },
         "top5": {
@@ -111,7 +111,7 @@ if __name__ == '__main__':
     # Hier stellst du flexibel ein, was du vergleichen willst:
     # Beispiele:
     #files_to_compare = ["original_features"]  # Nur Original Features
-    files_to_compare = ["plot_features", "only_pca"]  # Only PCA und Meta-Features
+    files_to_compare = ["llm_features",  "meta_features", "plot_features"]  # Only PCA und Meta-Features
     #files_to_compare = ["original_features", "llm_features", "only_pca"]  # Drei Methoden
     #files_to_compare = ["original_features", "llm_features", "only_pca", "meta_features"]  # Alle vier
     
