@@ -14,10 +14,10 @@ def get_selected_action(model, state):
 def plot_model_detail_view(model):
     """
     Erstellt für jedes Paar von Zustandsdimensionen einen separaten Plot,
-    speichert ihn unter ./plots_detail_view_old/ und sammelt die Plot-Daten
+    speichert ihn unter ./plots_detail_view/ und sammelt die Plot-Daten
     (action_grid, Achsenwerte, Labels) in einer Liste, die zurückgegeben wird.
     """
-    plot_dir = "./plots_detail_view_old"
+    plot_dir = "./plots_detail_view"
     os.makedirs(plot_dir, exist_ok=True)
 
     num_samples = 100
@@ -94,11 +94,11 @@ def plot_model_overview(detail_data):
     Nimmt die in plot_model_detail_view() bereits berechneten Plot-Daten
     und erzeugt daraus eine Übersicht mit allen Dimensionen-Paaren in
     EINER großen Figure (Mehrere Subplots).
-    Speichert das Ergebnis als PDF unter ./plots_overview_old/overview_plots.pdf.
+    Speichert das Ergebnis als PDF unter ./plots_overview/overview_plots.pdf.
 
     Hier OHNE einzelne Colorbars neben jedem Subplot.
     """
-    plot_dir = "./plots_overview_old"
+    plot_dir = "./plots_overview"
     os.makedirs(plot_dir, exist_ok=True)
 
     # Anzahl der Plots = Anzahl der Einträge in detail_data
@@ -144,8 +144,8 @@ def plot_model_overview(detail_data):
     print(f"Übersichtsplots erfolgreich gespeichert unter: {output_file}")
 
 def main():
-    model_path = "models\\ppo_LunarLander-v2\\ppo-LunarLander-v2.zip"
-    model = PPO.load(model_path)
+    model_path = "models/ppo_LunarLander-v2/ppo-LunarLander-v2"
+    model = PPO.load(model_path, device="cpu")
 
     print("Erstelle Detailplots...")
     detail_data = plot_model_detail_view(model)
