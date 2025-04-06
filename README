@@ -16,6 +16,7 @@ sudo apt-get install -y python3-venv
 
 ```bash
 python3 -m venv env
+sudo apt install python3-pip
 pip install -U pip && pip install -r requirements.txt
 ```
 
@@ -25,3 +26,5 @@ pip install -U pip && pip install -r requirements.txt
 ```bash
 python3 action_space_division_plots.py
 ```
+
+### 2. Action Space Division Plots ausgeben:
