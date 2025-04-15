@@ -1,3 +1,5 @@
 /env
 /decision_tree_*
 .idea/
+plots_detail_view/
+plots_overview/
