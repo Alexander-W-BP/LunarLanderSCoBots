@@ -17,7 +17,7 @@ def load_model(model_path):
 
 def transform_obs_custom(obs):
     x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2 = obs
-    
+
     # PCA-derived Meta-Features
     pc2 = 0.5 * y_space - 0.5 * vel_y_space
     pc4 = 0.7 * vel_y_space + 0.7 * y_space
@@ -158,6 +158,7 @@ def gather_performance(model_path, env_name, transform_func,
     seeds_std_rewards = []
     best_tree = None
     best_tree_depth = -1
+    best_tree_mean_reward = -1
     decision_trees_with_depth = []
 
     eval_env = gym.make(env_name)
@@ -190,10 +191,11 @@ def gather_performance(model_path, env_name, transform_func,
         seeds_std_rewards.append(all_seeds_rewards.std())
 
         # Überprüfe, ob der aktuelle Baum der bisher beste ist
-        if (best_tree is None or depth < best_tree_depth):
+        if (best_tree is None or current_mean_reward > best_tree_mean_reward):
             best_tree = clf
             best_tree_depth = depth
-        
+            best_tree_mean_reward = current_mean_reward
+
         # Alle Bäume speichern
         decision_trees_with_depth.append((clf, depth))
 
@@ -207,7 +209,7 @@ class Experiment(Enum):
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser(description="Run an experiment with specified parameters.")
-    
+
 parser.add_argument(
     "--experiment",
     type=str,
@@ -243,7 +245,7 @@ print(f"Number of seeds: {N_SEEDS}")
 def main():
     MODEL_PATH = "models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip"  # Passe den Pfad an!
     ENV_NAME = "LunarLander-v2"
-    OUTPUT_DIR = "decision_tree_models_experiments_" + EXPERIMENT_NAME
+    OUTPUT_DIR = "decision_tree_experiments_" + EXPERIMENT_NAME
 
     # Stelle sicher, dass das Ausgabeverzeichnis existiert
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -266,21 +268,21 @@ def main():
             if match:
                 folder_num = int(match.group(1))
                 max_num = max(max_num, folder_num)
-    
+
     run_folder = f"run_{max_num + 1}"
     TREE_FOLDER = "trees"
     os.makedirs(os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER), exist_ok=True)
-    
+
     for tree, depth in decision_trees_with_depth:
         tree_text = get_tree_text(tree=tree)
-    
+
         if tree == best_tree:
             filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"best_tree_depth_{depth}.joblib")
             tree_text_filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"best_tree_depth_{depth}.txt")
         else:
             filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"good_tree_depth_{depth}.joblib")
             tree_text_filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"good_tree_depth_{depth}.txt")
-        
+
         joblib.dump(tree, filename)
         with open(tree_text_filename, "w") as f:
             f.write(tree_text)
