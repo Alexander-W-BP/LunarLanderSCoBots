@@ -8,6 +8,9 @@ Project Overview...
 
 ```bash
 sudo apt-get update
+sudo apt-get install swig
+sudo apt-get install gcc-c++
+sudo apt-get install python3-devel
 sudo apt-get install -y python3-venv
 ```
 
