@@ -31,7 +31,7 @@ python3 action_space_division_plots.py
 ```
 
 ### 2. Evaluate Feature Combinations:
-- n_episodes and n_seeds are set to low values to make testing out the commands faster. We usually set both values to 100 to evaluate.
+n_episodes and n_seeds are set to low values to make testing out the commands faster. We usually set both values to 100 to evaluate.
 
 ```bash
 python dt_exp.py --experiment original_features --n_episodes 5 --n_seeds 5
@@ -39,3 +39,5 @@ python dt_exp.py --experiment pca_meta_features --n_episodes 5 --n_seeds 5
 python dt_exp.py --experiment chat_gpt_features --n_episodes 5 --n_seeds 5
 python dt_exp.py --experiment plots_features_full --n_episodes 5 --n_seeds 5
 ```
+
+These commands create 'decision_tree_experiments_*' folders. In such a folder you can find an evaluation run. Inside the run folder there is an image plotting the performance, a csv and a joblib file of different performance metrics and the best tree for each tree depth inside the trees folder. One tree is called 'best_tree_*' indicating that it achieved the highest mean reward.
