@@ -41,3 +41,18 @@ python dt_exp.py --experiment plots_features_full --n_episodes 5 --n_seeds 5
 ```
 
 These commands create 'decision_tree_experiments_*' folders. In such a folder you can find an evaluation run. Inside the run folder there is an image plotting the performance, a csv and a joblib file of different performance metrics and the best tree for each tree depth inside the trees folder. One tree is called 'best_tree_*' indicating that it achieved the highest mean reward.
+
+### 3. Visualize a model
+To see a model in action you can use the following command:
+
+```bash
+python3 run_lander_agent.py <model_path>
+```
+
+An example model_path looks like this:
+
+```bash
+python3 run_lander_agent.py decision_tree_experiments_pca_meta_features/run_1/trees/good_tree_depth_10.joblib
+```
+
+It is important to specify the model_path relative to the root project because the folder 'decision_tree_experiments_*' contains the experiment name which is important for the script to select the correct features for the model.
