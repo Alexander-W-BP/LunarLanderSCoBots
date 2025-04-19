@@ -1,10 +1,10 @@
 {
-  "search_seeds": 10,
+  "search_seeds": 4,
   "episodes_per_seed": 50,
   "search_eval_episodes": 30,
-  "final_seeds": 10,
+  "final_eval_seeds": 10,
   "final_eval_episodes": 100,
-  "max_depth": 15,
+  "max_depth": 3,
   "model_path": "models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip",
   "output_dir": "pca_dt_runs",
   "top_k": 5
