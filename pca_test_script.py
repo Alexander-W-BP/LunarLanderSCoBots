@@ -102,19 +102,14 @@ def evaluate_tree(tree, scaler, pca, env, feature_cols, *, episodes: int, max_st
 
 parser = argparse.ArgumentParser(description="PCA + Decision-Tree benchmark for LunarLander-v2")
 
-#TODO: Parser anpassen
 
-#TODO: Kommentare machen
+parser.add_argument("--search_seeds", type=int, default=10, help="Number of random seeds in PCA search phase (default: 10)")
+parser.add_argument("--episodes_per_seed", type=int, default=50, help="Episodes collected from PPO per search seed (default: 50)")
+parser.add_argument("--search_eval_episodes", type=int, default=30, help="Episodes used to evaluate tree in search phase (default: 30)")
 
-#TODO: REAdMe anpassen
-
-parser.add_argument("--search_seeds", type=int, default=2, help="Number of random seeds in PCA search phase (default: 4)")
-parser.add_argument("--episodes_per_seed", type=int, default=3, help="Episodes collected from PPO per search seed (default: 50)")
-parser.add_argument("--search_eval_episodes", type=int, default=3, help="Episodes used to evaluate tree in search phase (default: 30)")
-
-parser.add_argument("--final_eval_seeds", type=int, default=2, help="Number of random seeds used solely for evaluation in the final phase (default: 10)")
-parser.add_argument("--final_eval_episodes", type=int, default=3, help="Episodes per evaluation seed (default: 100)")
-parser.add_argument("--max_depth", type=int, default=3, help="Maximum tree depth in final phase (depths 1..N, default: 3)")
+parser.add_argument("--final_eval_seeds", type=int, default=10, help="Number of random seeds used solely for evaluation in the final phase (default: 10)")
+parser.add_argument("--final_eval_episodes", type=int, default=100, help="Episodes per evaluation seed (default: 100)")
+parser.add_argument("--max_depth", type=int, default=15, help="Maximum tree depth in final phase (depths 1..N, default: 15)")
 
 parser.add_argument("--model_path", type=str, default="models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip", help="Path to PPO model")
 parser.add_argument("--output_dir", type=str, default="pca_dt_runs", help="Base folder to save each run")
@@ -212,6 +207,10 @@ def main():
     joblib.dump(best_bundle["pca"], pca_path)
     print(f"Saved best PCA scaler to {scaler_path}")
     print(f"Saved best PCA transformer to {pca_path}")
+
+    selected_features_path = os.path.join(RUN_FOLDER, "selected_features.joblib")
+    joblib.dump(best_bundle["sel_cols"], selected_features_path)
+    print(f"Saved selected features list to {selected_features_path}")
 
     pca_explanation_path = os.path.join(RUN_FOLDER, "best_pca_components_explanation.txt")
     pca_obj = best_bundle["pca"]
