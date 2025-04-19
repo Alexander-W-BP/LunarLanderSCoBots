@@ -5,10 +5,13 @@ Creates a fresh results folder for every run (run_1, run_2, …) and
 stores:
   • configuration.json (all CLI parameters)
   • best_seed.txt (seed + search reward)
-  • decision_tree_evaluation_final.csv (results table)
+  • decision_tree_evaluation_final.csv (depth → mean reward, aggregated across evaluation seeds)
   • mean_reward_vs_depth.png (plot)
-  • decision_trees/ (one *.joblib per (seed, depth) model from final phase)
+  • decision_trees/            (one *.joblib ***und*** eine *.txt‑Darstellung pro Baumtiefe)
+  • search_phase_trees/        (je Seed aus der Suchphase eine *.txt‑Darstellung)
 """
+
+from __future__ import annotations
 
 import argparse
 import json
@@ -18,7 +21,7 @@ import random
 import warnings
 
 import gym
-import joblib  # now used to persist decision‑tree models
+import joblib  # zum Persistieren der finalen Modelle
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -26,7 +29,7 @@ from sklearn.decomposition import PCA
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier, export_text
 from stable_baselines3 import PPO
 
 warnings.filterwarnings("ignore")
@@ -81,10 +84,14 @@ def train_tree(X_tr, y_tr, *, depth: int, seed: int):
     tree.fit(X_tr, y_tr)
     return tree
 
-def evaluate_tree(tree, scaler, pca, env, feature_cols, *, episodes: int, max_steps: int = 1000):
+def evaluate_tree(tree, scaler, pca, env, feature_cols, *, episodes: int, max_steps: int = 1000, base_seed: int | None = None):
+    """Evaluiert den Baum über *episodes* Episoden.
+    Wenn *base_seed* übergeben wird, wird jeder Episoden‑Reset mit
+    `env.reset(seed=base_seed + ep)` auf reproduzierbare Seeds gestellt.
+    """
     rewards = []
-    for _ in range(episodes):
-        reset_out = env.reset()
+    for ep in range(episodes):
+        reset_out = env.reset(seed=None if base_seed is None else base_seed + ep)
         state = reset_out[0] if isinstance(reset_out, tuple) else reset_out
         total = 0.0
         for _ in range(max_steps):
@@ -116,9 +123,9 @@ parser.add_argument("--search_seeds", type=int, default=10, help="Number of rand
 parser.add_argument("--episodes_per_seed", type=int, default=50, help="Episodes collected from PPO per search seed (default: 50)")
 parser.add_argument("--search_eval_episodes", type=int, default=30, help="Episodes used to evaluate tree in search phase (default: 30)")
 
-# Final phase parameters
-parser.add_argument("--final_seeds", type=int, default=10, help="Number of random seeds in final sweep (default: 10)")
-parser.add_argument("--final_eval_episodes", type=int, default=100, help="Episodes per (seed, depth) evaluation in final phase (default: 100)")
+# Final phase parameters (training + evaluation)
+parser.add_argument("--final_eval_seeds", type=int, default=10, help="Number of random seeds used solely for evaluation in the final phase (default: 10)")
+parser.add_argument("--final_eval_episodes", type=int, default=100, help="Episodes per evaluation seed (default: 100)")
 parser.add_argument("--max_depth", type=int, default=15, help="Maximum tree depth in final phase (depths 1..N, default: 15)")
 
 # General
@@ -144,13 +151,14 @@ def main():
     RUN_FOLDER = os.path.join(ARGS.output_dir, f"run_{run_idx}")
     os.makedirs(RUN_FOLDER, exist_ok=True)
 
-    # Folder for persisting decision‑tree models from the final phase
-    TREES_FOLDER = os.path.join(RUN_FOLDER, "decision_trees")
-    os.makedirs(TREES_FOLDER, exist_ok=True)
+    TREE_FOLDER = os.path.join(RUN_FOLDER, "decision_trees")
+    os.makedirs(TREE_FOLDER, exist_ok=True)
+
+    SEARCH_TREE_FOLDER = os.path.join(RUN_FOLDER, "search_phase_trees")
+    os.makedirs(SEARCH_TREE_FOLDER, exist_ok=True)
 
     # Save CLI configuration
-    cfg_path = os.path.join(RUN_FOLDER, "configuration.json")
-    with open(cfg_path, "w", encoding="utf-8") as f:
+    with open(os.path.join(RUN_FOLDER, "configuration.json"), "w", encoding="utf-8") as f:
         json.dump(vars(ARGS), f, indent=2)
 
     # 2) Environment + PPO model
@@ -159,7 +167,7 @@ def main():
 
     # 3) Search phase – find best PCA seed
     search_seeds = random.sample(range(1_000_000), ARGS.search_seeds)
-    best_seed = None
+    best_seed: int | None = None
     best_reward = -np.inf
     best_bundle = None
 
@@ -173,19 +181,26 @@ def main():
         tree = train_tree(X_tr, y_tr, depth=3, seed=seed)
         reward = evaluate_tree(tree, scaler, pca, env, sel_cols, episodes=ARGS.search_eval_episodes)
         print(f"  {idx:3d}/{ARGS.search_seeds}: seed={seed:6d} mean_reward={reward:6.2f}")
+
+        # Persist the search‑phase tree as TXT
+        txt_path = os.path.join(SEARCH_TREE_FOLDER, f"search_tree_seed{seed}.txt")
+        with open(txt_path, "w", encoding="utf-8") as f:
+            f.write(export_text(tree))
+
         if reward > best_reward:
             best_reward = reward
             best_seed = seed
             best_bundle = dict(sel_cols=sel_cols, scaler=scaler, pca=pca, X_pca=X_pca, y=y)
 
     # 4) Save best seed details
-    with open(os.path.join(RUN_FOLDER, "best_seed.txt"), "w") as f:
+    with open(os.path.join(RUN_FOLDER, "best_seed.txt"), "w", encoding="utf-8") as f:
         f.write(f"seed: {best_seed}\nmean_reward: {best_reward:.2f}\n")
 
-    # 5) Final phase – depth sweep for several seeds
-    final_seeds = random.sample(range(1_000_000), ARGS.final_seeds)
-    results = []  # (seed, depth, mean_reward)
+    # 5) Final phase – train **einen** Baum pro Tiefe und evaluiere über mehrere Seeds
+    evaluation_seeds = random.sample(range(1_000_000), ARGS.final_eval_seeds)
+    aggregated_results: list[tuple[int, float]] = []  # (depth, mean_of_means)
 
+    # Trainingsdaten basieren auf dem besten PCA‑Seed
     X_pca_best = best_bundle["X_pca"]
     y_best = best_bundle["y"]
     sel_cols = best_bundle["sel_cols"]
@@ -195,37 +210,50 @@ def main():
     X_train, _, y_train, _ = train_test_split(X_pca_best, y_best, test_size=0.2, random_state=42)
 
     depths = range(1, ARGS.max_depth + 1)
-    print("\n[Final] evaluating", len(depths) * ARGS.final_seeds, "(seed,depth) combos …")
-    for fseed in final_seeds:
-        for depth in depths:
-            tree = train_tree(X_train, y_train, depth=depth, seed=fseed)
-            mean_r = evaluate_tree(tree, scaler, pca, env, sel_cols, episodes=ARGS.final_eval_episodes)
-            print(f"  seed={fseed:6d} depth={depth:2d} mean_reward={mean_r:6.2f}")
-            results.append((fseed, depth, mean_r))
+    print("\n[Final] training one tree per depth and evaluating across", ARGS.final_eval_seeds, "seeds …")
+    for depth in depths:
+        # -- train tree once (best_seed for reproducibility) --
+        tree = train_tree(X_train, y_train, depth=depth, seed=best_seed)
 
-            # --- New: save the trained decision tree model ---
-            tree_path = os.path.join(TREES_FOLDER, f"tree_seed{fseed}_depth{depth}.joblib")
-            joblib.dump(tree, tree_path)
+        # Persist: joblib + txt
+        joblib.dump(tree, os.path.join(TREE_FOLDER, f"tree_depth{depth}.joblib"))
+        with open(os.path.join(TREE_FOLDER, f"tree_depth{depth}.txt"), "w", encoding="utf-8") as f:
+            f.write(export_text(tree))
+
+        # -- evaluate across many env seeds --
+        mean_rewards: list[float] = []
+        for ev_seed in evaluation_seeds:
+            mean_r = evaluate_tree(
+                tree,
+                scaler,
+                pca,
+                env,
+                sel_cols,
+                episodes=ARGS.final_eval_episodes,
+                base_seed=ev_seed,
+            )
+            mean_rewards.append(mean_r)
+            print(f"  depth={depth:2d} eval_seed={ev_seed:6d} mean_reward={mean_r:6.2f}")
+
+        depth_mean = float(np.mean(mean_rewards))
+        aggregated_results.append((depth, depth_mean))
+        print(f"→ depth={depth:2d} aggregated mean reward={depth_mean:6.2f}\n")
 
     env.close()
 
-    # 6) Save results
-    res_df = pd.DataFrame(results, columns=["random_seed", "tree_depth", "mean_reward"])
-    csv_path = os.path.join(RUN_FOLDER, "decision_tree_evaluation_final.csv")
-    res_df.to_csv(csv_path, index=False)
+    # 6) Save aggregated results
+    res_df = pd.DataFrame(aggregated_results, columns=["tree_depth", "mean_reward"])
+    res_csv = os.path.join(RUN_FOLDER, "decision_tree_evaluation_final.csv")
+    res_df.to_csv(res_csv, index=False)
 
     # 7) Plot
     plt.figure(figsize=(10, 6))
-    for fseed in final_seeds:
-        sub = res_df[res_df.random_seed == fseed]
-        plt.plot(sub.tree_depth, sub.mean_reward, marker="o", label=f"seed {fseed}")
-    plt.title("Mean Reward vs. Tree Depth – final phase")
+    plt.plot(res_df.tree_depth, res_df.mean_reward, marker="o")
+    plt.title("Mean Reward vs. Tree Depth – aggregated across evaluation seeds")
     plt.xlabel("Tree depth")
-    plt.ylabel("Mean reward (100 eval episodes)")
+    plt.ylabel("Mean reward (mean of seeds × episodes)")
     plt.grid(True)
-    plt.legend()
-    plot_path = os.path.join(RUN_FOLDER, "mean_reward_vs_depth.png")
-    plt.savefig(plot_path)
+    plt.savefig(os.path.join(RUN_FOLDER, "mean_reward_vs_depth.png"))
     print("Saved results to", RUN_FOLDER)
 
 
