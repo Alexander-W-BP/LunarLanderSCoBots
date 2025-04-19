@@ -9,7 +9,7 @@ import os
 import re
 import pandas
 import joblib
-from tqdm import tqdm  # Importiere tqdm für Fortschrittsbalken
+from tqdm import tqdm  
 import argparse
 
 def load_model(model_path):
@@ -150,15 +150,12 @@ def gather_performance(model_path, env_name, transform_func,
     if transform_func:
         obs_list = np.array([transform_func(o) for o in obs_list])
 
-    # -> Hier kein Split, da wir nur Reward messen (oder optional 100% train)
+
     depths = range(1, 16)
     mean_rewards = []
     std_rewards = []
     seeds_mean_rewards = []
     seeds_std_rewards = []
-    best_tree = None
-    best_tree_depth = -1
-    best_tree_mean_reward = -1
     decision_trees_with_depth = []
 
     eval_env = gym.make(env_name)
@@ -167,17 +164,16 @@ def gather_performance(model_path, env_name, transform_func,
         clf = DecisionTreeClassifier(max_depth=depth, random_state=0)
         clf.fit(obs_list, act_list)
 
-        # Mehrere Seeds -> Mittelwert
         all_seeds_rewards = []
         all_rewards = []
         for s in tqdm(seeds, desc=f"Evaluating Depth {depth}", leave=False):
-            eval_env.reset(seed=s)  # setze seed
+            eval_env.reset(seed=s)  
             rewards = evaluate_tree(eval_env, clf, transform_func=transform_func,
                                  n_episodes=n_episodes, max_steps=1000)
             all_seeds_rewards.append(np.mean(rewards))
             all_rewards.extend(rewards)
 
-        # Mean and std over all episodes
+
         all_rewards = np.array(all_rewards)
         current_mean_reward = all_rewards.mean()
         current_std_reward = all_rewards.std()
@@ -185,21 +181,13 @@ def gather_performance(model_path, env_name, transform_func,
         mean_rewards.append(current_mean_reward)
         std_rewards.append(current_std_reward)
 
-        # Mean and std over in between seeds
         all_seeds_rewards = np.array(all_seeds_rewards)
         seeds_mean_rewards.append(all_seeds_rewards.mean())
         seeds_std_rewards.append(all_seeds_rewards.std())
 
-        # Überprüfe, ob der aktuelle Baum der bisher beste ist
-        if (best_tree is None or current_mean_reward > best_tree_mean_reward):
-            best_tree = clf
-            best_tree_depth = depth
-            best_tree_mean_reward = current_mean_reward
-
-        # Alle Bäume speichern
         decision_trees_with_depth.append((clf, depth))
 
-    return depths, mean_rewards, std_rewards, seeds_mean_rewards, seeds_std_rewards, best_tree, decision_trees_with_depth
+    return depths, mean_rewards, std_rewards, seeds_mean_rewards, seeds_std_rewards, decision_trees_with_depth
 
 class Experiment(Enum):
     ORIGINAL = "original_features"
@@ -207,26 +195,26 @@ class Experiment(Enum):
     GPT = "chat_gpt_features"
     PLOTS_FEATURES_FULL = "plots_features_full"
 
-# Parse command-line arguments
+
 parser = argparse.ArgumentParser(description="Run an experiment with specified parameters.")
 
 parser.add_argument(
     "--experiment",
     type=str,
-    choices=[e.value for e in Experiment],  # Restrict choices to Enum values
+    choices=[e.value for e in Experiment],  
     required=True,
     help="Specify the experiment type."
 )
 parser.add_argument(
         "--n_episodes",
         type=int,
-        default=100,  # Default value
+        default=100,  
         help="Number of episodes (default: 100)."
 )
 parser.add_argument(
     "--n_seeds",
     type=int,
-    default=100,  # Default value
+    default=100,  
     help="Number of seeds (default: 10)."
 )
 
@@ -243,23 +231,22 @@ print(f"Number of seeds: {N_SEEDS}")
 
 
 def main():
-    MODEL_PATH = "models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip"  # Passe den Pfad an!
+    MODEL_PATH = "models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip" 
     ENV_NAME = "LunarLander-v2"
     OUTPUT_DIR = "decision_tree_experiments_" + EXPERIMENT_NAME
 
-    # Stelle sicher, dass das Ausgabeverzeichnis existiert
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    depths, rew, std, seeds_rew, seeds_std, best_tree, decision_trees_with_depth = gather_performance(
+    depths, rew, std, seeds_rew, seeds_std, decision_trees_with_depth = gather_performance(
         model_path=MODEL_PATH,
         env_name=ENV_NAME,
         transform_func=transform_obs_custom,
         num_samples=10000,
-        n_episodes=N_EPISODES,  # Erhöht von 50 auf 1000
+        n_episodes=N_EPISODES, 
         seeds=list(range(N_SEEDS))
     )
 
-    # Speichere die besten Bäume
+
     max_num = 0
     pattern = re.compile(r'^run_(\d+)$')
     for entry in os.listdir(OUTPUT_DIR):
@@ -275,19 +262,14 @@ def main():
 
     for tree, depth in decision_trees_with_depth:
         tree_text = get_tree_text(tree=tree)
-
-        if tree == best_tree:
-            filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"best_tree_depth_{depth}.joblib")
-            tree_text_filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"best_tree_depth_{depth}.txt")
-        else:
-            filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"good_tree_depth_{depth}.joblib")
-            tree_text_filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"good_tree_depth_{depth}.txt")
+        filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"tree_depth_{depth}.joblib")
+        tree_text_filename = os.path.join(OUTPUT_DIR, run_folder, TREE_FOLDER, f"tree_depth_{depth}.txt")
 
         joblib.dump(tree, filename)
         with open(tree_text_filename, "w") as f:
             f.write(tree_text)
 
-    # Speichere die Performance-Daten
+
     performance_data = {
         "depths": depths,
         "mean_rewards": rew,
@@ -298,12 +280,12 @@ def main():
     performance_filename = os.path.join(OUTPUT_DIR, run_folder, "performance.joblib")
     joblib.dump(performance_data, performance_filename)
 
-    # Speichere die Performance-Daten als CSV-Datei
+
     performance_df = pandas.DataFrame(performance_data)
     csv_filename = os.path.join(OUTPUT_DIR, run_folder, "performance.csv")
     performance_df.to_csv(csv_filename, index=False)
 
-    # Plot der Ergebnisse
+
     plt.figure(figsize=(8,6))
     plt.errorbar(depths, rew, yerr=std, marker='o', label=EXPERIMENT_NAME, capsize=3)
     plt.xlabel("Tree Depth")
