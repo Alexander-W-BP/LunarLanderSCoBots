@@ -1,18 +1,5 @@
 from __future__ import annotations
 
-"""lunar_lander_pca_decision_tree_cli.py
-
-Command‑line friendly version of the PCA + Decision‑Tree pipeline.
-Creates a fresh results folder for every run (run_1, run_2, …) and
-stores:
-  • configuration.json (all CLI parameters)
-  • best_seed.txt (seed + search reward)
-  • decision_tree_evaluation_final.csv (depth → mean & std reward, aggregated across evaluation seeds)
-  • mean_reward_vs_depth.png (plot with ±1σ error bars)
-  • decision_trees/            (one *.joblib ***und*** eine *.txt‑Darstellung pro Baumtiefe)
-  • search_phase_trees/        (je Seed aus der Suchphase eine *.txt‑Darstellung)
-"""
-
 import argparse
 import json
 import os
@@ -21,7 +8,7 @@ import random
 import warnings
 
 import gym
-import joblib  # zum Persistieren der finalen Modelle
+import joblib
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -36,23 +23,20 @@ SECURE_RNG = random.SystemRandom()
 
 warnings.filterwarnings("ignore")
 
-# ---------------------------------------------------------------------------
-# ---------------------------- Helper functions -----------------------------
-# ---------------------------------------------------------------------------
 
 def collect_data(env, agent, *, episodes: int, max_steps: int = 1000, seed: int | None = None):
-    """Collects (state, action) pairs from a PPO agent acting greedily."""
     data = []
     for ep in range(episodes):
-        reset_out = env.reset(seed=None if seed is None else seed + ep)
+        current_seed = None if seed is None else seed + ep
+        reset_out = env.reset(seed=current_seed)
         state = reset_out[0] if isinstance(reset_out, tuple) else reset_out
         for _ in range(max_steps):
             action, _ = agent.predict(state, deterministic=True)
             step_out = env.step(int(action))
-            if len(step_out) == 5:
+            if len(step_out) == 5: # Gymnasium format
                 next_state, reward, terminated, truncated, _ = step_out
                 done = terminated or truncated
-            else:  # gym (not gymnasium) fallback
+            else: # Older gym format fallback
                 next_state, reward, done, _ = step_out
             data.append((state, action))
             state = next_state
@@ -61,7 +45,6 @@ def collect_data(env, agent, *, episodes: int, max_steps: int = 1000, seed: int 
     return data
 
 def preprocess_data(records):
-    """Turns list of (state, action) into X, y DataFrames."""
     cols = ["x", "y", "vx", "vy", "theta", "v_theta", "left_leg", "right_leg"]
     states, actions = zip(*records)
     X = pd.DataFrame(list(states), columns=cols)
@@ -87,25 +70,27 @@ def train_tree(X_tr, y_tr, *, depth: int, seed: int):
     return tree
 
 def evaluate_tree(tree, scaler, pca, env, feature_cols, *, episodes: int, max_steps: int = 1000, base_seed: int | None = None):
-    """Evaluiert den Baum über *episodes* Episoden.
-    Wenn *base_seed* übergeben wird, wird jeder Episoden‑Reset mit
-    `env.reset(seed=base_seed + ep)` auf reproduzierbare Seeds gestellt.
-    """
     rewards = []
+    env_action_space_n = env.action_space.n
+    all_cols = ["x", "y", "vx", "vy", "theta", "v_theta", "left_leg", "right_leg"]
+
     for ep in range(episodes):
-        reset_out = env.reset(seed=None if base_seed is None else base_seed + ep)
+        current_seed = None if base_seed is None else base_seed + ep
+        reset_out = env.reset(seed=current_seed)
         state = reset_out[0] if isinstance(reset_out, tuple) else reset_out
         total = 0.0
         for _ in range(max_steps):
-            df_state = pd.DataFrame([state], columns=["x", "y", "vx", "vy", "theta", "v_theta", "left_leg", "right_leg"])
-            state_scaled = scaler.transform(df_state[feature_cols])
+            df_state = pd.DataFrame([state], columns=all_cols)
+            state_sel = df_state[feature_cols]
+            state_scaled = scaler.transform(state_sel)
             state_pca = pca.transform(state_scaled)
             action = int(tree.predict(state_pca)[0])
-            step_out = env.step(np.clip(action, 0, env.action_space.n - 1))
-            if len(step_out) == 5:
+            clipped_action = np.clip(action, 0, env_action_space_n - 1)
+            step_out = env.step(clipped_action)
+            if len(step_out) == 5: # Gymnasium
                 next_state, reward, terminated, truncated, _ = step_out
                 done = terminated or truncated
-            else:
+            else: # Gym fallback
                 next_state, reward, done, _ = step_out
             total += reward
             state = next_state
@@ -114,35 +99,32 @@ def evaluate_tree(tree, scaler, pca, env, feature_cols, *, episodes: int, max_st
         rewards.append(total)
     return float(np.mean(rewards))
 
-# ---------------------------------------------------------------------------
-# ----------------------------- CLI Arguments -------------------------------
-# ---------------------------------------------------------------------------
 
-parser = argparse.ArgumentParser(description="PCA + Decision‑Tree benchmark for LunarLander‑v2")
+parser = argparse.ArgumentParser(description="PCA + Decision-Tree benchmark for LunarLander-v2")
 
-# Search‑phase parameters
-parser.add_argument("--search_seeds", type=int, default=1, help="Number of random seeds in PCA search phase (default: 4)")
-parser.add_argument("--episodes_per_seed", type=int, default=50, help="Episodes collected from PPO per search seed (default: 50)")
-parser.add_argument("--search_eval_episodes", type=int, default=30, help="Episodes used to evaluate tree in search phase (default: 30)")
+#TODO: Parser anpassen
 
-# Final phase parameters (training + evaluation)
+#TODO: Kommentare machen
+
+#TODO: REAdMe anpassen
+
+parser.add_argument("--search_seeds", type=int, default=2, help="Number of random seeds in PCA search phase (default: 4)")
+parser.add_argument("--episodes_per_seed", type=int, default=3, help="Episodes collected from PPO per search seed (default: 50)")
+parser.add_argument("--search_eval_episodes", type=int, default=3, help="Episodes used to evaluate tree in search phase (default: 30)")
+
 parser.add_argument("--final_eval_seeds", type=int, default=2, help="Number of random seeds used solely for evaluation in the final phase (default: 10)")
-parser.add_argument("--final_eval_episodes", type=int, default=100, help="Episodes per evaluation seed (default: 100)")
-parser.add_argument("--max_depth", type=int, default=1, help="Maximum tree depth in final phase (depths 1..N, default: 3)")
+parser.add_argument("--final_eval_episodes", type=int, default=3, help="Episodes per evaluation seed (default: 100)")
+parser.add_argument("--max_depth", type=int, default=3, help="Maximum tree depth in final phase (depths 1..N, default: 3)")
 
-# General
 parser.add_argument("--model_path", type=str, default="models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip", help="Path to PPO model")
 parser.add_argument("--output_dir", type=str, default="pca_dt_runs", help="Base folder to save each run")
-parser.add_argument("--top_k", type=int, default=5, help="Top‑k features from RandomForest importance (default: 5)")
+parser.add_argument("--top_k", type=int, default=5, help="Top-k features from RandomForest importance (default: 5)")
 
 ARGS = parser.parse_args()
 
-# ---------------------------------------------------------------------------
-# ------------------------------ Main logic ---------------------------------
-# ---------------------------------------------------------------------------
+
 
 def main():
-    # 1) Prepare output folder (run_n)
     os.makedirs(ARGS.output_dir, exist_ok=True)
     run_idx = 1
     pat = re.compile(r"run_(\d+)")
@@ -159,50 +141,100 @@ def main():
     SEARCH_TREE_FOLDER = os.path.join(RUN_FOLDER, "search_phase_trees")
     os.makedirs(SEARCH_TREE_FOLDER, exist_ok=True)
 
-    # Save CLI configuration
     with open(os.path.join(RUN_FOLDER, "configuration.json"), "w", encoding="utf-8") as f:
         json.dump(vars(ARGS), f, indent=2)
 
-    # 2) Environment + PPO model
-    env = gym.make("LunarLander-v2")
+    ENV_NAME = "LunarLander-v2"
+    try:
+        env = gym.make(ENV_NAME)
+    except gym.error.Error as e:
+        print(f"Error creating environment {ENV_NAME}: {e}")
+        print("Please ensure you have 'pip install gym[box2d]' or 'pip install gymnasium[box2d]' installed.")
+        return
+
+    if not os.path.exists(ARGS.model_path):
+        print(f"Error: PPO model not found at {ARGS.model_path}")
+        print("Please ensure the path is correct and the model file exists.")
+        env.close()
+        return
     agent = PPO.load(ARGS.model_path)
 
-    # 3) Search phase – find best PCA seed
+
     search_seeds = SECURE_RNG.sample(range(1_000_000), ARGS.search_seeds)
     best_seed: int | None = None
     best_reward = -np.inf
     best_bundle = None
 
-    print("[Search] running", ARGS.search_seeds, "random seeds …")
+    print(f"[Search] running {ARGS.search_seeds} random seeds…")
     for idx, seed in enumerate(search_seeds, 1):
         records = collect_data(env, agent, episodes=ARGS.episodes_per_seed, seed=seed)
+        if not records:
+            print(f"Warning: No data collected for search seed {seed}. Skipping.")
+            continue
         X_raw, y = preprocess_data(records)
-        X_sel, sel_cols = feature_selection(X_raw, y, k=ARGS.top_k)
+        X_sel, sel_cols = feature_selection(X_raw, y, k=ARGS.top_k, rf_seed=seed)
         X_pca, scaler, pca = apply_pca(X_sel, variance=0.95, seed=seed)
         X_tr, _, y_tr, _ = train_test_split(X_pca, y, test_size=0.2, random_state=42)
         tree = train_tree(X_tr, y_tr, depth=3, seed=seed)
         reward = evaluate_tree(tree, scaler, pca, env, sel_cols, episodes=ARGS.search_eval_episodes)
         print(f"  {idx:3d}/{ARGS.search_seeds}: seed={seed:6d} mean_reward={reward:6.2f}")
 
-        # Persist the search‑phase tree as TXT
         txt_path = os.path.join(SEARCH_TREE_FOLDER, f"search_tree_seed{seed}.txt")
         with open(txt_path, "w", encoding="utf-8") as f:
-            f.write(export_text(tree))
+            pca_feature_names = [f"pca_comp_{i}" for i in range(X_pca.shape[1])]
+            try:
+                 f.write(export_text(tree, feature_names=pca_feature_names))
+            except TypeError:
+                 f.write(export_text(tree))
+
 
         if reward > best_reward:
             best_reward = reward
             best_seed = seed
             best_bundle = dict(sel_cols=sel_cols, scaler=scaler, pca=pca, X_pca=X_pca, y=y)
 
-    # 4) Save best seed details
-    with open(os.path.join(RUN_FOLDER, "best_seed.txt"), "w", encoding="utf-8") as f:
-        f.write(f"seed: {best_seed}\nmean_reward: {best_reward:.2f}\n")
+    if best_bundle is None or best_seed is None:
+        print("Error: No suitable PCA configuration found in the search phase. Exiting.")
+        env.close()
+        return
 
-    # 5) Final phase – train **einen** Baum pro Tiefe und evaluiere über mehrere Seeds
+    print(f"\nBest PCA seed found: {best_seed} with search reward: {best_reward:.2f}")
+    with open(os.path.join(RUN_FOLDER, "best_seed_info.txt"), "w", encoding="utf-8") as f:
+        f.write(f"Best seed found during search: {best_seed}\n")
+        f.write(f"Mean reward during search evaluation (depth 3 tree, {ARGS.search_eval_episodes} episodes): {best_reward:.2f}\n")
+        f.write("\nSelected features for PCA (top_k={}):\n".format(ARGS.top_k))
+        for col in best_bundle["sel_cols"]:
+            f.write(f"- {col}\n")
+
+    scaler_path = os.path.join(RUN_FOLDER, "best_pca_scaler.joblib")
+    pca_path = os.path.join(RUN_FOLDER, "best_pca_transformer.joblib")
+    joblib.dump(best_bundle["scaler"], scaler_path)
+    joblib.dump(best_bundle["pca"], pca_path)
+    print(f"Saved best PCA scaler to {scaler_path}")
+    print(f"Saved best PCA transformer to {pca_path}")
+
+    pca_explanation_path = os.path.join(RUN_FOLDER, "best_pca_components_explanation.txt")
+    pca_obj = best_bundle["pca"]
+    selected_features = best_bundle["sel_cols"]
+    with open(pca_explanation_path, "w", encoding="utf-8") as f:
+        f.write("PCA Component Explanation\n")
+        f.write("=========================\n")
+        f.write(f"Based on PCA seed: {best_seed}\n")
+        f.write(f"Input features scaled before PCA: {', '.join(selected_features)}\n")
+        f.write(f"Number of components selected (retaining >= 95% variance): {pca_obj.n_components_}\n\n")
+
+        for i, component in enumerate(pca_obj.components_):
+            f.write(f"Principal Component {i+1} (Explains {pca_obj.explained_variance_ratio_[i]:.2%} variance):\n")
+            feature_weights = sorted(zip(selected_features, component), key=lambda x: abs(x[1]), reverse=True)
+            for feature_name, weight in feature_weights:
+                 f.write(f"  - {feature_name:<10}: {weight:+.4f}\n")
+            f.write("\n")
+    print(f"Saved PCA component explanation to {pca_explanation_path}")
+
+
     evaluation_seeds = SECURE_RNG.sample(range(1_000_000), ARGS.final_eval_seeds)
-    aggregated_results: list[tuple[int, float, float]] = []  # (depth, mean_of_means, std_of_means)
+    aggregated_results: list[tuple[int, float, float]] = []
 
-    # Trainingsdaten basieren auf dem besten PCA‑Seed
     X_pca_best = best_bundle["X_pca"]
     y_best = best_bundle["y"]
     sel_cols = best_bundle["sel_cols"]
@@ -211,20 +243,24 @@ def main():
 
     X_train, _, y_train, _ = train_test_split(X_pca_best, y_best, test_size=0.2, random_state=42)
 
-    depths = range(1, ARGS.max_depth + 1)
-    print("\n[Final] training one tree per depth and evaluating across", ARGS.final_eval_seeds, "seeds …")
+    depths = list(range(1, ARGS.max_depth + 1))
+    print(f"\n[Final] Training one tree per depth (1 to {ARGS.max_depth}) using best PCA config (seed {best_seed}).")
+    print(f"Evaluating each tree across {ARGS.final_eval_seeds} distinct evaluation seeds ({ARGS.final_eval_episodes} episodes each)...")
+
     for depth in depths:
-        # -- train tree once (best_seed for reproducibility) --
         tree = train_tree(X_train, y_train, depth=depth, seed=best_seed)
 
-        # Persist: joblib + txt
         joblib.dump(tree, os.path.join(TREE_FOLDER, f"tree_depth{depth}.joblib"))
         with open(os.path.join(TREE_FOLDER, f"tree_depth{depth}.txt"), "w", encoding="utf-8") as f:
-            f.write(export_text(tree))
+             pca_feature_names = [f"pca_comp_{i}" for i in range(X_pca_best.shape[1])]
+             try:
+                 f.write(export_text(tree, feature_names=pca_feature_names))
+             except TypeError:
+                 f.write(export_text(tree))
 
-        # -- evaluate across many env seeds --
-        mean_rewards: list[float] = []
-        for ev_seed in evaluation_seeds:
+        mean_rewards_for_this_depth: list[float] = []
+        print(f"  Evaluating depth={depth:2d}:")
+        for i, ev_seed in enumerate(evaluation_seeds, 1):
             mean_r = evaluate_tree(
                 tree,
                 scaler,
@@ -234,36 +270,58 @@ def main():
                 episodes=ARGS.final_eval_episodes,
                 base_seed=ev_seed,
             )
-            mean_rewards.append(mean_r)
-            print(f"  depth={depth:2d} eval_seed={ev_seed:6d} mean_reward={mean_r:6.2f}")
+            mean_rewards_for_this_depth.append(mean_r)
+            print(f"    Eval seed {i:3d}/{ARGS.final_eval_seeds} ({ev_seed:6d}): mean_reward={mean_r:6.2f}")
 
-        depth_mean = float(np.mean(mean_rewards))
-        depth_std = float(np.std(mean_rewards))
+        depth_mean = float(np.mean(mean_rewards_for_this_depth))
+        depth_std = float(np.std(mean_rewards_for_this_depth))
         aggregated_results.append((depth, depth_mean, depth_std))
-        print(f"→ depth={depth:2d} aggregated mean reward={depth_mean:6.2f} ± {depth_std:.2f}\n")
+        print(f"  → Depth={depth:2d} aggregated: mean={depth_mean:6.2f} ± {depth_std:.2f} (std dev over {ARGS.final_eval_seeds} eval seeds)\n")
 
     env.close()
 
-    # 6) Save aggregated results (mean & std)
     res_df = pd.DataFrame(aggregated_results, columns=["tree_depth", "mean_reward", "std_reward"])
     res_csv = os.path.join(RUN_FOLDER, "decision_tree_evaluation_final.csv")
     res_df.to_csv(res_csv, index=False)
+    print(f"Aggregated evaluation results saved to {res_csv}")
 
-    # 7) Plot with error bars
-    plt.figure(figsize=(10, 6))
-    plt.errorbar(
-        res_df.tree_depth,
-        res_df.mean_reward,
-        yerr=res_df.std_reward,
-        marker="o",
-        capsize=5,
+    plot_filename = os.path.join(RUN_FOLDER, "mean_reward_vs_depth.png")
+    EXPERIMENT_NAME = f"PCA+DT Run {run_idx}"
+
+    plt.figure(figsize=(12, 7))
+
+    x = np.arange(len(depths))
+    bar_width = 0.6
+
+    rew = res_df['mean_reward'].values
+    seeds_std = res_df['std_reward'].values
+
+    plt.bar(
+        x,
+        rew,
+        width=bar_width,
+        yerr=seeds_std,
+        capsize=4,
+        label=f"{EXPERIMENT_NAME} (Error Bars: Std Dev over {ARGS.final_eval_seeds} Eval Seeds)",
+        color="#1f77b4"
     )
-    plt.title("Mean Reward ±1σ vs. Tree Depth – aggregated across evaluation seeds")
-    plt.xlabel("Tree depth")
-    plt.ylabel("Mean reward (mean across seeds × episodes)")
-    plt.grid(True)
-    plt.savefig(os.path.join(RUN_FOLDER, "mean_reward_vs_depth.png"))
-    print("Saved results to", RUN_FOLDER)
+
+    plt.xticks(x, depths)
+    plt.xlabel("Tree Depth")
+    plt.ylabel(f"Mean Reward (averaged over {ARGS.final_eval_seeds} seeds × {ARGS.final_eval_episodes} episodes)")
+    plt.title(f"Decision Tree Performance vs. Max Depth ({ENV_NAME})\nExperiment: {EXPERIMENT_NAME}", fontsize=14)
+
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+    plt.axhline(y=100, color='grey', linestyle=':', linewidth=1, label='Threshold 100')
+    plt.axhline(y=200, color='darkgrey', linestyle=':', linewidth=1, label='Threshold 200')
+
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(plot_filename)
+    print(f"Plot saved as '{plot_filename}'.")
+
+    print(f"\nResults and artifacts saved to: {RUN_FOLDER}")
 
 
 if __name__ == "__main__":
