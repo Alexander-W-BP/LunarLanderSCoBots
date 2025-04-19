@@ -41,9 +41,13 @@ python3 dt_exp.py --experiment chat_gpt_features --n_episodes 5 --n_seeds 5
 python3 dt_exp.py --experiment plots_features_full --n_episodes 5 --n_seeds 5
 ```
 
-These commands create 'decision*tree_experiments*_' folders. In such a folder you can find an evaluation run. Inside the run folder there is an image plotting the performance, a csv and a joblib file of different performance metrics and the best tree for each tree depth inside the trees folder. One tree is called 'best*tree*_' indicating that it achieved the highest mean reward.
+These commands create 'decision\*tree_experiments\*\*' folders. In such a folder you can find an evaluation run. Inside the run folder there is an image plotting the performance, a csv and a joblib file of different performance metrics and the results from the different tree_depths in a joblib file and a txt-file.
 
-#TODO: PCA-Skript einfügen für "only PCA" Features
+To evaluate the PCA-method, run the script pca_script.py. This script tries to get a high performing tree for depth 3 by creating several PCA-artefacts and choosing the best one for a full evaluation.
+
+```bash
+python3 pca_script.py --......
+```
 
 ### 3. Visualize a model
 
