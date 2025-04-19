@@ -286,14 +286,33 @@ def main():
     performance_df.to_csv(csv_filename, index=False)
 
 
-    plt.figure(figsize=(8,6))
-    plt.errorbar(depths, rew, yerr=std, marker='o', label=EXPERIMENT_NAME, capsize=3)
+    plot_filename = os.path.join(OUTPUT_DIR, run_folder, "mean_reward_vs_depth.png")
+    plt.figure(figsize=(10, 6))
+
+    x = np.arange(len(depths))  # positions for bars
+    bar_width = 0.6
+
+    plt.bar(
+        x,
+        rew,
+        width=bar_width,
+        yerr=std,
+        capsize=4,
+        label=EXPERIMENT_NAME,
+        color="#1f77b4"
+    )
+
+    plt.xticks(x, depths)
     plt.xlabel("Tree Depth")
     plt.ylabel("Mean Reward (over all seeds and episodes)")
-    plt.title("Decision Tree: Mean Reward vs. Max Depth (LunarLander-v2) -" + EXPERIMENT_NAME)
-    plt.grid(True)
+    plt.title(f"Decision Tree: Mean Reward vs. Max Depth (LunarLander-v2) - {EXPERIMENT_NAME}")
+
+    # reference lines
+    plt.axhline(y=100, color='gray', linestyle='--', linewidth=1)
+    plt.axhline(y=200, color='gray', linestyle='--', linewidth=1)
+
     plt.legend()
-    plot_filename = os.path.join(OUTPUT_DIR, run_folder, "mean_reward_vs_depth.png")
+    plt.tight_layout()
     plt.savefig(plot_filename)
     print(f"Plot gespeichert als '{plot_filename}'.")
 
