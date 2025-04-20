@@ -23,6 +23,7 @@ class Experiment(Enum):
 def load_model(model_path):
     return PPO.load(model_path)
 
+# define custom feature space
 def transform_obs_custom(obs):
     x_space, y_space, vel_x_space, vel_y_space, angle, angular_vel, leg_1, leg_2 = obs
 
@@ -79,6 +80,7 @@ def transform_obs_custom(obs):
              raise Exception("EXPERIMENT_NAME is not set. Ensure --experiment argument is provided.")
         raise Exception("The features of the following experiment were not defined: " + EXPERIMENT_NAME)
 
+# get strings of feature space to render the decision tree
 def get_tree_text(tree):
     feature_names = []
     if EXPERIMENT_NAME == Experiment.ORIGINAL.value:
@@ -115,8 +117,8 @@ def get_tree_text(tree):
 
 def evaluate_tree(env, clf, transform_func, n_episodes, max_steps):
     """
-    Führt n_episodes lang den Decision Tree in env aus.
-    Gibt die Rewards pro Episode zurück. (Liste der totalen Rewards für jede Episode)
+    Execute the decision tree in env for n_episodes.
+    Returns rewards per episode in a list.
     """
     rewards = []
     for ep in tqdm(range(n_episodes), desc="Evaluating Episodes", leave=False):
@@ -140,12 +142,11 @@ def evaluate_tree(env, clf, transform_func, n_episodes, max_steps):
 def gather_performance(model_path, env_name, transform_func,
                        num_samples, n_episodes, seeds):
     """
-    Sammelt num_samples Daten mithilfe des PPO-Modells als Orakel
-    Trainiert Decision Trees (max_depth=1..15).
-    Für jedes Modell und jeden Seed wird evaluate_tree(...) aufgerufen (n_episodes pro Seed).
-    Mean Reward wird über alle Episoden berechnet.
-    STD wird über die Mean Rewards der einzelnen seeds berechnet.
-    Für jede Tiefe wird der entsprechende Baum gespeichert.
+    Collects num_samples data points using the PPO-model as an oracle.
+    Trains decision trees (max_depth=1...15)
+    For every model and every seed evaluate_tree() is called (n_episodes per seed)
+    Mean reward is calculated over all episodes
+    Saves tree and performance data for every depth
 
     Returns:
         depths (list): List of tree depths tested.
@@ -154,7 +155,7 @@ def gather_performance(model_path, env_name, transform_func,
         decision_trees_with_depth (list): List of tuples (DecisionTreeClassifier, depth).
     """
 
-    # ---- Daten sammeln mit PPO ----
+    # ---- Collect data with PPO ----
     env = gym.make(env_name)
     model = load_model(model_path)
     obs_list, act_list = [], []
@@ -328,9 +329,9 @@ def main():
 
     plt.bar(
         x,
-        rew, 
+        rew,
         width=bar_width,
-        yerr=seeds_std, 
+        yerr=seeds_std,
         capsize=4,
         label=f"{EXPERIMENT_NAME} (Error Bars: Std Dev over Seeds)",
         color="#1f77b4"

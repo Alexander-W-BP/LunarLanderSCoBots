@@ -103,7 +103,7 @@ def evaluate_tree(tree, scaler, pca, env, feature_cols, *, episodes: int, max_st
 parser = argparse.ArgumentParser(description="PCA + Decision-Tree benchmark for LunarLander-v2")
 
 
-parser.add_argument("--search_seeds", type=int, default=10, help="Number of random seeds in PCA search phase (default: 10)")
+parser.add_argument("--search_seeds", type=int, default=20, help="Number of random seeds in PCA search phase (default: 20)")
 parser.add_argument("--episodes_per_seed", type=int, default=50, help="Episodes collected from PPO per search seed (default: 50)")
 parser.add_argument("--search_eval_episodes", type=int, default=30, help="Episodes used to evaluate tree in search phase (default: 30)")
 
