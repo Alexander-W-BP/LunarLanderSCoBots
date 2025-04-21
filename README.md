@@ -43,11 +43,16 @@ python3 dt_exp.py --experiment plots_features_full --n_episodes 5 --n_seeds 5
 
 These commands create 'decision\*tree_experiments\*\*' folders. In such a folder you can find an evaluation run. Inside the run folder there is an image plotting the performance, a csv and a joblib file of different performance metrics and the results from the different tree_depths in a joblib file and a txt-file.
 
-To evaluate the PCA-method, run the script pca_script.py. This script tries to get a high performing tree for depth 3 by creating several PCA-artefacts and choosing the best one for a full evaluation.
+To evaluate the PCA-method, run the script pca_script.py. It performs a systematic search to determine the optimal PCA configuration for depth 3 by evaluating several randomly selected seeds. We have described in the paper that we ourselves have not yet fully understood why this method is so inconsistent. However, in order to create a reliable tree of depth 3 that also has very good performance, a suitable PCA configuration must be found. This is achieved by phase 1, where the best PCA configuration is used at the end. The number of seeds is therefore set to 20 by default.
+
+All default values can be viewed in the file. These can of course be adjusted via the corresponding parameters. Example calls look like this:
 
 ```bash
-python3 pca_script.py --......
+python3 pca_script.py
+python3 pca_script.py --final_eval_seeds 15 --final_eval_episodes 100 --max_depth 15 --top_k 6
 ```
+
+If no result with a positive mean reward was found in the search phase, run the script again if you want to see a really good depth 3 tree.
 
 ### 3. Visualize a model
 

@@ -104,11 +104,11 @@ parser = argparse.ArgumentParser(description="PCA + Decision-Tree benchmark for 
 
 
 parser.add_argument("--search_seeds", type=int, default=20, help="Number of random seeds in PCA search phase (default: 20)")
-parser.add_argument("--episodes_per_seed", type=int, default=50, help="Episodes collected from PPO per search seed (default: 50)")
-parser.add_argument("--search_eval_episodes", type=int, default=30, help="Episodes used to evaluate tree in search phase (default: 30)")
+parser.add_argument("--episodes_per_seed", type=int, default=30, help="Episodes collected from PPO per search seed (default: 50)")
+parser.add_argument("--search_eval_episodes", type=int, default=10, help="Episodes used to evaluate tree in search phase (default: 30)")
 
-parser.add_argument("--final_eval_seeds", type=int, default=10, help="Number of random seeds used solely for evaluation in the final phase (default: 10)")
-parser.add_argument("--final_eval_episodes", type=int, default=100, help="Episodes per evaluation seed (default: 100)")
+parser.add_argument("--final_eval_seeds", type=int, default=5, help="Number of random seeds used solely for evaluation in the final phase (default: 10)")
+parser.add_argument("--final_eval_episodes", type=int, default=50, help="Episodes per evaluation seed (default: 100)")
 parser.add_argument("--max_depth", type=int, default=15, help="Maximum tree depth in final phase (depths 1..N, default: 15)")
 
 parser.add_argument("--model_path", type=str, default="models/ppo_LunarLander-v2/ppo-LunarLander-v2.zip", help="Path to PPO model")
